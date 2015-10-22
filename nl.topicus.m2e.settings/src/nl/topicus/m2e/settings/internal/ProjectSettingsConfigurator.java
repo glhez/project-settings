@@ -17,6 +17,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.m2e.core.MavenPlugin;
+import org.eclipse.m2e.core.project.IMavenProjectFacade;
 import org.eclipse.m2e.core.project.configurator.AbstractProjectConfigurator;
 import org.eclipse.m2e.core.project.configurator.ProjectConfigurationRequest;
 import org.osgi.service.prefs.BackingStoreException;
@@ -35,12 +37,18 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 	public void configure(
 			ProjectConfigurationRequest projectConfigurationRequest,
 			IProgressMonitor monitor) throws CoreException {
+		//NOOP: configuration invoked by project change listener
+	}
 
-		IProject project = projectConfigurationRequest.getProject();
+	public static void configure(IMavenProjectFacade mavenProjectFacade,
+			IProgressMonitor monitor) throws CoreException {
+		IProject project = mavenProjectFacade.getProject();
+		MavenProject mavenProject = mavenProjectFacade.getMavenProject();
+		configure(project, mavenProject, monitor);
+	}
 
-		MavenProject mavenProject = projectConfigurationRequest
-				.getMavenProject();
-
+	private static void configure(IProject project, MavenProject mavenProject,
+			IProgressMonitor monitor) throws CoreException {
 		Plugin eclipsePlugin = mavenProject.getPluginManagement()
 				.getPluginsAsMap()
 				.get(ORG_APACHE_MAVEN_PLUGINS_MAVEN_ECLIPSE_PLUGIN);
@@ -77,7 +85,7 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 	 * @throws IOException
 	 * @throws CoreException
 	 */
-	private boolean configureEclipseMeta(IProject project,
+	private static boolean configureEclipseMeta(IProject project,
 			Plugin eclipsePlugin, IProgressMonitor monitor) throws IOException,
 			CoreException {
 
@@ -89,7 +97,7 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 			return false;
 		}
 
-		List<JarFile> jarFiles = JarFileUtil.resolveJar(maven,
+		List<JarFile> jarFiles = JarFileUtil.resolveJar(MavenPlugin.getMaven(),
 				eclipsePlugin.getDependencies(), monitor);
 
 		applyEclipsePreferencesPref(project, settingsFiles, jarFiles);
@@ -97,7 +105,7 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 		return true;
 	}
 
-	private void applyEclipsePreferencesPref(IProject project,
+	private static void applyEclipsePreferencesPref(IProject project,
 			List<EclipseSettingsFile> settingsFiles, List<JarFile> jarFiles)
 			throws IOException, CoreException {
 		for (EclipseSettingsFile eclipsePreference : settingsFiles) {
@@ -140,7 +148,7 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 
 	}
 
-	private InputStream openStream(String filePath, List<JarFile> jarFiles)
+	private static InputStream openStream(String filePath, List<JarFile> jarFiles)
 			throws IOException {
 		if (filePath.startsWith("/"))
 			filePath = filePath.substring(1);
