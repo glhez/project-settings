@@ -1,4 +1,5 @@
-# M2E Settings
+# Fork of [M2E Settings](https://github.com/topicusonderwijs/m2e-settings)
+Changes and improvements will be opend as mergerequest. For sake of speedy tests are here also the released plugins. But they are released with other names: `com.bsiag.m2e...`
 
 Provide consistent Eclipse IDE settings for your team from a Maven POM.
 The M2E Settings plugin will copy formatting, findbugs and other plugin
@@ -12,19 +13,19 @@ configure each project to use those settings.
 Many thanks to [Olivier Nouguier](https://github.com/cheleb) for the
 [first version of this plugin](https://github.com/cheleb/m2e-settings).
 
-This project is licensed under the [MIT license](https://github.com/topicusonderwijs/m2e-settings/blob/master/LICENSE.txt).
+This project is licensed under the [MIT license](https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/blob/bsi_release/LICENSE.txt).
 
 ### Table of Contents
 
  - [Installation](#installation)
  - [Configuration](#configuration)
- - [Building a release](https://github.com/topicusonderwijs/m2e-settings/blob/master/readme.markdown#releasing)
+ - [Building a release](https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/blob/bsi_release/readme.markdown#releasing)
 
 ## Installation
 
 Update site URL:
 
- - https://github.com/topicusonderwijs/m2e-settings/raw/master/site
+ - https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/raw/bsi_release/site
 
 ### Eclipse Marketplace
 
@@ -37,7 +38,7 @@ Just open up the marketplace search and search for `M2E Settings`.
 - Select "Install new software" (OS X: under Help)
 - Click "Add"
 - Fill in the Name field: "M2E Settings plugin"
-- Fill in the Location field: "https://github.com/topicusonderwijs/m2e-settings/raw/master/site"
+- Fill in the Location field: "https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/raw/bsi_release/site"
 - Click "OK"
 - Click "Next" ad infinitum
 
