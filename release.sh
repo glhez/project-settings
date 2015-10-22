@@ -34,7 +34,7 @@ Current Java version is: $(java -version 2>&1 | tail -n 2 | head -n 1)
 "
 
 printf "Performing: 'mvn clean' "
-if ! mvn clean ;
+if ! mvn clean -Dtycho.mode=maven;
 then
     echo "FAILED..."
 fi
@@ -44,7 +44,7 @@ mkdir -p target
 echo "Releasing $CURRENT_VERSION" > target/release.log
 
 printf "Performing: 'mvn tycho-versions:set-version -DnewVersion=$CURRENT_VERSION' "
-if ! mvn tycho-versions:set-version -DnewVersion=$CURRENT_VERSION >> target/release.log ;
+if ! mvn tycho-versions:set-version -DnewVersion=$CURRENT_VERSION -Dtycho.mode=maven >> target/release.log ;
 then
     echo "FAILED...
 
@@ -206,7 +206,7 @@ fi
 
 printf "Performing: 'mvn tycho-versions:set-version -DnewVersion=$NEW_VERSION' "
 echo "mvn tycho-versions:set-version -DnewVersion=$NEW_VERSION" >> target/release.log
-if ! mvn tycho-versions:set-version -DnewVersion=$NEW_VERSION >> target/release.log ;
+if ! mvn tycho-versions:set-version -DnewVersion=$NEW_VERSION -Dtycho.mode=maven >> target/release.log ;
 then
     echo "FAILED...
 
