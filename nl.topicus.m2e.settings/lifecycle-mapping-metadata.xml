@@ -4,10 +4,11 @@
     <pluginExecution>
       <pluginExecutionFilter>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <versionRange>[0,)</versionRange>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <versionRange>[2.3,)</versionRange>
         <goals>
-          <goal>remove-cache</goal>
+          <goal>compile</goal>
+          <goal>test-compile</goal>
         </goals>
       </pluginExecutionFilter>
       <action>

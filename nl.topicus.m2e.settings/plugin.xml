@@ -7,7 +7,8 @@
 		<configurator
 				class="nl.topicus.m2e.settings.internal.ProjectSettingsConfigurator"
 				id="nl.topicus.m2e.settings.configurator"
-				name="JDT Settings">
+				name="JDT Settings"
+				runsAfter="org.eclipse.m2e.jdt.javaConfigurator">
 		</configurator>
 	</extension>
 </plugin>
