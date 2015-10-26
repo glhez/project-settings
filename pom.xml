@@ -20,23 +20,17 @@
     <p2MetadataName>M2E Handler for maven-eclipse-plugin</p2MetadataName>
   </properties>
 
-  <modules>
-    <module>nl.topicus.m2e.settings</module>
-    <module>nl.topicus.m2e.settings.feature</module>
-    <module>nl.topicus.m2e.settings.repository</module>
-  </modules>
-
   <repositories>
-        <repository>
-            <id>eclipse_mars</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/mars/</url>
-        </repository>
-        <repository>
-            <id>eclipse_m2e_releases</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/technology/m2e/releases/</url>
-        </repository>
+    <repository>
+      <id>eclipse_mars</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/releases/mars/</url>
+    </repository>
+    <repository>
+      <id>eclipse_m2e_releases</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/technology/m2e/releases/</url>
+    </repository>
   </repositories>
 
   <build>
@@ -136,4 +130,24 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>runtime</id>
+      <modules>
+        <module>eclipse-settings-maven-plugin</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>nl.topicus.m2e.settings</module>
+        <module>nl.topicus.m2e.settings.feature</module>
+        <module>nl.topicus.m2e.settings.repository</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>
