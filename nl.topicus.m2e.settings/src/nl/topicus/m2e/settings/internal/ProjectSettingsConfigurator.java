@@ -2,6 +2,7 @@ package nl.topicus.m2e.settings.internal;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
@@ -33,18 +34,24 @@ public class ProjectSettingsConfigurator extends AbstractProjectConfigurator {
 
 	private static final String ORG_APACHE_MAVEN_PLUGINS_MAVEN_ECLIPSE_PLUGIN = "org.apache.maven.plugins:maven-eclipse-plugin";
 
+	private static final List<IMavenProjectFacade> configureProjects = new ArrayList<>();
+
 	@Override
 	public void configure(
 			ProjectConfigurationRequest projectConfigurationRequest,
 			IProgressMonitor monitor) throws CoreException {
 		//NOOP: configuration invoked by project change listener
+		while(!configureProjects.isEmpty()) {
+			IMavenProjectFacade mavenProjectFacade = configureProjects.remove(0);
+			IProject project = mavenProjectFacade.getProject();
+			MavenProject mavenProject = mavenProjectFacade.getMavenProject();
+			ProjectSettingsConfigurator.configure(project, mavenProject, monitor);
+		}
 	}
 
 	public static void configure(IMavenProjectFacade mavenProjectFacade,
 			IProgressMonitor monitor) throws CoreException {
-		IProject project = mavenProjectFacade.getProject();
-		MavenProject mavenProject = mavenProjectFacade.getMavenProject();
-		configure(project, mavenProject, monitor);
+		configureProjects.add(mavenProjectFacade);
 	}
 
 	private static void configure(IProject project, MavenProject mavenProject,
