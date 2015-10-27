@@ -1,53 +1,30 @@
-# Fork of [M2E Settings](https://github.com/topicusonderwijs/m2e-settings)
-Changes and improvements will be opend as mergerequest. For sake of speedy tests are here also the released plugins. But they are released with other names: `com.bsiag.m2e...`
-
+# Eclipse Settings maven-plugin
 Provide consistent Eclipse IDE settings for your team from a Maven POM.
-The M2E Settings plugin will copy formatting, findbugs and other plugin
-settings from a centrally maintained settings JAR to your workspace and
+The eclipse-settings-maven-plugin will copy formatting, findbugs and other plugin
+settings from a centrally maintained settings JAR to your checked out workspace and
 configure each project to use those settings.
 
- - uses the Maven Eclipse Plugin settings as a base
  - configure once, set everywhere
  - version control your settings
 
 Many thanks to [Olivier Nouguier](https://github.com/cheleb) for the
 [first version of this plugin](https://github.com/cheleb/m2e-settings).
+And many thanks to [Martijn Dashorst](https://github.com/dashorst) for the
+[second version of this plugin](https://github.com/topicusonderwijs/m2e-settings).
 
-This project is licensed under the [MIT license](https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/blob/bsi_release/LICENSE.txt).
+This project is licensed under the [MIT license](https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin/blob/bsi_release/LICENSE.txt).
 
 ### Table of Contents
 
- - [Installation](#installation)
  - [Configuration](#configuration)
- - [Building a release](https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/blob/bsi_release/readme.markdown#releasing)
-
-## Installation
-
-Update site URL:
-
- - https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/raw/bsi_release/site
-
-### Eclipse Marketplace
-
-The plugin is also available from [Eclipse Marketplace](http://marketplace.eclipse.org/content/m2e-settings).
-Just open up the marketplace search and search for `M2E Settings`.
-
-### Installing the Eclipse plugin
-
-- Add a new update site to your Eclipse settings:
-- Select "Install new software" (OS X: under Help)
-- Click "Add"
-- Fill in the Name field: "M2E Settings plugin"
-- Fill in the Location field: "https://github.com/BSI-Business-Systems-Integration-AG/m2e-settings/raw/bsi_release/site"
-- Click "OK"
-- Click "Next" ad infinitum
+ - [Building a release](https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin/blob/bsi_release/readme.markdown#releasing)
 
 ## Configuration
 
-There are three steps to configure the M2E Settings:
+There are three steps to configure the *Eclipse Settings maven-plugin*:
 
 1. Create (and deploy) your own settings jar
-2. Configure the M2E settings plugin in your project
+2. Configure the *Eclipse Settings maven-plugin* in your project
 3. Re-import the Maven projects in Eclipse
 
 ### Create your own settings jar
@@ -64,7 +41,7 @@ your settings jar (adjust the values for your own settings jar).
 <project>
     <modelVersion>4.0.0</modelVersion>
     <prerequisites>
-        <maven>3.0.4</maven>
+        <maven>3.3.1</maven>
     </prerequisites>
     <groupId>com.example.settings</groupId>
     <artifactId>eclipse-settings</artifactId>
@@ -120,66 +97,95 @@ update all settings to new defaults.
 Now you can upload the jar to a Maven repository using `mvn deploy`. Or
 use the Maven release plugin to create releases of your settings jar.
 
-### Configure M2E settings in your project
+### Configure Eclipse Settings maven-plugin in your project
 
-The M2E Settings plugin retrieves the Eclipse workspace settings from
-the [Maven Eclipse Plugin][1] configuration. The easiest way to provide
-these settings is to create a resource JAR file and distribute that
+The eclipse-settings-maven-plugin retrieves the Eclipse workspace settings from
+its configuration which is similar to the [Maven Eclipse Plugin][1] configuration.
+The easiest way to provide these settings is to create a resource JAR file and distribute that
 from a Maven repository.
 
 You then specify your 'settings JAR' file as a dependency to the
-*maven-eclipse-plugin*:
+*eclipse-settings-maven-plugin*:
 
 ``` xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-eclipse-plugin</artifactId>
-    <version>2.9</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.example.settings</groupId>
-            <artifactId>eclipse-settings</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
-</plugin>
+<build>
+    <pluginManagement>
+        <plugins>
+            ...
+            <plugin>
+                <groupId>org.eclipse.scout</groupId>
+                <artifactId>eclipse-settings-maven-plugin</artifactId>
+                <version>2.0.8</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.example.settings</groupId>
+                        <artifactId>eclipse-settings</artifactId>
+                        <version>1.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            ...
+        </plugins>
+    </pluginManagement>
+</build>
 ```
 
-As the M2E Settings plugin needs to be bound to a Maven lifecycle, and
-the most common lifecycle is the compile lifecycle, you also need to
-specify the maven-compiler-plugin in your POM. At the minimum you'll 
+As the plugin needs to be bound to a Maven lifecycle you also need to
+specify the eclipse-settings-maven-plugin in your build. At the minimum you'll
 need:
 
 ``` xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-</plugin>
+<build>
+    <plugins>
+        ...
+        <plugin>
+            <groupId>org.eclipse.scout</groupId>
+            <artifactId>eclipse-settings-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-eclipse-settings</id>
+                <goals>
+                  <goal>eclipse-settings</goal>
+                </goals>
+              </execution>
+            </executions>
+        </plugin>
+        ...
+    </plugins>
+</build>
 ```
 
 #### Putting the settings in the right place
 
-The *maven-eclipse-plugin* allows you to [move settings files from one
+The *eclipse-settings-maven-plugin* allows you to [move settings files from one
 location to another][2]. You use that to put each configuration file
 from your settings JAR in the right location:
 
 ``` xml
-<plugin>
-    <...>
-    <configuration>
-        <additionalConfig>
-            <file>
-                <name>.settings/org.eclipse.jdt.core.prefs</name>
-                <location>/org.eclipse.jdt.core.prefs</location>
-            </file>
-            <file>
-                <name>.settings/org.eclipse.jdt.ui.prefs</name>
-                <location>/org.eclipse.jdt.ui.prefs</location>
-            </file>
-            <!-- and more... -->
-        </additionalConfig>
-    </configuration>
-</plugin>
+<build>
+    <pluginManagement>
+        <plugins>
+            ...
+            <plugin>
+            <...>
+            <configuration>
+                <additionalConfig>
+                    <file>
+                        <name>.settings/org.eclipse.jdt.core.prefs</name>
+                        <location>/org.eclipse.jdt.core.prefs</location>
+                    </file>
+                    <file>
+                        <name>.settings/org.eclipse.jdt.ui.prefs</name>
+                        <location>/org.eclipse.jdt.ui.prefs</location>
+                    </file>
+                    <!-- and more... -->
+                </additionalConfig>
+            </configuration>
+            </plugin>
+            ...
+        </plugins>
+    </pluginManagement>
+</build>
 ```
 
 ### Re-import projects in Eclipse
@@ -191,7 +197,7 @@ in Eclipse. Typically this is done by:
  - right-clicking on the selection and
  - clicking "Maven → Update project"
 
-## Releasing
+## Releasing __(TODO)__
 
 If you are a developer of this project and have made some modifications use
 this guide to build a release to distribute it to the users.

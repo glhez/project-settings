@@ -1,4 +1,4 @@
-package nl.topicus.mojo.settings;
+package org.eclipse.scout.mojo.eclipse.settings;
 
 public class EclipseSettingsFile {
 	private String name;
