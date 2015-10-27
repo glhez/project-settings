@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>nl.topicus.m2e</groupId>
-    <artifactId>nl.topicus.m2e.settings.parent</artifactId>
+    <groupId>org.eclipse.scout</groupId>
+    <artifactId>eclipse-settings-parent</artifactId>
     <version>2.0.8-SNAPSHOT</version>
   </parent>
 
@@ -14,12 +13,19 @@
 
   <name>Eclipse Settings Maven Plugin</name>
 
-
   <properties>
     <mavenVersion>3.3.3</mavenVersion>
+    <mavenPluginAnnotationsVersion>3.3</mavenPluginAnnotationsVersion>
+    <plexusUtilsVersion>3.0.20</plexusUtilsVersion>
+    <slf4jVersion>1.6.2</slf4jVersion>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>${mavenVersion}</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-model</artifactId>
@@ -36,15 +42,20 @@
       <version>${mavenVersion}</version>
     </dependency>
     <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>${plexusUtilsVersion}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
       <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.1</version>
+      <version>${mavenPluginAnnotationsVersion}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.6.2</version>
+      <version>${slf4jVersion}</version>
     </dependency>
   </dependencies>
 

@@ -16,7 +16,9 @@ public final class JarFileUtil {
 		List<JarFile> jarFiles = new ArrayList<>();
 		for (int i = 0; i < additionalArtifacts.size(); i++) {
 			Artifact artifact = additionalArtifacts.get(i);
-			jarFiles.add(new JarFile(artifact.getFile()));
+			try (JarFile jarFile = new JarFile(artifact.getFile())) {
+				jarFiles.add(jarFile);
+			}
 		}
 		return jarFiles;
 	}

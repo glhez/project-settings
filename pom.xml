@@ -1,62 +1,46 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
-    <groupId>io.takari.tycho</groupId>
-    <artifactId>tycho-support</artifactId>
-    <version>1.1.0</version>
+    <groupId>io.takari</groupId>
+    <artifactId>takari</artifactId>
+    <version>18</version>
   </parent>
-  <groupId>nl.topicus.m2e</groupId>
-  <artifactId>nl.topicus.m2e.settings.parent</artifactId>
+
+  <groupId>org.eclipse.scout</groupId>
+  <artifactId>eclipse-settings-parent</artifactId>
   <version>2.0.8-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Parent</name>
   <description>Allow the eclipse settings configuration (file encoding, formater ...) from maven configuration.</description>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <mvn.build.java.version>1.8</mvn.build.java.version>
-  </properties>
-
   <modules>
     <module>eclipse-settings-maven-plugin</module>
   </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
-          <inherited>true</inherited>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.3</version>
-          <configuration>
-            <source>${mvn.build.java.version}</source>
-            <target>${mvn.build.java.version}</target>
-            <compilerVersion>${mvn.build.java.version}</compilerVersion>
-            <encoding>${project.build.sourceEncoding}</encoding>
-            <showWarnings>true</showWarnings>
-            <optimize>true</optimize>
-            <debug>true</debug>
-          </configuration>
-        </plugin>
-        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.6</version>
           <executions>
             <execution>
               <id>sign-artifacts</id>
-              <phase>install</phase>
               <goals>
                 <goal>sign</goal>
               </goals>
+              <phase>install</phase>
             </execution>
           </executions>
         </plugin>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.1</version>
           <inherited>true</inherited>
           <configuration>
             <pushChanges>false</pushChanges>
@@ -65,5 +49,20 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-lifecycle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
