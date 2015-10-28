@@ -10,12 +10,16 @@ EOF
 agentcount=`ps aux|grep gpg-agent|wc -l`
 
 current_version=$(getVersion)
-major_version=$(expr $current_version : '\(.*\)\..*\..*\-SNAPSHOT')
-minor_version=$(expr $current_version : '.*\.\(.*\)\..*\-SNAPSHOT')
-bugfix_version=$(expr $current_version : '.*\..*\.\(.*\)-SNAPSHOT')
+#major_version=$(expr $current_version : '\(.*\)\..*\..*\-SNAPSHOT')
+major_version=$(expr $current_version : '\(.*\)\..*\-SNAPSHOT')
+#minor_version=$(expr $current_version : '.*\.\(.*\)\..*\-SNAPSHOT')
+minor_version=$(expr $current_version : '.*\.\(.*\)\-SNAPSHOT')
+#bugfix_version=$(expr $current_version : '.*\..*\.\(.*\)-SNAPSHOT')
 
-CURRENT_VERSION=$major_version.$minor_version.$bugfix_version.$(date +"%Y%m%d%H%M")
-NEW_VERSION="$major_version.$minor_version.$(expr $bugfix_version + 1)-SNAPSHOT"
+#CURRENT_VERSION=$major_version.$minor_version.$bugfix_version
+#NEW_VERSION="$major_version.$minor_version.$(expr $bugfix_version + 1)-SNAPSHOT"
+CURRENT_VERSION=$major_version.$minor_version
+NEW_VERSION="$major_version.$(expr $minor_version + 1)-SNAPSHOT"
 
 echo "Releasing eclipse-settings-maven-plugin version $CURRENT_VERSION
 ------------------------------------------------------------------------
@@ -43,8 +47,9 @@ mkdir -p target
 
 echo "Releasing $CURRENT_VERSION" > target/release.log
 
-printf "Performing: 'mvn versions:set -DnewVersion=$CURRENT_VERSION' "
-if ! mvn versions:set -DnewVersion=$CURRENT_VERSION -B>> target/release.log ;
+printf "Performing: 'mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION'"
+echo "Performing: 'mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION'" >> target/release.log
+if ! mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION -B>> target/release.log ;
 then
     echo "FAILED...
 
@@ -53,44 +58,6 @@ See target/release.log for more information.
 Use the following command to revert your workspace to the original
 state:
 
-    git checkout .
-"
-    exit 1
-else
-    echo DONE...
-    echo "" >> target/release.log
-fi
-
-printf "Performing: 'git commit -a -m \"Preparing to release $CURRENT_VERSION\"' "
-echo "git commit -a -m \"Preparing to release $CURRENT_VERSION\"" >> target/release.log
-if ! git commit -a -m "Preparing to release $CURRENT_VERSION" >> target/release.log ;
-then
-    echo "FAILED...
-
-See target/release.log for more information.
-
-Use the following command to revert your workspace to the original
-state:
-
-    git checkout .
-"
-    exit 1
-else
-    echo DONE...
-    echo "" >> target/release.log
-fi
-
-printf "Performing: 'mvn package' "
-echo "mvn package" >> target/release.log
-if ! mvn package -B >> target/release.log ;
-then
-    echo "FAILED...
-
-See target/release.log for more information.
-
-Use the following commands to revert your workspace to the original
-state:
-
     git reset HEAD^ --hard
 "
     exit 1
@@ -99,52 +66,9 @@ else
     echo "" >> target/release.log
 fi
 
-printf "Performing: 'git tag $CURRENT_VERSION' "
-echo "git tag $CURRENT_VERSION" >> target/release.log
-if ! git tag $CURRENT_VERSION >> target/release.log;
-then
-    echo "FAILED...
-
-See target/release.log for more information.
-
-Use the following commands to revert your workspace to the original
-state:
-
-    git reset HEAD^ --hard
-
-Check if the tag was created:
-
-    git tag --list
-"
-    exit 1
-else
-    echo DONE...
-    echo "" >> target/release.log
-fi
-
-printf "Performing: 'mvn versions:set -DnewVersion=$NEW_VERSION' "
-echo "mvn versions:set -DnewVersion=$NEW_VERSION" >> target/release.log
-if ! mvn versions:set -DnewVersion=$NEW_VERSION -B >> target/release.log ;
-then
-    echo "FAILED...
-
-See target/release.log for more information.
-
-Use the following commands to revert your workspace to the original
-state:
-
-    git reset HEAD^ --hard
-    git tag -d $CURRENT_VERSION
-"
-    exit 1
-else
-    echo DONE...
-    echo "" >> target/release.log
-fi
-
-printf "Performing: 'git commit -a -m \"Preparing for new development\"' "
-echo "git commit -a -m \"Preparing for new development\"" >> target/release.log
-if ! git commit -a -m "Preparing for new development" >> target/release.log ;
+printf "Performing: 'mvn release:perform' "
+echo "mvn release:perform" >> target/release.log
+if ! mvn release:perform -B >> target/release.log ;
 then
     echo "FAILED...
 

@@ -12,13 +12,12 @@ public final class JarFileUtil {
 	private JarFileUtil() {
 	}
 
+	@SuppressWarnings("resource")
 	public static List<JarFile> resolveJar(final List<Artifact> additionalArtifacts) throws IOException {
 		List<JarFile> jarFiles = new ArrayList<>();
 		for (int i = 0; i < additionalArtifacts.size(); i++) {
 			Artifact artifact = additionalArtifacts.get(i);
-			try (JarFile jarFile = new JarFile(artifact.getFile())) {
-				jarFiles.add(jarFile);
-			}
+				jarFiles.add(new JarFile(artifact.getFile()));
 		}
 		return jarFiles;
 	}
