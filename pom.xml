@@ -10,7 +10,7 @@
 
   <groupId>org.eclipse.scout</groupId>
   <artifactId>eclipse-settings-parent</artifactId>
-  <version>3.0</version>
+  <version>3.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Eclipse Settings Maven Plugin Parent</name>
   <description>Allow the eclipse settings configuration (file encoding, formater ...) from maven configuration.</description>
@@ -73,7 +73,7 @@
   <scm>
     <connection>scm:git:https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</developerConnection>
-    <tag>3.0</tag>
+    <tag>master</tag>
     <url>https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin</url>
   </scm>
 
