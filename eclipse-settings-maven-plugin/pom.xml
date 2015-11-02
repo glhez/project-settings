@@ -85,6 +85,31 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-lifecycle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>install</id>
+            <goals>
+              <goal>install</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>deploy</id>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

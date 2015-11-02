@@ -47,33 +47,12 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>io.takari.maven.plugins</groupId>
-        <artifactId>takari-lifecycle-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>install</id>
-            <goals>
-              <goal>install</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 
   <scm>
     <connection>scm:git:https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</developerConnection>
-    <tag>master</tag>
+    <tag>3.0</tag>
     <url>https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin</url>
   </scm>
 
