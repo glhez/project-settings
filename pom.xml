@@ -10,7 +10,7 @@
 
   <groupId>org.eclipse.scout</groupId>
   <artifactId>eclipse-settings-parent</artifactId>
-  <version>3.1-SNAPSHOT</version>
+  <version>3.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Eclipse Settings Maven Plugin Parent</name>
   <description>Allow the eclipse settings configuration (file encoding, formater ...) from maven configuration.</description>
