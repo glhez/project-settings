@@ -72,10 +72,22 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
     @Parameter
     private EclipseSettingsFile[] additionalConfig;
 
+    /**
+     * Set this to <code>true</code> to bypass project settings configuration.
+     */
+    @Parameter
+    private boolean skip;
+
+    public void setSkip(boolean skip) {
+        this.skip = skip;
+    }
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         try {
-            if (configureEclipseMeta()) {
+            if (skip) {
+                LOGGER.info("Skipping project settings configuration.");
+            } else if (configureEclipseMeta()) {
                 LOGGER.info("Project configured.");
             } else {
                 LOGGER.error("Project not configured.");
