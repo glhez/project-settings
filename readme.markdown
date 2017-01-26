@@ -155,6 +155,28 @@ need:
 </build>
 ```
 
+#### Skipping the plugin execution
+
+The plugin has a 'skip' configuration parameter to block the configuration of a project.
+This can be useful to disable a configuration made in the the parent pom at child pom level.
+Example:
+
+``` xml
+<build>
+  <plugins>
+    ...
+    <plugin>
+      <groupId>org.eclipse.scout</groupId>
+      <artifactId>eclipse-settings-maven-plugin</artifactId>
+      <configuration>
+        <skip>true</skip>
+      </configuration>
+    </plugin>
+    ...
+  </plugins>
+</build>
+```
+
 #### Putting the settings in the right place
 
 The *eclipse-settings-maven-plugin* allows you to [move settings files from one
