@@ -1,0 +1,16 @@
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <goals>
+          <goal>eclipse-settings</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+        <execute>
+          <runOnIncremental>false</runOnIncremental>
+        </execute>
+      </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>
