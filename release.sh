@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function getVersion {
         cat << EOF | xmllint --noent --shell pom.xml | grep content | cut -f2 -d=
@@ -30,9 +30,11 @@ REQUIREMENTS:
 
  - a pure JDK 7 environment, JDK 8 or newer won't cut it
  - Maven 3.3.1 (older releases are b0rked, just don't bother)
- - gpg, gpg-agent and pinentry for signing"
+ - gpg, gpg-agent and pinentry for signing
+ - xmllint (usually in a libxml-utils package)
+ "
 
-export JAVA_HOME=`/usr/libexec/java_home -v1.7`
+#export JAVA_HOME=`/usr/libexec/java_home -v1.7`
 echo "
 Current Java version is: $(java -version 2>&1 | tail -n 2 | head -n 1)
 "
@@ -43,17 +45,18 @@ then
     echo "FAILED..."
 fi
 
-mkdir -p target
+mkdir -p ~/eclipse-settings-plugin
 
-echo "Releasing $CURRENT_VERSION" > target/release.log
+echo "Releasing $CURRENT_VERSION" > ~/eclipse-settings-plugin/release.log
 
 printf "Performing: 'mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION'"
-echo "Performing: 'mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION'" >> target/release.log
-if ! mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION -B>> target/release.log ;
+echo "Performing: 'mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION'" >> ~/eclipse-settings-plugin/release.log
+output="$(mvn release:prepare -DreleaseVersion=$CURRENT_VERSION -DdevelopmentVersion=$NEW_VERSION -B>> ~/eclipse-settings-plugin/release.log)"
+if [[ $? -ne 0 ]]
 then
     echo "FAILED...
 
-See target/release.log for more information.
+See ~/eclipse-settings-plugin/release.log for more information.
 
 Use the following command to revert your workspace to the original
 state:
@@ -63,16 +66,17 @@ state:
     exit 1
 else
     echo DONE...
-    echo "" >> target/release.log
+    echo "" >> ~/eclipse-settings-plugin/release.log
 fi
 
 printf "Performing: 'mvn release:perform' "
-echo "mvn release:perform" >> target/release.log
-if ! mvn release:perform -B >> target/release.log ;
+echo "mvn release:perform" >> ~/eclipse-settings-plugin/release.log
+output="$(mvn release:perform -B >> ~/eclipse-settings-plugin/release.log)"
+if [[ $? -ne 0 ]]
 then
     echo "FAILED...
 
-See target/release.log for more information.
+See ~/eclipse-settings-plugin/release.log for more information.
 
 Use the following commands to revert your workspace to the original
 state:
@@ -83,7 +87,7 @@ state:
     exit 1
 else
     echo DONE...
-    echo "" >> target/release.log
+    echo "" >> ~/eclipse-settings-plugin/release.log
 fi
 
 echo "
