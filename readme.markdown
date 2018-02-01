@@ -115,7 +115,7 @@ You then specify your 'settings JAR' file as a dependency to the
             <plugin>
                 <groupId>org.eclipse.scout</groupId>
                 <artifactId>eclipse-settings-maven-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.0.3</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.example.settings</groupId>
