@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>fr.glhez.settings</groupId>
+    <artifactId>maven-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>java11</artifactId>
+  <packaging>pom</packaging>
+
+  <name>POM file for Java 11 based project.</name>
+
+  <properties>
+    <java.compliance>11</java.compliance>
+    <maven.compiler.release>${java.compliance}</maven.compiler.release>
+    <maven.compiler.source>${java.compliance}</maven.compiler.source>
+    <maven.compiler.target>${java.compliance}</maven.compiler.target>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>${toolchain.phase}</phase>
+            <goals> <goal>toolchain</goal> </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains> <jdk> <version>[11.0.0,12.0.0)</version> </jdk> </toolchains>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration>
+              <compilerArgs> <arg>-Xlint:all,-requires-automatic,-requires-transitive-automatic</arg> </compilerArgs>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-testCompile</id>
+            <!-- disable module export warning in unit test; we can't import module because they share the same module-info. -->
+            <configuration>
+              <compilerArgs> <arg>-Xlint:all,-exports,-requires-automatic,-requires-transitive-automatic</arg> </compilerArgs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <profiles>
+    <profile>
+      <id>eclipse-settings</id>
+      <activation> <property> <name>m2e.version</name> </property> </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.eclipse.scout</groupId>
+              <artifactId>eclipse-settings-maven-plugin</artifactId>
+              <dependencies>
+                <dependency> <groupId>fr.glhez.settings</groupId> <artifactId>eclipse</artifactId> <version>${intdep.eclipse.version}</version> </dependency>
+              </dependencies>
+              <configuration>
+                <additionalConfig>
+                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java11/org.eclipse.jdt.core.prefs</location> </file>
+                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java11/org.eclipse.jdt.ui.prefs</location>   </file>
+                </additionalConfig>         
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
+</project>
