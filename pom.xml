@@ -4,7 +4,7 @@
 
   <groupId>fr.glhez.settings</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>2019.06.01.1-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
