@@ -1,0 +1,22 @@
+# Eclipse files
+.project
+.classpath
+.settings/
+.checkstyle
+/.profiler
+
+# IntelliJ
+*.iml
+
+# Maven files
+target
+m2e-target
+
+# Java files
+*.class
+# jEdit
+[#]*#
+*~
+# log files
+*.log
+
