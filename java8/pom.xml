@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>fr.glhez.settings</groupId>
+    <groupId>com.github.glhez</groupId>
     <artifactId>maven-parent</artifactId>
     <version>2019.06.01.1-SNAPSHOT</version>
   </parent>
@@ -36,7 +36,7 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
     <profile>
       <id>eclipse-settings</id>
@@ -54,7 +54,7 @@
                 <additionalConfig>
                   <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java8/org.eclipse.jdt.core.prefs</location> </file>
                   <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java8/org.eclipse.jdt.ui.prefs</location>   </file>
-                </additionalConfig>         
+                </additionalConfig>
               </configuration>
             </plugin>
           </plugins>

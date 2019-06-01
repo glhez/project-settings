@@ -11,6 +11,10 @@
 # Maven files
 target
 m2e-target
+*.versionsBackup
+*.releaseBackup
+/release.properties
+
 
 # Java files
 *.class

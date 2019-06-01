@@ -20,3 +20,8 @@ The Eclipse subproject must be imported as simple Eclipse project (the option is
 They can be edited like any classical Eclipse file: the [eclipse-settings-maven-plugin][1] is taking care of copying the relevant file into the target project.
 
 [1]: https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin
+
+## Generating a new version
+
+Version are named after the day they are published. A number is added in case of problems.
+
