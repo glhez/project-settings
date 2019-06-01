@@ -25,3 +25,19 @@ They can be edited like any classical Eclipse file: the [eclipse-settings-maven-
 
 Version are named after the day they are published. A number is added in case of problems.
 
+**Step 1:** Use `./mvnw release:prepare release:perform`
+
+This will generate a new version.
+
+**Step 2:** Clone the mvn-repo branch as a new repo and copy all files from `target/checkout/target/mvn-repository` into the branch.
+
+After copy, invokes git: `git add . && git commit -m 'publish new version'`.
+
+This step will publish artifacts on GitHub (this is not the recommanded way but will suffice for now).
+
+
+
+
+
+
+
