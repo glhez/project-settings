@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.github.glhez</groupId>
+    <groupId>com.github.glhez.parent</groupId>
     <artifactId>java11</artifactId>
     <version>2019.06.01.2-SNAPSHOT</version>
     <relativePath>../java11</relativePath>

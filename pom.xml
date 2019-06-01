@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.glhez</groupId>
+  <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
   <version>2019.06.01.2-SNAPSHOT</version>
 
@@ -50,20 +50,12 @@
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
     <enforcer.requireMavenVersion>[3.6.0,3.7.0)</enforcer.requireMavenVersion>
-    
+
     <!--
       Publishing properties
     -->
     <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory>
     <publish.branch>mvn-repo</publish.branch>
-
-    <!--
-      Internal dependencies.
-
-      Don't use ${project.version} as maven-release-plugin won't be able to replace them.
-    -->
-    <intdep.versions-maven-plugin.version>2019.06.01.1-SNAPSHOT</intdep.versions-maven-plugin.version>
-    <intdep.eclipse.version>2019.06.01.1-SNAPSHOT</intdep.eclipse.version>
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
@@ -85,6 +77,9 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${project.version}</version> </dependency>
+      <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId>               <version>${project.version}</version>               </dependency>
+
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>        <version>${dep.junit-bom.version}</version>        <scope>import</scope> <type>pom</type> </dependency>
       <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>     <version>${dep.mockito-core.version}</version>     <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>     <version>${dep.assertj-core.version}</version>     <!--scope-->          <!--type-->      </dependency>
@@ -246,7 +241,7 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>versions-maven-plugin</artifactId>
             <dependencies>
-              <dependency> <groupId>fr.glhez.settings</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${intdep.versions-maven-plugin.version}</version> </dependency>
+              <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${project.version}</version> </dependency>
             </dependencies>
             <configuration>
               <rulesUri>${version.baseURI}/${version.file}</rulesUri>
@@ -343,7 +338,7 @@
       <activation> <property> <name>env.TRAVIS</name> </property> </activation>
       <properties> <toolchain.phase>none</toolchain.phase> </properties>
     </profile>
-    
+
   </profiles>
 </project>
 
