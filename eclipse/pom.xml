@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez</groupId>
     <artifactId>maven-parent</artifactId>
-    <version>2019.06.01.1-SNAPSHOT</version>
+    <version>2019.06.01.1</version>
   </parent>
 
   <artifactId>eclipse</artifactId>

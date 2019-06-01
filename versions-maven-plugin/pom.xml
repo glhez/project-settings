@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez</groupId>
     <artifactId>java11</artifactId>
-    <version>2019.06.01.1-SNAPSHOT</version>
+    <version>2019.06.01.1</version>
     <relativePath>../java11</relativePath>
   </parent>
 
