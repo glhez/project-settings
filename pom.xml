@@ -128,7 +128,6 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>             <version>2.7</version>         </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                  <version>1.0.2</version>       </plugin>
         <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>         <version>0.0.10</version>      </plugin>
-        <plugin> <groupId>org.eclipse.scout</groupId>        <artifactId>eclipse-settings-maven-plugin</artifactId>     <version>3.0.3</version>       </plugin>
         <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>               <version>0.8.4</version>       </plugin>
         <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>              <version>1.7.0.1.1</version>   </plugin>
 
@@ -150,6 +149,15 @@
             <altReleaseDeploymentRepository>gh-mvn-repo-releases::file://${publish.directory}/releases</altReleaseDeploymentRepository>
             <altSnapshotDeploymentRepository>gh-mvn-repo-snapshots::file://${publish.directory}/snapshots</altSnapshotDeploymentRepository>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.scout</groupId>
+          <artifactId>eclipse-settings-maven-plugin</artifactId>
+          <version>3.0.3</version>
+          <dependencies>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -230,25 +238,27 @@
     <profile>
       <id>versions-common</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <property> <name>!__force_profile_activation</name> </property>
       </activation>
       <properties>
         <version.baseURI>classpath://</version.baseURI>
         <version.file>restricted.xml</version.file>
       </properties>
       <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>versions-maven-plugin</artifactId>
-            <dependencies>
-              <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${project.version}</version> </dependency>
-            </dependencies>
-            <configuration>
-              <rulesUri>${version.baseURI}/${version.file}</rulesUri>
-            </configuration>
-          </plugin>
-        </plugins>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>versions-maven-plugin</artifactId>
+              <dependencies>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${project.version}</version> </dependency>
+              </dependencies>
+              <configuration>
+                <rulesUri>${version.baseURI}/${version.file}</rulesUri>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
       </build>
     </profile>
 
@@ -271,7 +281,7 @@
     <profile>
       <id>editorconfig</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <property> <name>!__force_profile_activation</name> </property>
       </activation>
       <build>
         <plugins>
@@ -338,6 +348,7 @@
       <activation> <property> <name>env.TRAVIS</name> </property> </activation>
       <properties> <toolchain.phase>none</toolchain.phase> </properties>
     </profile>
+
   </profiles>
 </project>
 
