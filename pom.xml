@@ -338,7 +338,6 @@
       <activation> <property> <name>env.TRAVIS</name> </property> </activation>
       <properties> <toolchain.phase>none</toolchain.phase> </properties>
     </profile>
-
   </profiles>
 </project>
 

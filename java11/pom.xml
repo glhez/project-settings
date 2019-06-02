@@ -68,7 +68,7 @@
               <groupId>org.eclipse.scout</groupId>
               <artifactId>eclipse-settings-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> </dependency>
               </dependencies>
               <configuration>
                 <additionalConfig>
