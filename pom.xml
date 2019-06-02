@@ -254,7 +254,7 @@
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>versions-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${project.version}</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${intdep.version}</version> </dependency>
               </dependencies>
               <configuration>
                 <rulesUri>${version.baseURI}/${version.file}</rulesUri>
