@@ -53,9 +53,12 @@
 
     <!--
       Publishing properties
+
+      This  must  be  defined  in  settings.xml  and  point  to a local GIT repository containing the mvn-repo
+      branches which is used to serve our artifact.
+
     -->
-    <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory>
-    <publish.branch>mvn-repo</publish.branch>
+    <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
 
     <intdep.version>2019.06.02.3-SNAPSHOT</intdep.version>
 
@@ -146,8 +149,8 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.0.0-M1</version>
           <configuration>
-            <altReleaseDeploymentRepository>gh-mvn-repo-releases::file://${publish.directory}/releases</altReleaseDeploymentRepository>
-            <altSnapshotDeploymentRepository>gh-mvn-repo-snapshots::file://${publish.directory}/snapshots</altSnapshotDeploymentRepository>
+            <altReleaseDeploymentRepository>gh-mvn-repo-releases::${publish.directory}/releases</altReleaseDeploymentRepository>
+            <altSnapshotDeploymentRepository>gh-mvn-repo-snapshots::${publish.directory}/snapshots</altSnapshotDeploymentRepository>
           </configuration>
         </plugin>
 
