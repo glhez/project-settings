@@ -281,7 +281,7 @@
     <profile>
       <id>editorconfig</id>
       <activation>
-        <property> <name>!__force_profile_activation</name> </property>
+        <property> <name>!m2e.version</name> </property>
       </activation>
       <build>
         <plugins>
