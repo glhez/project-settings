@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez.parent</groupId>
     <artifactId>maven-parent</artifactId>
-    <version>2019.06.01.4-SNAPSHOT</version>
+    <version>2019.06.02.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>java8</artifactId>
@@ -48,12 +48,12 @@
               <groupId>org.eclipse.scout</groupId>
               <artifactId>eclipse-settings-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${project.version}</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
               </dependencies>
               <configuration>
                 <additionalConfig>
-                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java8/org.eclipse.jdt.core.prefs</location> </file>
-                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java8/org.eclipse.jdt.ui.prefs</location>   </file>
+                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java8/.settings/org.eclipse.jdt.core.prefs</location> </file>
+                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java8/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
                 </additionalConfig>
               </configuration>
             </plugin>

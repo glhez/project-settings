@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez.parent</groupId>
     <artifactId>maven-parent</artifactId>
-    <version>2019.06.01.4-SNAPSHOT</version>
+    <version>2019.06.02.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>eclipse</artifactId>
@@ -20,11 +20,16 @@
     <resources>
       <resource>
         <filtering>false</filtering>
-        <directory>${project.basedir}/java8</directory>
-      </resource>
-      <resource>
-        <filtering>false</filtering>
-        <directory>${project.basedir}/java11</directory>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>java8/**</include>
+          <include>java11/**</include>
+        </includes>
+        <excludes>
+          <exclude>**/src/.keep</exclude>
+          <exclude>**/.project</exclude>
+          <exclude>**/.classpath</exclude>
+        </excludes>
       </resource>
     </resources>
   </build>
