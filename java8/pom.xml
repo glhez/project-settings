@@ -47,6 +47,7 @@
             <plugin>
               <groupId>org.eclipse.scout</groupId>
               <artifactId>eclipse-settings-maven-plugin</artifactId>
+              <version>${plugin.eclipse-settings.version}</version>
               <configuration>
                 <additionalConfig>
                   <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java8/.settings/org.eclipse.jdt.core.prefs</location> </file>

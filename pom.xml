@@ -78,6 +78,17 @@
     <dep.asm.version>7.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.144</dep.cfr.version>
+
+    <!--
+
+      Versions  of  plugin;  used  in rare case, when the plugin is used itself as a pluginManagement in child
+      module (java8, java1).
+
+      This fix a warning a versions:display-plugin-updates.
+
+    -->
+    <plugin.eclipse-settings.version>3.0.3</plugin.eclipse-settings.version>
+
   </properties>
 
   <dependencyManagement>
@@ -157,7 +168,7 @@
         <plugin>
           <groupId>org.eclipse.scout</groupId>
           <artifactId>eclipse-settings-maven-plugin</artifactId>
-          <version>3.0.3</version>
+          <version>${plugin.eclipse-settings.version}</version>
           <dependencies>
             <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
@@ -183,7 +194,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <configuration>
-          <excludes><exclude>**/.gitignore</exclude></excludes>
+          <excludes>
+            <exclude>**/.gitignore</exclude>
+          </excludes>
           <attach>true</attach>
         </configuration>
         <executions>
@@ -191,7 +204,7 @@
             <id>attach-sources</id>
             <inherited>true</inherited>
             <phase>package</phase>
-            <goals><goal>jar</goal></goals>
+            <goals><goal>jar-no-fork</goal></goals>
           </execution>
         </executions>
       </plugin>
@@ -291,6 +304,13 @@
           <plugin>
             <groupId>org.ec4j.maven</groupId>
             <artifactId>editorconfig-maven-plugin</artifactId>
+            <configuration>
+              <excludes>
+                <exclude>.mvn/wrapper/**</exclude>
+                <exclude>mvnw*</exclude>
+                <exclude>mvnw.cmd</exclude>
+              </excludes>
+            </configuration>
             <executions>
               <execution>
                 <id>editorconfig-check</id>
