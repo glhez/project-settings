@@ -198,6 +198,10 @@
           </dependencies>
           <configuration>
             <configFile>code-formatter-profile/eclipse-2019.03.xml</configFile>
+            <lineEnding>LF</lineEnding>
+            <includes>
+              <include>**/*.java/</include>
+            </includes>
           </configuration>
         </plugin>
       </plugins>
