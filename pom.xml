@@ -24,6 +24,13 @@
 
   <modules>
     <!--
+      Eclipse settings
+    -->
+    <module>eclipse</module>
+
+    <module>versions-maven-plugin</module>
+
+    <!--
       Java projects are split by versions.
 
       - the release flag does not exist in Java version before 9.
@@ -31,15 +38,9 @@
 
       The projects each use maven-toolchain-plugin
     -->
-    <module>java8</module>
-    <module>java11</module>
-
-    <!--
-      Eclipse settings
-    -->
-    <module>eclipse</module>
-
-    <module>versions-maven-plugin</module>
+    <module>java-parent</module>
+    <module>java-1.8</module>
+    <module>java-11</module>
   </modules>
 
   <properties>
@@ -61,6 +62,7 @@
     <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
 
     <intdep.version>2019.06.05.02-SNAPSHOT</intdep.version>
+
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
@@ -88,7 +90,7 @@
 
     -->
     <plugin.eclipse-settings.version>3.0.3</plugin.eclipse-settings.version>
-
+    <plugin.formatter.version>2.9.0</plugin.formatter.version>
   </properties>
 
   <dependencyManagement>
@@ -112,8 +114,20 @@
     </dependencies>
   </dependencyManagement>
 
-  <!-- build configuration -->
   <build>
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/src/test/resources</directory>
+      </testResource>
+    </testResources>
+
     <pluginManagement>
       <plugins>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>3.1.1</version>       </plugin>
@@ -136,14 +150,15 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>             <version>3.0.0-M3</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>1.1</version>         </plugin>
 
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>         <version>2.1.0</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>         <version>3.0.0</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                 <version>1.6.0</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>             <version>2.7</version>         </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                  <version>1.0.2</version>       </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>         <version>0.0.10</version>      </plugin>
-        <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>               <version>0.8.4</version>       </plugin>
-        <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>              <version>1.7.0.1.1</version>   </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>appassembler-maven-plugin</artifactId> <version>2.1.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>build-helper-maven-plugin</artifactId> <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>exec-maven-plugin</artifactId>         <version>1.6.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>versions-maven-plugin</artifactId>     <version>2.7</version>       </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>xml-maven-plugin</artifactId>          <version>1.0.2</version>     </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>     <artifactId>editorconfig-maven-plugin</artifactId> <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>         <artifactId>jacoco-maven-plugin</artifactId>       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>org.lesscss</groupId>        <artifactId>lesscss-maven-plugin</artifactId>      <version>1.7.0.1.1</version> </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId> <artifactId>git-commit-id-plugin</artifactId>      <version>3.0.0</version>     </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -172,6 +187,18 @@
           <dependencies>
             <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code.formatter</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>${plugin.formatter.version}</version>
+          <dependencies>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
+          </dependencies>
+          <configuration>
+            <configFile>code-formatter-profile/eclipse-2019.03.xml</configFile>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -225,20 +252,35 @@
           </execution>
         </executions>
       </plugin>
-    </plugins>
 
-    <resources>
-      <resource>
-        <filtering>false</filtering>
-        <directory>${project.basedir}/src/main/resources</directory>
-      </resource>
-    </resources>
-    <testResources>
-      <testResource>
-        <filtering>false</filtering>
-        <directory>${project.basedir}/src/test/resources</directory>
-      </testResource>
-    </testResources>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>git-fetch-revision</id>
+            <goals> <goal>revision</goal> </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <dotGitDirectory>${session.executionRootDirectory}/.git</dotGitDirectory>
+              <generateGitPropertiesFile>true</generateGitPropertiesFile>
+              <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.properties</generateGitPropertiesFilename>
+              <skipPoms>true</skipPoms>
+              <includeOnlyProperties>
+                <includeOnlyProperty>^\Qgit.commit.id\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.commit.id.full\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.commit.time\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.dirty\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.branch\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.closest.tag.name\E$</includeOnlyProperty>
+              </includeOnlyProperties>
+              <!-- <verbose>true</verbose> -->
+              <abbrevLength>40</abbrevLength>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
   <profiles>
@@ -286,16 +328,15 @@
     </profile>
 
     <!--
-      Basic formatting
+      Codestyle checks
 
-      Ensure  that  source  file are using what was defined in .editorconfig; also imply that such file exists
-      somewhere near the file depending on this pom.
-
-      The configuration is disabled on Eclipse, since m2e does not recognize it.
+      - If the plugin have a dependency in dependencyManagement, then it must be added to java8/java11: the child
+        dependency is not build since the parent activate the plugin, which require the dependency.
+      - Each children must provide a disable checker profile, using skipCheckers property.
 
     -->
     <profile>
-      <id>editorconfig</id>
+      <id>editorconfig-check-enabled</id>
       <activation>
         <property> <name>!m2e.version</name> </property>
       </activation>
@@ -313,7 +354,7 @@
             </configuration>
             <executions>
               <execution>
-                <id>editorconfig-check</id>
+                <id>editorconfig-check-execution</id>
                 <phase>validate</phase>
                 <goals> <goal>check</goal> </goals>
               </execution>
@@ -322,12 +363,9 @@
         </plugins>
       </build>
     </profile>
-
-    <!--
-      Allow skipping (occasionnaly) editorconfig and other checkers
-    -->
     <profile>
-      <id>skip-checkers</id>
+      <id>editorconfig-check-disabled</id>
+      <activation> <property> <name>skipCheckers</name> </property> </activation>
       <build>
         <plugins>
           <plugin>
@@ -335,7 +373,7 @@
             <artifactId>editorconfig-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>editorconfig-check</id>
+                <id>editorconfig-check-execution</id>
                 <phase>never</phase>
               </execution>
             </executions>

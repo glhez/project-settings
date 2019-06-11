@@ -4,11 +4,12 @@
 
   <parent>
     <groupId>com.github.glhez.parent</groupId>
-    <artifactId>maven-parent</artifactId>
+    <artifactId>java-parent</artifactId>
     <version>2019.06.05.02-SNAPSHOT</version>
+    <relativePath>../java-parent</relativePath>
   </parent>
 
-  <artifactId>java8</artifactId>
+  <artifactId>java-1.8</artifactId>
   <packaging>pom</packaging>
 
   <name>POM file for Java 8 based project.</name>
@@ -17,6 +18,8 @@
     <java.compliance>1.8</java.compliance>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
+
+    <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
   </properties>
 
   <build>
@@ -31,34 +34,9 @@
           </execution>
         </executions>
         <configuration>
-          <toolchains> <jdk> <version>[1.8,1.9)</version> </jdk> </toolchains>
+          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>eclipse-settings</id>
-      <activation> <property> <name>m2e.version</name> </property> </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.eclipse.scout</groupId>
-              <artifactId>eclipse-settings-maven-plugin</artifactId>
-              <version>${plugin.eclipse-settings.version}</version>
-              <configuration>
-                <additionalConfig>
-                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java8/.settings/org.eclipse.jdt.core.prefs</location> </file>
-                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java8/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
-                </additionalConfig>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-  </profiles>
-
 </project>

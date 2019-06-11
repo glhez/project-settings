@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.glhez.parent</groupId>
+    <artifactId>maven-parent</artifactId>
+    <version>2019.06.05.02-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>java-parent</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Parent POM file for Java based project.</name>
+
+  <!--
+    This  pom exists to share common stuff with java8/11 pom, with still being dependant on other dependencies
+    in the reactor (mainly eclipse).
+  -->
+
+  <profiles>
+    <!-- check that Java file are properly formatted. -->
+    <profile>
+      <id>formatter-check-enabled</id>
+      <activation>
+        <property> <name>!m2e.version</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.revelc.code.formatter</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <version>${plugin.formatter.version}</version>
+            <executions>
+              <execution>
+                <id>formatter-check-execution</id>
+                <phase>validate</phase>
+                <goals> <goal>validate</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>formatter-check-disabled</id>
+      <activation>
+        <property> <name>skipCheckers</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.revelc.code.formatter</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <version>${plugin.formatter.version}</version>
+            <executions>
+              <execution>
+                <id>formatter-check</id>
+                <phase>never</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>eclipse-settings</id>
+      <activation> <property> <name>m2e.version</name> </property> </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.eclipse.scout</groupId>
+              <artifactId>eclipse-settings-maven-plugin</artifactId>
+              <version>${plugin.eclipse-settings.version}</version>
+              <configuration>
+                <additionalConfig>
+                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>
+                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java-${java.compliance}/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
+                </additionalConfig>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
+
+</project>

@@ -4,9 +4,9 @@
 
   <parent>
     <groupId>com.github.glhez.parent</groupId>
-    <artifactId>java11</artifactId>
+    <artifactId>java-11</artifactId>
     <version>2019.06.05.02-SNAPSHOT</version>
-    <relativePath>../java11</relativePath>
+    <relativePath>../java-11</relativePath>
   </parent>
 
   <artifactId>versions-maven-plugin</artifactId>

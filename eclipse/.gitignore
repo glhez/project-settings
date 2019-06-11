@@ -1,10 +1,10 @@
 # unfilter those
-!java8/.project
-!java8/.classpath
-!java8/.settings/
-java8/bin
+!java-1.8/.project
+!java-1.8/.classpath
+!java-1.8/.settings/
+java-1.8/bin
 
-!java11/.project
-!java11/.classpath
-!java11/.settings/
+!java-11/.project
+!java-11/.classpath
+!java-11/.settings/
 java11/bin

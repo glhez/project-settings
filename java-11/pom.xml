@@ -4,11 +4,12 @@
 
   <parent>
     <groupId>com.github.glhez.parent</groupId>
-    <artifactId>maven-parent</artifactId>
+    <artifactId>java-parent</artifactId>
     <version>2019.06.05.02-SNAPSHOT</version>
+    <relativePath>../java-parent</relativePath>
   </parent>
 
-  <artifactId>java11</artifactId>
+  <artifactId>java-11</artifactId>
   <packaging>pom</packaging>
 
   <name>POM file for Java 11 based project.</name>
@@ -18,6 +19,8 @@
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
+
+    <enforcer.requireJavaVersion>[11.0.0,12.0.0)</enforcer.requireJavaVersion>
   </properties>
 
   <build>
@@ -32,7 +35,7 @@
           </execution>
         </executions>
         <configuration>
-          <toolchains> <jdk> <version>[11.0.0,12.0.0)</version> </jdk> </toolchains>
+          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
         </configuration>
       </plugin>
       <plugin>
@@ -56,28 +59,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>eclipse-settings</id>
-      <activation> <property> <name>m2e.version</name> </property> </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.eclipse.scout</groupId>
-              <artifactId>eclipse-settings-maven-plugin</artifactId>
-              <version>${plugin.eclipse-settings.version}</version>
-              <configuration>
-                <additionalConfig>
-                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java11/.settings/org.eclipse.jdt.core.prefs</location> </file>
-                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java11/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
-                </additionalConfig>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-  </profiles>
 </project>

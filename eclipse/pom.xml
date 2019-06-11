@@ -22,8 +22,9 @@
         <filtering>false</filtering>
         <directory>${project.basedir}</directory>
         <includes>
-          <include>java8/**</include>
-          <include>java11/**</include>
+          <include>java-1.8/**</include>
+          <include>java-11/**</include>
+          <include>code-formatter-profile/**</include>
         </includes>
         <excludes>
           <exclude>**/src/.keep</exclude>
@@ -32,5 +33,20 @@
         </excludes>
       </resource>
     </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.ec4j.maven</groupId>
+        <artifactId>editorconfig-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <!-- these are generated, we don't want to fix them. -->
+            <exclude>java8/**</exclude>
+            <exclude>java11/**</exclude>
+            <exclude>code-formatter-profile/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
