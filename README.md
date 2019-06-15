@@ -18,7 +18,7 @@ The project is also configuring Eclipse project using the [eclipse-settings-mave
 The Eclipse subproject ([eclipse/java8](eclipse/java8), [eclipse/java11](eclipse/java11)) must be imported as simple Eclipse project (the option is named _Import project into Workspace_ in the import list) rather than m2e project.
 
 They can be edited like any classical Eclipse file: the [eclipse-settings-maven-plugin][1] is taking care of copying the relevant file into the target project.
-$
+
 ## Generating a new version
 
 The version does not have much importance: I usually use the current day, in ISO order (eg: `2019.06.03`), then add some arbitrary number
@@ -38,7 +38,6 @@ The `publish.directory` property **must** be  should be added to maven settings 
 
 Fix the URL based on your own settings.
 
-
 **Step 1**
 
 Simply invoke `./mvnw release:prepare release:perform` and pick up a new version.
@@ -46,6 +45,32 @@ Simply invoke `./mvnw release:prepare release:perform` and pick up a new version
 **Step 2**
 
 In the cloned [maven-repository][2], add the new artifacts and commit the whole.
+
+## Child project
+
+Each project must define the following repositories:
+
+- Plugin dependencies are fetched using `pluginRepository` rather than `repository`.
+- Project should build without configuring further settings.
+
+```xml
+  <repositories>
+    <repository>
+      <id>github-glhez-repo-dep</id>
+      <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
+      <snapshots> <enabled>false</enabled> </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>github-glhez-repo-plugin</id>
+      <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
+      <snapshots> <enabled>false</enabled> </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+```
+
+
 
 [1]: https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin
 [2]: https://github.com/glhez/maven-repository
