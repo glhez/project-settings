@@ -74,12 +74,26 @@
     <dep.log4j-bom.version>2.11.2</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
     <dep.commons-text.version>1.6</dep.commons-text.version>
-    <dep.guava.version>27.1-jre</dep.guava.version>
+    <dep.guava.version>28.0-jre</dep.guava.version>
     <dep.config.version>1.3.4</dep.config.version>
     <dep.picocli.version>3.9.6</dep.picocli.version>
     <dep.asm.version>7.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.144</dep.cfr.version>
+
+    <dep.jmh.version>1.21</dep.jmh.version>
+    <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
+    <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
+
+    <dep.bouncycastle.version>1.62</dep.bouncycastle.version>
+    <dep.bcprov-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-jdk15on.version>
+    <dep.bcprov-ext-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-jdk15on.version>
+    <dep.bcpkix-jdk15on.version>${dep.bouncycastle.version}</dep.bcpkix-jdk15on.version>
+    <dep.bcmail-jdk15on.version>${dep.bouncycastle.version}</dep.bcmail-jdk15on.version>
+    <dep.bcpg-jdk15on.version>${dep.bouncycastle.version}</dep.bcpg-jdk15on.version>
+    <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
+    <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
+    <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
 
     <!--
 
@@ -98,19 +112,29 @@
       <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${intdep.version}</version> </dependency>
       <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId>               <version>${intdep.version}</version> </dependency>
 
-      <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>        <version>${dep.junit-bom.version}</version>        <scope>import</scope> <type>pom</type> </dependency>
-      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>     <version>${dep.mockito-core.version}</version>     <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>     <version>${dep.assertj-core.version}</version>     <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId> <version>${dep.memoryfilesystem.version}</version> <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>        <version>${dep.log4j-bom.version}</version>        <scope>import</scope> <type>pom</type> </dependency>
-      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-lang3</artifactId>    <version>${dep.commons-lang3.version}</version>    <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-text</artifactId>     <version>${dep.commons-text.version}</version>     <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>com.google.guava</groupId>         <artifactId>guava</artifactId>            <version>${dep.guava.version}</version>            <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>com.typesafe</groupId>             <artifactId>config</artifactId>           <version>${dep.config.version}</version>           <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli</artifactId>          <version>${dep.picocli.version}</version>          <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm</artifactId>              <version>${dep.asm.version}</version>              <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm-util</artifactId>         <version>${dep.asm-util.version}</version>         <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>              <version>${dep.cfr.version}</version>              <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope> <type>pom</type> </dependency>
+      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>             <version>${dep.assertj-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId>         <version>${dep.memoryfilesystem.version}</version>         <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>                <version>${dep.log4j-bom.version}</version>                <scope>import</scope> <type>pom</type> </dependency>
+      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-lang3</artifactId>            <version>${dep.commons-lang3.version}</version>            <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-text</artifactId>             <version>${dep.commons-text.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>com.google.guava</groupId>         <artifactId>guava</artifactId>                    <version>${dep.guava.version}</version>                    <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>com.typesafe</groupId>             <artifactId>config</artifactId>                   <version>${dep.config.version}</version>                   <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli</artifactId>                  <version>${dep.picocli.version}</version>                  <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm</artifactId>                      <version>${dep.asm.version}</version>                      <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm-util</artifactId>                 <version>${dep.asm-util.version}</version>                 <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>                      <version>${dep.cfr.version}</version>                      <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-core</artifactId>                 <version>${dep.jmh-core.version}</version>                 <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-generator-annprocess</artifactId> <version>${dep.jmh-generator-annprocess.version}</version> <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-jdk15on</artifactId>           <version>${dep.bcprov-jdk15on.version}</version>           <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-jdk15on</artifactId>       <version>${dep.bcprov-ext-jdk15on.version}</version>       <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpkix-jdk15on</artifactId>           <version>${dep.bcpkix-jdk15on.version}</version>           <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcmail-jdk15on</artifactId>           <version>${dep.bcmail-jdk15on.version}</version>           <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpg-jdk15on</artifactId>             <version>${dep.bcpg-jdk15on.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> <!--scope-->          <!--type-->      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -130,35 +154,36 @@
 
     <pluginManagement>
       <plugins>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>3.1.1</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                <version>3.1.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>             <version>3.8.1</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>           <version>3.1.1</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>             <version>3.0.0-M2</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>              <version>3.0.0-M1</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                  <version>3.1.2</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>              <version>3.1.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                  <version>3.0.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId> <version>3.0.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>            <version>3.1.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                  <version>1.11.2</version>      </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                <version>3.2.1</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                 <version>3.7.1</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>               <version>3.1.0</version>       </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>             <version>3.0.0-M3</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>      <version>3.0.0-M3</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>             <version>3.0.0-M3</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>1.1</version>         </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>                     <version>3.1.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                        <version>3.1.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>                     <version>3.8.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>                   <version>3.1.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>                     <version>3.0.0-M2</version>  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>                      <version>3.0.0-M1</version>  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                          <version>3.1.2</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>                      <version>3.1.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                          <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.1.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.7.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.1.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>              <version>3.0.0-M3</version>  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>                   <version>1.1</version>       </plugin>
 
-        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>appassembler-maven-plugin</artifactId> <version>2.1.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>build-helper-maven-plugin</artifactId> <version>3.0.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>exec-maven-plugin</artifactId>         <version>1.6.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>versions-maven-plugin</artifactId>     <version>2.7</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>  <artifactId>xml-maven-plugin</artifactId>          <version>1.0.2</version>     </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>     <artifactId>editorconfig-maven-plugin</artifactId> <version>0.0.10</version>    </plugin>
-        <plugin> <groupId>org.jacoco</groupId>         <artifactId>jacoco-maven-plugin</artifactId>       <version>0.8.4</version>     </plugin>
-        <plugin> <groupId>org.lesscss</groupId>        <artifactId>lesscss-maven-plugin</artifactId>      <version>1.7.0.1.1</version> </plugin>
-        <plugin> <groupId>pl.project13.maven</groupId> <artifactId>git-commit-id-plugin</artifactId>      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.assertj</groupId>              <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -215,9 +240,6 @@
           <parameters>true</parameters>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
-          <compilerArgs>
-            <arg>-Xlint</arg>
-          </compilerArgs>
         </configuration>
       </plugin>
 

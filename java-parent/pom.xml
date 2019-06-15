@@ -55,7 +55,7 @@
             <version>${plugin.formatter.version}</version>
             <executions>
               <execution>
-                <id>formatter-check</id>
+                <id>formatter-check-execution</id>
                 <phase>never</phase>
               </execution>
             </executions>
