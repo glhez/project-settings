@@ -79,7 +79,7 @@
     <dep.picocli.version>3.9.6</dep.picocli.version>
     <dep.asm.version>7.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
-    <dep.cfr.version>0.144</dep.cfr.version>
+    <dep.cfr.version>0.145</dep.cfr.version>
 
     <dep.jmh.version>1.21</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
@@ -104,7 +104,7 @@
 
     -->
     <plugin.eclipse-settings.version>3.0.3</plugin.eclipse-settings.version>
-    <plugin.formatter.version>2.9.0</plugin.formatter.version>
+    <plugin.formatter.version>2.10.0</plugin.formatter.version>
   </properties>
 
   <dependencyManagement>
@@ -172,18 +172,19 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>              <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>                   <version>1.1</version>       </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>                   <version>3.0.0</version>     </plugin>
 
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
-        <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
-        <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
-        <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
-        <plugin> <groupId>org.assertj</groupId>              <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
+        <plugin> <groupId>com.github.spotbugs</groupId> <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12</version>    </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>      <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>          <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>org.lesscss</groupId>         <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>  <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.assertj</groupId>         <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -222,7 +223,7 @@
             <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
           <configuration>
-            <configFile>code-formatter-profile/eclipse-2019.03.xml</configFile>
+            <configFile>code-formatter-profile/eclipse-2019.06.xml</configFile>
             <lineEnding>LF</lineEnding>
             <includes>
               <include>**/*.java/</include>
@@ -400,6 +401,62 @@
             <executions>
               <execution>
                 <id>editorconfig-check-execution</id>
+                <phase>never</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>spotbugs-check-enabled</id>
+      <activation>
+        <property> <name>!__force_profile_activation</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <configuration>
+              <effort>Max</effort>
+              <threshold>Low</threshold>
+              <xmlOutput>true</xmlOutput>
+              <!-- may be required for tycho -->
+              <!-- <fork>false</fork> -->
+              <!-- don't fail the build on error; at least, until I find a way to filter DLS_DEAD_LOCAL_STORE
+                   and URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD -->
+              <failOnError>false</failOnError>
+              <plugins>
+                <plugin>
+                  <groupId>com.h3xstream.findsecbugs</groupId>
+                  <artifactId>findsecbugs-plugin</artifactId>
+                  <version>LATEST</version> <!-- Auto-update to the latest stable -->
+                </plugin>
+              </plugins>
+            </configuration>
+            <executions>
+              <execution>
+                <id>spotbugs-check-execution</id>
+                <goals> <goal>check</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>spotbugs-check-disabled</id>
+      <activation> <property> <name>skipCheckers</name> </property> </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>spotbugs-check-execution</id>
                 <phase>never</phase>
               </execution>
             </executions>
