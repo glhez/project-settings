@@ -71,7 +71,7 @@
         <pluginManagement>
           <plugins>
             <plugin>
-              <groupId>org.eclipse.scout</groupId>
+              <groupId>${plugin.eclipse-settings.groupId}</groupId>
               <artifactId>eclipse-settings-maven-plugin</artifactId>
               <version>${plugin.eclipse-settings.version}</version>
               <configuration>

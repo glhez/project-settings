@@ -47,4 +47,27 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>eclipse-settings</id>
+      <activation>
+        <property> <name>m2e.version</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>${plugin.eclipse-settings.groupId}</groupId>
+            <artifactId>eclipse-settings-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>generate-resources</phase>
+                <goals> <goal>eclipse-settings</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
