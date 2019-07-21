@@ -105,11 +105,11 @@
       This fix a warning a versions:display-plugin-updates.
 
     -->
-    
+
     <!--
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and
       logs.
-    -->    
+    -->
     <plugin.eclipse-settings.groupId>com.github.glhez</plugin.eclipse-settings.groupId>
     <plugin.eclipse-settings.version>3.1.0-SNAPSHOT</plugin.eclipse-settings.version>
     <plugin.formatter.version>2.10.0</plugin.formatter.version>
