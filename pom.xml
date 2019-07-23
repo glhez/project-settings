@@ -51,7 +51,7 @@
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
     <enforcer.requireMavenVersion>[3.3.3,3.4.0)</enforcer.requireMavenVersion>
-    <enforcer.requireJavaVersion>[1.7,1.9)</enforcer.requireJavaVersion>
+    <enforcer.requireJavaVersion>[1.7,1.8)</enforcer.requireJavaVersion>
 
     <bintray.subject>bsi-business-systems-integration-ag</bintray.subject>
     <bintray.repo>scout-eclipse-org</bintray.repo>
@@ -142,7 +142,11 @@
     <profile>
       <id>travis-common</id>
       <activation> <property> <name>env.TRAVIS</name> </property> </activation>
-      <properties> <toolchain.phase>none</toolchain.phase> </properties>
+      <properties>
+        <toolchain.phase>none</toolchain.phase>
+        <!-- Java 7 is no longer supported by travis -->
+        <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
+      </properties>
     </profile>
   </profiles>
 </project>
