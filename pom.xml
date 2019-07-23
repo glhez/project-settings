@@ -2,92 +2,160 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>io.takari</groupId>
-    <artifactId>takari</artifactId>
-    <version>18</version>
-  </parent>
-
-  <groupId>org.eclipse.scout</groupId>
+  <!-- <groupId>org.eclipse.scout</groupId> -->
+  <!-- groupId changed to avoid clashing with existing project -->
+  <groupId>com.github.glhez</groupId>
   <artifactId>eclipse-settings-parent</artifactId>
-  <version>3.0.4-SNAPSHOT</version>
+  <version>3.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <name>Eclipse Settings Maven Plugin Parent</name>
   <description>Allow the eclipse settings configuration (file encoding, formater ...) from maven configuration.</description>
 
   <scm>
-    <connection>scm:git:https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin.git</developerConnection>
-    <tag>3.0</tag>
-    <url>https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin</url>
+    <connection>scm:git:https://github.com/glhez/eclipse-settings-maven-plugin.git</connection>
+    <developerConnection>scm:git:github:glhez/eclipse-settings-maven-plugin.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/glhez/eclipse-settings-maven-plugin</url>
   </scm>
-
-  <distributionManagement>
-    <repository>
-      <id>bintray-bsi-business-systems-integration-ag-scout-eclipse-org</id>
-      <url>https://api.bintray.com/maven/${bintray.subject}/${bintray.repo}/${bintray.package}/;publish=1</url>
-    </repository>
-  </distributionManagement>
 
   <modules>
     <module>eclipse-settings-maven-plugin</module>
   </modules>
 
   <properties>
-    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
-
-    <!--
-      from maven 3.3.1, maven is compiled with Java 7; enforce this
-
-      While maven wrapper offer maven 3.3.3, the JDK7 can be obtained from Azul or Oracle:
-
-        https://www.azul.com/downloads/zulu-community/
-
-
-    -->
     <java.compliance>1.7</java.compliance>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <enforcer.requireMavenVersion>[3.3.3,3.4.0)</enforcer.requireMavenVersion>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
     <enforcer.requireJavaVersion>[1.7,1.8)</enforcer.requireJavaVersion>
-
-    <bintray.subject>bsi-business-systems-integration-ag</bintray.subject>
-    <bintray.repo>scout-eclipse-org</bintray.repo>
-    <bintray.package>eclipse-settings-maven-plugin</bintray.package>
+    <enforcer.requireMavenVersion>[3.6.0,3.7.0)</enforcer.requireMavenVersion>
   </properties>
 
   <build>
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/src/test/resources</directory>
+      </testResource>
+    </testResources>
+
     <pluginManagement>
       <plugins>
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <inherited>true</inherited>
-          <configuration>
-            <pushChanges>false</pushChanges>
-            <tagNameFormat>@{project.version}</tagNameFormat>
-          </configuration>
-        </plugin>
-        <!-- files get signed by bintray -->
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>3.1.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                <version>3.1.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>             <version>3.8.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>           <version>3.1.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>             <version>3.0.0-M2</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>              <version>3.0.0-M1</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                  <version>3.1.2</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>              <version>3.1.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                  <version>3.0.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId> <version>3.0.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>            <version>3.1.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                  <version>1.11.2</version>   </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                <version>3.2.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                 <version>3.7.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>               <version>3.1.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>             <version>3.0.0-M3</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>      <version>3.0.0-M3</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>             <version>3.0.0-M3</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>3.0.0</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId>                  <version>1.6</version>      </plugin>
+
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
+        <plugin> <groupId>com.github.spotbugs</groupId> <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.1</version>  </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>      <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>          <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>org.lesscss</groupId>         <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>  <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.assertj</groupId>         <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.3</version>
           <configuration>
-            <skip>true</skip>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.0.0-M1</version>
+          <configuration>
+            <altReleaseDeploymentRepository>gh-mvn-repo-releases::${publish.directory}/releases</altReleaseDeploymentRepository>
+            <altSnapshotDeploymentRepository>gh-mvn-repo-snapshots::${publish.directory}/snapshots</altSnapshotDeploymentRepository>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.3.1</version>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <parameters>true</parameters>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-build-matrix</id>
+            <phase>${toolchain.phase}</phase>
+            <goals> <goal>toolchain</goal> </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/.gitignore</exclude>
+          </excludes>
+          <attach>true</attach>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <inherited>true</inherited>
+            <phase>package</phase>
+            <goals><goal>jar-no-fork</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
             <inherited>true</inherited>
             <goals> <goal>enforce</goal> </goals>
             <configuration>
@@ -98,25 +166,70 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-        <version>1.1</version>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-build-matrix</id>
-            <phase>${toolchain.phase}</phase>
-            <goals> <goal>toolchain</goal> </goals>
+            <id>git-fetch-revision</id>
+            <goals> <goal>revision</goal> </goals>
+            <phase>initialize</phase>
             <configuration>
-              <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
+              <dotGitDirectory>${session.executionRootDirectory}/.git</dotGitDirectory>
+              <generateGitPropertiesFile>true</generateGitPropertiesFile>
+              <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.properties</generateGitPropertiesFilename>
+              <skipPoms>true</skipPoms>
+              <includeOnlyProperties>
+                <includeOnlyProperty>^\Qgit.commit.id\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.commit.id.full\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.commit.time\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.dirty\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.branch\E$</includeOnlyProperty>
+                <includeOnlyProperty>^\Qgit.closest.tag.name\E$</includeOnlyProperty>
+              </includeOnlyProperties>
+              <!-- <verbose>true</verbose> -->
+              <abbrevLength>40</abbrevLength>
             </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+  
 
   <profiles>
+    <!-- sign artifact using gpg: 
+    
+      https://blog.sonatype.com/2010/01/how-to-generate-pgp-signatures-with-maven/ 
+      https://sizeof.cat/post/openpgp-web-key-directory-wkd-hosting/
+    -->
+    <profile> 
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property> <name>performRelease</name> <value>true</value> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <configuration>
+              <keyname>${gpg.github.keyname}</keyname>
+              <passphraseServerId>gpg-github</passphraseServerId>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals> <goal>sign</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <!--
       Travis  does  not  support  maven-toolchain-plugin, or rather won't have more than one toolchain: having
       several  JDK defined in .travis.yml will only create one more docker instance rather than using the same
@@ -147,6 +260,27 @@
         <!-- Java 7 is no longer supported by travis -->
         <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
       </properties>
+      <!-- since a toolchain is not in use, enforce the use of a specific version of java. -->
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce-java</id>
+                <inherited>true</inherited>
+                <goals> <goal>enforce</goal> </goals>
+                <configuration>
+                  <rules>
+                    <requireJavaVersion> <version>${enforcer.requireJavaVersion}</version>  </requireJavaVersion>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>      
+        </plugins>
+      </build>
     </profile>
   </profiles>
 </project>
