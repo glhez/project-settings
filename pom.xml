@@ -61,8 +61,11 @@
     -->
     <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
 
-    <intdep.version>2019.07.20.01-SNAPSHOT</intdep.version>
+    <gpg.keyname>${gpg.github.keyname}</gpg.keyname>
+    <gpg.serverId>${gpg.github.serverId}</gpg.serverId>
 
+
+    <intdep.version>2019.07.20.01-SNAPSHOT</intdep.version>
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
@@ -494,8 +497,8 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <configuration>
-              <keyname>${gpg.github.keyname}</keyname>
-              <passphraseServerId>gpg-github</passphraseServerId>
+              <keyname>${gpg.keyname}</keyname>
+              <passphraseServerId>${gpg.serverId}</passphraseServerId>
             </configuration>
             <executions>
               <execution>
