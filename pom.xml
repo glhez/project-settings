@@ -69,7 +69,7 @@
     -->
     <dep.junit-bom.version>5.5.1</dep.junit-bom.version>
     <dep.mockito-core.version>3.0.0</dep.mockito-core.version>
-    <dep.assertj-core.version>3.12.2</dep.assertj-core.version>
+    <dep.assertj-core.version>3.13.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.12.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
@@ -177,24 +177,25 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.1</version>     </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.7.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.8.2</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>              <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>                   <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId>                          <version>1.6</version>       </plugin>
 
-        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
-        <plugin> <groupId>com.github.spotbugs</groupId> <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.1</version>  </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>      <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
-        <plugin> <groupId>org.jacoco</groupId>          <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
-        <plugin> <groupId>org.lesscss</groupId>         <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
-        <plugin> <groupId>pl.project13.maven</groupId>  <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
-        <plugin> <groupId>org.assertj</groupId>         <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
+        <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.1</version>  </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.assertj</groupId>              <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -474,6 +475,40 @@
         </plugins>
       </build>
     </profile>
+
+    <!--
+      Sign artifact using GPG:
+
+      - https://blog.sonatype.com/2010/01/how-to-generate-pgp-signatures-with-maven/
+      - https://sizeof.cat/post/openpgp-web-key-directory-wkd-hosting/
+
+    -->
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property> <name>performRelease</name> <value>true</value> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <configuration>
+              <keyname>${gpg.github.keyname}</keyname>
+              <passphraseServerId>gpg-github</passphraseServerId>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals> <goal>sign</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
 
     <!--
       Travis  does  not  support  maven-toolchain-plugin, or rather won't have more than one toolchain: having
