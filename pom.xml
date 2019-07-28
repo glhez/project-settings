@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>2019.07.28.01</version>
+  <version>2019.07.28.02-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
     <developerConnection>scm:git:github:glhez/project-settings.git</developerConnection>
-    <tag>v2019.07.28.01</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
@@ -65,7 +65,7 @@
     <gpg.serverId>${gpg.github.serverId}</gpg.serverId>
 
 
-    <intdep.version>2019.07.28.01</intdep.version>
+    <intdep.version>2019.07.28.02-SNAPSHOT</intdep.version>
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
