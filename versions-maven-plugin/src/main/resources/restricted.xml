@@ -16,6 +16,12 @@
         <ignoreVersion type="regex">.*</ignoreVersion>
       </ignoreVersions>
     </rule>
+    <!-- we switched to numbered versions -->
+    <rule groupId="com.github.glhez.parent" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion type="regex">2019\..*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <!-- don't want Android version of Guava -->
     <rule groupId="com.google.guava" artifactId="guava" comparisonMethod="maven">
       <ignoreVersions>
