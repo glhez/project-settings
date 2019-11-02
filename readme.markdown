@@ -1,4 +1,5 @@
-# Eclipse Settings maven-plugin [![Build Status](https://travis-ci.org/glhez/eclipse-settings-maven-plugin.svg?branch=master)](https://travis-ci.org/glhez/eclipse-settings-maven-plugin)
+# Eclipse Settings maven-plugin [![Build Status](https://travis-ci.org/glhez/eclipse-settings-maven-plugin.svg?branch=rebrand)](https://travis-ci.org/glhez/eclipse-settings-maven-plugin)
+
 Provide consistent Eclipse IDE settings for your team from a Maven POM.
 The eclipse-settings-maven-plugin will copy formatting, findbugs and other plugin
 settings from a centrally maintained settings JAR to your checked out workspace and
@@ -14,12 +15,50 @@ And many thanks to [Martijn Dashorst](https://github.com/dashorst) for the
 
 This project is licensed under the [MIT license](https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin/blob/bsi_release/LICENSE.txt).
 
-### Table of Contents
+# About this fork
 
- - [Configuration](#configuration)
- - [Building a release](https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin/blob/bsi_release/readme.markdown#releasing)
+I decided to create the fork because I had several problems with the plugin; while it is great, it lacks one fundamental thing: you don't know what file is being copied and from where.
 
-## Configuration
+Since, I had configuration problems, as well as the [second version of this plugin](https://github.com/topicusonderwijs/m2e-settings), I really wanted to know what was being done:
+
+- The second version plugin was "catching" this plugin execution, leading to issues because it was expecting older maven-eclipse-plugin configuration.
+- After this "second version" Eclipse plugin was removed, the properties were still not properly updated.
+
+This fork will:
+
+- Maven related change:
+  - `groupId` is changed to `com.github.glhez` to avoid avoid name clash (and also because I'm not releasing versions for `org.eclipse.scout`).
+  - `version` is changed from to `3.0.4-SNAPSHOT` to `3.1.0-SNAPSHOT`.
+- Important technical change:
+  - Plugins and dependencies are updated to Maven 3.6.0.
+- Minor code change:
+  - Add more logs to know what the plugin does.
+  - Use [BuildContext](https://www.eclipse.org/m2e/documentation/m2e-making-maven-plugins-compat.html#buildcontext-code-snippets) to "warn" Eclipse update file update.
+
+**Note:**
+
+1. Version are released in my [Github maven repository][3]. That's probably not a "good" idea to do that, but I don't have time to publish it on Central.
+2. While Maven 3.6.1 is out there, there are dependencies resolving conflicts (as of now) with maven-tycho-plugin 1.4 and maven 3.6.1.
+3. The version of Java is fixed to Java 7 to match Maven 3.6.0 version (see [Maven Releases History](http://maven.apache.org/docs/history.html))
+
+# Table of content
+
+- [Eclipse Settings maven-plugin ![Build Status](https://travis-ci.org/glhez/eclipse-settings-maven-plugin)](#Eclipse-Settings-maven-plugin-Build-Statushttpstravis-ciorgglhezeclipse-settings-maven-plugin)
+- [About this fork](#About-this-fork)
+- [Table of content](#Table-of-content)
+- [Configuration](#Configuration)
+  - [Add the maven repository](#Add-the-maven-repository)
+  - [Create your own settings jar](#Create-your-own-settings-jar)
+    - [Create a Maven project](#Create-a-Maven-project)
+    - [Add your settings to the JAR](#Add-your-settings-to-the-JAR)
+    - [Deploy to a Maven repository](#Deploy-to-a-Maven-repository)
+  - [Configure Eclipse Settings maven-plugin in your project](#Configure-Eclipse-Settings-maven-plugin-in-your-project)
+    - [Putting the settings in the right place](#Putting-the-settings-in-the-right-place)
+    - [Skipping the plugin execution](#Skipping-the-plugin-execution)
+  - [Re-import projects in Eclipse](#Re-import-projects-in-Eclipse)
+- [Releasing](#Releasing)
+
+# Configuration
 
 There are three steps to configure the *Eclipse Settings maven-plugin*:
 
@@ -27,12 +66,25 @@ There are three steps to configure the *Eclipse Settings maven-plugin*:
 2. Configure the *Eclipse Settings maven-plugin* in your project
 3. Re-import the Maven projects in Eclipse
 
-### Create your own settings jar
+## Add the maven repository
+
+The `com.github.glhez:eclipse-settings-maven-plugin:3.1.0` is not on maven central: you will have to add this repository to your pom, settings or enterprise Maven repository (such as Nexus or Artifactory):
+
+- You should _really_ add it to your enterprise repository so that your build stay consistent (for example, it may be removed).
+- Adding to your pom can also be a good idea, but you should probably add an URL to your enterprise repository if possible.
+
+``` xml
+  <repositories>
+    <repository> <id>github-maven-parent</id>      <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url> </repository>
+  </repositories>
+```
+
+## Create your own settings jar
 
 Create a project for your own settings jar. This project will only
 contain the relevant Eclipse settings files for your plugins.
 
-#### Create a Maven project
+### Create a Maven project
 
 First create an empty Maven project, and put this in the POM to build
 your settings jar (adjust the values for your own settings jar).
@@ -70,7 +122,7 @@ your settings jar (adjust the values for your own settings jar).
 This configures Maven to look in the `files` folder for resources and
 package them into the resulting jar.
 
-#### Add your settings to the JAR
+### Add your settings to the JAR
 
 Now you can copy the various Eclipse settings from the `.settings`
 folders into the files folder:
@@ -92,12 +144,12 @@ $ ls settings-project/files
 You can repeat this every time a new version of Eclipse comes out, and
 update all settings to new defaults.
 
-#### Deploy to a Maven repository
+### Deploy to a Maven repository
 
 Now you can upload the jar to a Maven repository using `mvn deploy`. Or
 use the Maven release plugin to create releases of your settings jar.
 
-### Configure Eclipse Settings maven-plugin in your project
+## Configure Eclipse Settings maven-plugin in your project
 
 The eclipse-settings-maven-plugin retrieves the Eclipse workspace settings from
 its configuration which is similar to the [Maven Eclipse Plugin][1] configuration.
@@ -113,9 +165,9 @@ You then specify your 'settings JAR' file as a dependency to the
         <plugins>
             ...
             <plugin>
-                <groupId>org.eclipse.scout</groupId>
+                <groupId>com.github.glhez</groupId>
                 <artifactId>eclipse-settings-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>3.1.0-SNAPSHOT</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.example.settings</groupId>
@@ -147,7 +199,7 @@ need:
       <build>
         <plugins>
           <plugin>
-            <groupId>org.eclipse.scout</groupId>
+            <groupId>com.github.glhez</groupId>
             <artifactId>eclipse-settings-maven-plugin</artifactId>
             <executions>
               <execution>
@@ -163,7 +215,7 @@ need:
     </profiles>
 ```
 
-#### Putting the settings in the right place
+### Putting the settings in the right place
 
 The *eclipse-settings-maven-plugin* allows you to [copy settings files from one
 location to another][2]. You use that to put each configuration file
@@ -217,7 +269,7 @@ Both `localAdditionalConfig` and `additionalConfig` does the same: copy the cont
 
 Files that could not be copied or were not found will fail with an error.
 
-#### Skipping the plugin execution
+### Skipping the plugin execution
 
 The plugin has a 'skip' configuration parameter to block the configuration of a project.
 This can be useful to disable a configuration made in the the parent pom at child pom level.
@@ -228,7 +280,7 @@ Example:
   <plugins>
     ...
     <plugin>
-      <groupId>org.eclipse.scout</groupId>
+      <groupId>com.github.glhez</groupId>
       <artifactId>eclipse-settings-maven-plugin</artifactId>
       <configuration>
         <skip>true</skip>
@@ -239,7 +291,7 @@ Example:
 </build>
 ```
 
-### Re-import projects in Eclipse
+## Re-import projects in Eclipse
 
 Now we have modified the projects, you have to re-import the projects
 in Eclipse. Typically this is done by:
@@ -248,43 +300,35 @@ in Eclipse. Typically this is done by:
  - right-clicking on the selection and
  - clicking "Maven → Update project"
 
-## Releasing __(TODO)__
+# Releasing
 
-If you are a developer of this project and have made some modifications use
-this guide to build a release to distribute it to the users.
+To release, you need to define the following profile in your settings:
 
-### Building a release
+    <profile>
+      <id>project-settings</id>
+      <properties>
+        <gpg.github.keyname><!--your key email --></gpg.github.keyname>
 
-Run the release shell script from the root folder of the m2e-settings
-project:
+        <publish.directory>file:///e:/git/github/glhez-maven-repository</publish.directory>
+      </properties>
+    </profile>
 
-``` bash
-./release.sh
-```
+Since the JAR are signed using maven-gpg-plugin, you need to create a new key: you may want to read this two documentations:
 
-This script performs the following steps:
+- [How to Generate PGP Signatures with Maven](https://blog.sonatype.com/2010/01/how-to-generate-pgp-signatures-with-maven/)
+- [OpenPGP Web Key Directory (WKD) hosting](https://sizeof.cat/post/openpgp-web-key-directory-wkd-hosting)
 
-- assign a new release version number to the current workspace
-- create a new distribution of the new version in the current workspace
-- create an updated P2 repository in the current workspace
-- commit all these results into the git repository
+Assuming you created said key, then here is what you'll need to do next:
 
-This doesn't push the intermediate results to github, this is a manual
-step you have to do to release a new version.
+- `gpg.github.keyname` correspond to the email associated with the key (that is used by gpg to find the key).
+- `publish.directory` is the path to some directory on your filesystem. This directory could be versioned (in my case, it point to my [repository][3]).
 
-## Uploading a release
+After all said, you only have to invoke maven:
 
-When you have checked the release and it is found OK, then you can
-upload the new version to github and instruct your team to perform an
-update:
+    ./mvnw release:perform release:prepare
 
-```
-git push
-```
-
-This will push the changes to github and publish a new update site to
-the update site URL.
-
+This should work.
 
 [1]: http://maven.apache.org/plugins/maven-eclipse-plugin
 [2]: http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html#additionalConfig
+[3]: https://github.com/glhez/maven-repository
