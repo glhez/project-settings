@@ -71,16 +71,16 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.5.2</dep.junit-bom.version>
-    <dep.mockito-core.version>3.2.0</dep.mockito-core.version>
+    <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
     <dep.assertj-core.version>3.14.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.12.1</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.13.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
     <dep.commons-text.version>1.8</dep.commons-text.version>
     <dep.commons-csv.version>1.7</dep.commons-csv.version>
     <dep.guava.version>28.1-jre</dep.guava.version>
     <dep.config.version>1.4.0</dep.config.version>
-    <dep.picocli.version>4.1.1</dep.picocli.version>
+    <dep.picocli.version>4.1.4</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
     <dep.asm.version>7.2</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
@@ -99,6 +99,7 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
+    <dep.saxon-he.version>9.9.1-6</dep.saxon-he.version>
 
     <!--
 
@@ -148,6 +149,7 @@
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -181,7 +183,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.1</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.8.2</version>     </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.2.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.2.1</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M4</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>              <version>3.0.0-M4</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>                     <version>3.0.0-M4</version>  </plugin>
@@ -194,7 +196,7 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
         <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.2</version>  </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.11</version>    </plugin>
         <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.5</version>     </plugin>
         <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
         <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>4.0.0</version>     </plugin>
@@ -203,7 +205,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>3.0.0-M1</version>
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
