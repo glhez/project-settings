@@ -131,7 +131,7 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
   }
 
   private boolean configureEclipseMeta() throws IOException, MojoExecutionException {
-    if (additionalConfig == null || additionalConfig.length <= 0) {
+    if ((additionalConfig == null || additionalConfig.length <= 0) && (localAdditionalConfig == null || localAdditionalConfig.length <= 0)) {
       LOGGER.warn("No settings specified.");
       return false;
     }
