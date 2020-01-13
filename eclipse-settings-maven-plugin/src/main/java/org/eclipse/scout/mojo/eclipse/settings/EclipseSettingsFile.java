@@ -3,6 +3,24 @@ package org.eclipse.scout.mojo.eclipse.settings;
 public class EclipseSettingsFile {
   private String name;
   private String location;
+  private Boolean failIfMissing;
+  private String packagings;
+
+  public Boolean getFailIfMissing() {
+    return failIfMissing;
+  }
+
+  public void setFailIfMissing(final Boolean failIfMissing) {
+    this.failIfMissing = failIfMissing;
+  }
+
+  public String getPackagings() {
+    return packagings;
+  }
+
+  public void setPackagings(final String packagings) {
+    this.packagings = packagings;
+  }
 
   public String getName() {
     return name;

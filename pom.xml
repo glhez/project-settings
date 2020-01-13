@@ -24,13 +24,13 @@
   </modules>
 
   <properties>
-    <java.compliance>1.7</java.compliance>
+    <java.compliance>1.8</java.compliance>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
-    <enforcer.requireJavaVersion>[1.7,1.8)</enforcer.requireJavaVersion>
+    <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
     <enforcer.requireMavenVersion>[3.6.0,3.7.0)</enforcer.requireMavenVersion>
   </properties>
 
@@ -50,24 +50,24 @@
 
     <pluginManagement>
       <plugins>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>3.1.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>3.2.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                <version>3.1.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>             <version>3.8.1</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>           <version>3.1.1</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>             <version>3.0.0-M2</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>             <version>3.0.0-M3</version> </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>              <version>3.0.0-M1</version> </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                  <version>3.1.2</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                  <version>3.2.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>              <version>3.1.1</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                  <version>3.0.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId> <version>3.0.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>            <version>3.1.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                  <version>1.11.2</version>   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                <version>3.2.1</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                 <version>3.7.1</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>               <version>3.1.0</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>             <version>3.0.0-M3</version> </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>      <version>3.0.0-M3</version> </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>             <version>3.0.0-M3</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                 <version>3.8.2</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>               <version>3.2.1</version>    </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>             <version>3.0.0-M4</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>      <version>3.0.0-M4</version> </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>             <version>3.0.0-M4</version> </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>3.0.0</version>    </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId>                  <version>1.6</version>      </plugin>
 
@@ -76,17 +76,17 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>   <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
-        <plugin> <groupId>com.github.spotbugs</groupId> <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.1</version>  </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>      <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.10</version>    </plugin>
-        <plugin> <groupId>org.jacoco</groupId>          <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.4</version>     </plugin>
+        <plugin> <groupId>com.github.spotbugs</groupId> <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.2</version>  </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>      <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.11</version>    </plugin>
+        <plugin> <groupId>org.jacoco</groupId>          <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.5</version>     </plugin>
         <plugin> <groupId>org.lesscss</groupId>         <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
-        <plugin> <groupId>pl.project13.maven</groupId>  <artifactId>git-commit-id-plugin</artifactId>                      <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>  <artifactId>git-commit-id-plugin</artifactId>                      <version>4.0.0</version>     </plugin>
         <plugin> <groupId>org.assertj</groupId>         <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>     </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>3.0.0-M1</version>
           <configuration>
             <tagNameFormat>@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>

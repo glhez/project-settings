@@ -1,14 +1,20 @@
 package org.eclipse.scout.mojo.eclipse.settings;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptySet;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.ArtifactUtils;
 import org.apache.maven.model.Dependency;
@@ -46,6 +52,24 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
   private PluginDescriptor plugin;
 
   /**
+   * Fail the build if one file is missing.
+   * <p>
+   * This may be overriding per file.
+   */
+  @Parameter(defaultValue = "true", readonly = false, required = false)
+  private boolean failIfMissing;
+
+  /**
+   * List of packaging to filter from these settings.
+   * <p>
+   * List must be space separated.
+   * <p>
+   * Default is empty, meaning all packaging will matches.
+   */
+  @Parameter(readonly = false, required = false)
+  private String packagings;
+
+  /**
    * The maven-eclipse-plugin allows you to move settings files from one
    * location to another. You use that to put each configuration file from
    * your settings JAR in the right location:
@@ -61,7 +85,9 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
    *             &lt;/file&gt;
    *             &lt;file&gt;
    *                 &lt;name&gt;.settings/org.eclipse.jdt.ui.prefs&lt;/name&gt;
-   *                &lt;location&gt;/org.eclipse.jdt.ui.prefs&lt;/location&gt;
+   *                 &lt;location&gt;/org.eclipse.jdt.ui.prefs&lt;/location&gt;
+   *                 &lt;packagings&gt;jar&lt;/packagings&gt;
+   *                 &lt;failIfMissing&gt;false&lt;failIfMissing&gt;
    *             &lt;/file&gt;
    *             &lt;!-- and more... --&gt;
    *         &lt;/additionalConfig&gt;
@@ -88,7 +114,9 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
    *             &lt;/file&gt;
    *             &lt;file&gt;
    *                 &lt;name&gt;${session.executionRootDirectory}/.settings/org.eclipse.jdt.ui.prefs&lt;/name&gt;
-   *                &lt;location&gt;/org.eclipse.jdt.ui.prefs&lt;/location&gt;
+   *                 &lt;location&gt;/org.eclipse.jdt.ui.prefs&lt;/location&gt;
+   *                 &lt;packagings&gt;jar&lt;/packagings&gt;
+   *                 &lt;failIfMissing&gt;false&lt;failIfMissing&gt;
    *             &lt;/file&gt;
    *             &lt;!-- and more... --&gt;
    *         &lt;/localAdditionalConfig&gt;
@@ -164,7 +192,8 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
     for (final Plugin plugin : plugins) {
       if (pluginFilter(plugin)) {
         for (final Dependency dependency : plugin.getDependencies()) {
-          final Artifact artifact = artifactMap.get(ArtifactUtils.versionlessKey(dependency.getGroupId(), dependency.getArtifactId()));
+          final Artifact artifact = artifactMap
+              .get(ArtifactUtils.versionlessKey(dependency.getGroupId(), dependency.getArtifactId()));
           if (null != artifact) {
             artifacts.add(artifact);
           }
@@ -186,40 +215,99 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
     LOGGER.info("Copying {} resources using {} resolver.", additionalConfig.length, resolver);
 
     final List<File> updatedFiles = new ArrayList<>();
-    for (final EclipseSettingsFile config : additionalConfig) {
-      final String location = config.getLocation();
-      final File target = new File(project.getBasedir(), config.getName());
+    final List<IOException> failures = new ArrayList<>();
 
-      try {
-        final Resource source = resolver.getResource(location);
+    final Set<String> globalPackagings = getPackagings(this.packagings);
+    final String projectPackaging = project.getPackaging();
+    final File basedir = project.getBasedir();
 
-        /*
-         * if we try to write to a directory, this will fail. We don't try to behave like mv which
-         * relocate the
-         * source into the folder (eg: mv a b will give b/a).
-         */
-        if (target.isDirectory()) {
-          LOGGER.warn("{} is a directory, ignoring.", target.getAbsolutePath());
+    try {
+
+      for (final EclipseSettingsFile config : additionalConfig) {
+        final String location = getOrFail(config.getLocation(), "location");
+        final String name = getOrFail(config.getName(), "name");
+
+        boolean failIfMissing;
+        if (config.getFailIfMissing() == null) {
+          failIfMissing = this.failIfMissing;
+        } else {
+          failIfMissing = config.getFailIfMissing().booleanValue();
+        }
+
+        Set<String> localPackagings;
+        if (config.getPackagings() == null) {
+          localPackagings = globalPackagings;
+        } else {
+          localPackagings = getPackagings(config.getPackagings());
+        }
+
+        if (!localPackagings.isEmpty() && !localPackagings.contains(projectPackaging)) {
+          if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("ignoring {} -> {}, because packaging '{}' is not in {}", location, name, projectPackaging,
+                localPackagings);
+          }
           continue;
         }
 
-        target.getParentFile().mkdirs();
+        final File target = new File(basedir, name);
 
-        LOGGER.info("Copying {} to {}", source, target);
-        try (InputStream inStream = source.getResourceAsStream();
-            OutputStream outStream = new FileOutputStream(target)) {
-          IOUtil.copy(inStream, outStream);
+        try {
+          final Resource source = resolver.getResource(location);
+
+          /*
+           * if we try to write to a directory, this will fail. We don't try to behave like mv which
+           * relocate the
+           * source into the folder (eg: mv a b will give b/a).
+           */
+          if (target.isDirectory()) {
+            LOGGER.warn("{} is a directory, ignoring.", target.getAbsolutePath());
+            continue;
+          }
+
+          target.getParentFile().mkdirs();
+
+          LOGGER.info("Copying {} to {}", source, target);
+          try (InputStream inStream = source.getResourceAsStream();
+              OutputStream outStream = new FileOutputStream(target)) {
+            IOUtil.copy(inStream, outStream);
+          }
+          updatedFiles.add(target);
+        } catch (final IOException e) {
+          if (failIfMissing) {
+            LOGGER.error("Could not copy {} to {}", location, target.getAbsolutePath(), e);
+            failures.add(e);
+          } else {
+            LOGGER.warn("Could not copy {} to {}", location, target.getAbsolutePath(), e);
+          }
         }
-        updatedFiles.add(target);
-      } catch (final IOException e) {
-        throw new MojoExecutionException(String.format("Unable to copy %s to %s", location, target.getAbsolutePath()),
-            e);
-      } finally {
-        for (final File file : updatedFiles) {
-          buildContext.refresh(file);
+      }
+
+      if (!failures.isEmpty()) {
+        final MojoExecutionException ex = new MojoExecutionException("Unable to copy " + failures.size() + " files");
+        for (final IOException e : failures) {
+          ex.addSuppressed(e);
         }
+        throw ex;
+      }
+
+    } finally {
+      for (final File file : updatedFiles) {
+        buildContext.refresh(file);
       }
     }
   }
 
+  private String getOrFail(final String value, final String tagName) throws MojoExecutionException {
+    if (StringUtils.isBlank(value)) {
+      throw new MojoExecutionException("No <" + tagName + " > for some file, please fix it");
+    }
+    return value;
+  }
+
+  private Set<String> getPackagings(final String str) {
+    if (str == null) {
+      return emptySet();
+    }
+    return new HashSet<>(asList(StringUtils.split(str)));
+  }
 }
