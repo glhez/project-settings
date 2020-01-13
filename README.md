@@ -34,6 +34,9 @@ This fork will:
 - Minor code change:
   - Add more logs to know what the plugin does.
   - Use [BuildContext](https://www.eclipse.org/m2e/documentation/m2e-making-maven-plugins-compat.html#buildcontext-code-snippets) to "warn" Eclipse update file update.
+- Feature change
+  - Added `failIfMissing` whose default value is `true` to fail if a file is missing. **Can be set per file.**
+  - Added `packaging` to filter file based on packaging. This allow customized what should be copied based on packaging (ex: pom file should not have java settings). **Can be set per file.**
 
 **Note:**
 
@@ -43,20 +46,20 @@ This fork will:
 
 # Table of content
 
-- [Eclipse Settings maven-plugin ![Build Status](https://travis-ci.org/glhez/eclipse-settings-maven-plugin)](#Eclipse-Settings-maven-plugin-Build-Statushttpstravis-ciorgglhezeclipse-settings-maven-plugin)
-- [About this fork](#About-this-fork)
-- [Table of content](#Table-of-content)
-- [Configuration](#Configuration)
-  - [Add the maven repository](#Add-the-maven-repository)
-  - [Create your own settings jar](#Create-your-own-settings-jar)
-    - [Create a Maven project](#Create-a-Maven-project)
-    - [Add your settings to the JAR](#Add-your-settings-to-the-JAR)
-    - [Deploy to a Maven repository](#Deploy-to-a-Maven-repository)
-  - [Configure Eclipse Settings maven-plugin in your project](#Configure-Eclipse-Settings-maven-plugin-in-your-project)
-    - [Putting the settings in the right place](#Putting-the-settings-in-the-right-place)
-    - [Skipping the plugin execution](#Skipping-the-plugin-execution)
-  - [Re-import projects in Eclipse](#Re-import-projects-in-Eclipse)
-- [Releasing](#Releasing)
+- [Eclipse Settings maven-plugin ![Build Status](https://travis-ci.org/glhez/eclipse-settings-maven-plugin)](#eclipse-settings-maven-plugin-img-src%22httpstravis-ciorgglhezeclipse-settings-maven-plugin%22-alt%22build-status%22)
+- [About this fork](#about-this-fork)
+- [Table of content](#table-of-content)
+- [Configuration](#configuration)
+  - [Add the maven repository](#add-the-maven-repository)
+  - [Create your own settings jar](#create-your-own-settings-jar)
+    - [Create a Maven project](#create-a-maven-project)
+    - [Add your settings to the JAR](#add-your-settings-to-the-jar)
+    - [Deploy to a Maven repository](#deploy-to-a-maven-repository)
+  - [Configure Eclipse Settings maven-plugin in your project](#configure-eclipse-settings-maven-plugin-in-your-project)
+    - [Putting the settings in the right place](#putting-the-settings-in-the-right-place)
+    - [Skipping the plugin execution](#skipping-the-plugin-execution)
+  - [Re-import projects in Eclipse](#re-import-projects-in-eclipse)
+- [Releasing](#releasing)
 
 # Configuration
 
@@ -229,14 +232,18 @@ from your settings JAR in the right location:
             <plugin>
             <...>
             <configuration>
+                <failIfMissing>true</failIfMissing>
                 <additionalConfig>
                     <file>
                         <name>.settings/org.eclipse.jdt.core.prefs</name>
                         <location>/org.eclipse.jdt.core.prefs</location>
+                        <packaging>jar war</packaging>
                     </file>
                     <file>
                         <name>.settings/org.eclipse.jdt.ui.prefs</name>
                         <location>/org.eclipse.jdt.ui.prefs</location>
+                        <packaging>jar war</packaging>
+                        <failIfMissing>false</failIfMissing>
                     </file>
                     <!-- and more... -->
                 </additionalConfig>
@@ -245,10 +252,12 @@ from your settings JAR in the right location:
                     <file>
                         <name>${session.executionRootDirectory}/.settings/org.eclipse.jdt.core.prefs</name>
                         <location>/org.eclipse.jdt.core.prefs</location>
+                        <packaging>jar war</packaging>
                     </file>
                     <file>
                         <name>${session.executionRootDirectory}/.settings/org.eclipse.jdt.ui.prefs</name>
                         <location>/org.eclipse.jdt.ui.prefs</location>
+                        <packaging>jar war</packaging>
                     </file>
                     <!-- and more... -->
                 </localAdditionalConfig>
