@@ -12,7 +12,7 @@ public interface ResourceResolver {
    * Get some resource.
    *
    * @param path path to the resource
-   * @return return a {@link Resource}
+   * @return return a {@link Resource} or {@code null} if not found.
    * @throws java.io.FileNotFoundException fail if resource is not found.
    * @throws IOException in case of other IO exception.
    */

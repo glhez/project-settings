@@ -46,7 +46,7 @@ public class ArtifactResourceResolver implements ResourceResolver {
         return new ArtifactResourceImpl(artifact, entry);
       }
     }
-    throw new FileNotFoundException(String.format("Unable to locate resource [%s] in artifacts", resource));
+    return null;
   }
 
   @Override

@@ -1,6 +1,7 @@
 package org.eclipse.scout.mojo.eclipse.settings;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -163,10 +164,10 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
       if (artifacts.isEmpty()) {
         LOGGER.warn("Could not find dependencies attached to this plugin.");
       }
-      prefix = source.equals("jar") ? "":source.substring("jar:".length());
+      prefix = source.equals("jar") ? "" : source.substring("jar:".length());
       resolver = new ArtifactResourceResolver(artifacts, prefix);
     } else if (source.equals("file") || source.startsWith("file:")) {
-      prefix = source.equals("file") ? "":source.substring("file:".length());
+      prefix = source.equals("file") ? "" : source.substring("file:".length());
       resolver = new FileSystemResourceResolver(
           prefix.isEmpty() ? project.getBasedir() : new File(prefix).getAbsoluteFile());
     } else {
@@ -253,6 +254,7 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
 
     final List<File> updatedFiles = new ArrayList<>();
     final List<IOException> failures = new ArrayList<>();
+    int missingFileError = 0;
 
     final PackagingFilter packagingFilter = PackagingFilter.newPackagingFilter(packagings);
     final String projectPackaging = project.getPackaging();
@@ -277,6 +279,15 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
 
         try {
           final Resource source = resolver.getResource(location);
+          if (null == source) {
+            if (failOnError) {
+              LOGGER.error("Source file {} does not exists.", location);
+              ++missingFileError;
+            } else {
+              LOGGER.warn("Source file {} does not exists.", location);
+            }
+            continue;
+          }
 
           /*
            * if we try to write to a directory, this will fail. We don't try to behave like mv which
@@ -301,13 +312,18 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
             LOGGER.error("Could not copy {} to {}", location, target.getAbsolutePath(), e);
             failures.add(e);
           } else {
-            LOGGER.warn("Could not copy {} to {}", location, target.getAbsolutePath(), e);
+            if (LOGGER.isDebugEnabled()) {
+              LOGGER.warn("Could not copy {} to {}", location, target.getAbsolutePath(), e);
+            } else {
+              LOGGER.warn("Could not copy {} to {} ({})", location, target.getAbsolutePath(), e.getMessage());
+            }
           }
         }
       }
 
-      if (!failures.isEmpty()) {
-        final MojoExecutionException ex = new MojoExecutionException("Unable to copy " + failures.size() + " files");
+      if (!failures.isEmpty() || missingFileError > 0) {
+        final MojoExecutionException ex = new MojoExecutionException(
+            "Unable to copy " + (failures.size() + missingFileError) + " files");
         for (final IOException e : failures) {
           ex.addSuppressed(e);
         }

@@ -19,7 +19,11 @@ public class FileSystemResourceResolver implements ResourceResolver {
     if (res.isAbsolute()) {
       return new FileSystemResource(res);
     }
-    return new FileSystemResource(new File(baseDirectory, path).getAbsoluteFile());
+    final File file = new File(baseDirectory, path).getAbsoluteFile();
+    if (file.exists()) {
+      return new FileSystemResource(file);
+    }
+    return null;
   }
 
   @Override
