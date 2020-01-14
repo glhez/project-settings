@@ -3,15 +3,15 @@ package org.eclipse.scout.mojo.eclipse.settings;
 public class EclipseSettingsFile {
   private String name;
   private String location;
-  private Boolean failIfMissing;
+  private Boolean failOnError;
   private String packagings;
 
-  public Boolean getFailIfMissing() {
-    return failIfMissing;
+  public Boolean getFailOnError() {
+    return failOnError;
   }
 
-  public void setFailIfMissing(final Boolean failIfMissing) {
-    this.failIfMissing = failIfMissing;
+  public void setFailOnError(final Boolean failOnError) {
+    this.failOnError = failOnError;
   }
 
   public String getPackagings() {

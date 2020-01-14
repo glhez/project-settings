@@ -19,7 +19,21 @@
     <mavenPluginAnnotationsVersion>3.6.0</mavenPluginAnnotationsVersion>
     <plexusUtilsVersion>3.2.1</plexusUtilsVersion>
     <slf4jVersion>1.7.26</slf4jVersion>
-  </properties>
+    
+    <dep.junit-bom.version>5.5.2</dep.junit-bom.version>
+    <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
+    <dep.assertj-core.version>3.14.0</dep.assertj-core.version>
+    <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>    
+  </properties> 
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope> <type>pom</type> </dependency>
+      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>             <version>${dep.assertj-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId>         <version>${dep.memoryfilesystem.version}</version>         <!--scope-->          <!--type-->      </dependency>  
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency> <groupId>org.apache.maven</groupId>              <artifactId>maven-plugin-api</artifactId>         <version>${mavenVersion}</version>                  </dependency>          
@@ -28,8 +42,13 @@
     <dependency> <groupId>org.apache.maven</groupId>              <artifactId>maven-artifact</artifactId>           <version>${mavenVersion}</version>                  </dependency>          
     <dependency> <groupId>org.codehaus.plexus</groupId>           <artifactId>plexus-utils</artifactId>             <version>${plexusUtilsVersion}</version>            </dependency>          
     <dependency> <groupId>org.sonatype.plexus</groupId>           <artifactId>plexus-build-api</artifactId>         <version>0.0.7</version>                            </dependency>          
-    <dependency> <groupId>org.apache.maven.plugin-tools</groupId> <artifactId>maven-plugin-annotations</artifactId> <version>${mavenPluginAnnotationsVersion}</version> <scope>provided</scope> </dependency>
+    <dependency> <groupId>org.apache.maven.plugin-tools</groupId> <artifactId>maven-plugin-annotations</artifactId> <version>${mavenPluginAnnotationsVersion}</version> <scope>provided</scope> </dependency>   
     <dependency> <groupId>org.slf4j</groupId>                     <artifactId>slf4j-api</artifactId>                <version>${slf4jVersion}</version>                  </dependency>          
+
+    <dependency> <groupId>org.junit.jupiter</groupId>    <artifactId>junit-jupiter</artifactId>    <scope>test</scope> </dependency>
+    <dependency> <groupId>org.mockito</groupId>          <artifactId>mockito-core</artifactId>     <scope>test</scope> </dependency>
+    <dependency> <groupId>org.assertj</groupId>          <artifactId>assertj-core</artifactId>     <scope>test</scope> </dependency>
+    <dependency> <groupId>com.github.marschall</groupId> <artifactId>memoryfilesystem</artifactId> <scope>test</scope> </dependency>
   </dependencies>
 
   <build>

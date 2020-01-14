@@ -1,5 +1,7 @@
 package org.eclipse.scout.mojo.eclipse.settings;
 
+import static java.util.stream.Collectors.joining;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,18 +10,35 @@ import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.Artifact;
 
 public class ArtifactResourceResolver implements ResourceResolver {
   private final List<ArtifactJarFile> artifacts;
+  private final String prefix;
 
-  public ArtifactResourceResolver(final List<Artifact> artifacts) throws IOException {
+  public ArtifactResourceResolver(final List<Artifact> artifacts, final String prefix) throws IOException {
     this.artifacts = newArtifactJarFiles(artifacts);
+    this.prefix = p(StringUtils.trimToNull(prefix));
+  }
+
+  private static String p(final String prefix) {
+    if (prefix == null || prefix.endsWith("/")) {
+      return prefix;
+    }
+    return prefix + "/";
   }
 
   @Override
   public Resource getResource(final String resource) throws IOException {
-    final String path = resource.startsWith("/") ? resource.substring(1) : resource;
+    String path;
+    if (resource.startsWith("/")) {
+      path = resource.substring(1);
+    } else if (prefix != null) {
+      path = prefix + "/" + resource;
+    } else {
+      path = resource;
+    }
 
     for (final ArtifactJarFile artifact : this.artifacts) {
       final JarEntry entry = artifact.getJarEntry(path);
@@ -32,7 +51,9 @@ public class ArtifactResourceResolver implements ResourceResolver {
 
   @Override
   public String toString() {
-    return getClass().getSimpleName();
+    final String as = artifacts.stream().map(ArtifactJarFile::getArtifact).map(Artifact::toString)
+        .collect(joining(",", "[", "]"));
+    return "jar:" + (prefix != null ? prefix : "") + " artifacts: " + as;
   }
 
   private static List<ArtifactJarFile> newArtifactJarFiles(final List<Artifact> artifacts) throws IOException {
@@ -70,6 +91,10 @@ public class ArtifactResourceResolver implements ResourceResolver {
     private ArtifactJarFile(final Artifact artifact) throws IOException {
       super(artifact.getFile());
       this.artifact = artifact;
+    }
+
+    public Artifact getArtifact() {
+      return artifact;
     }
 
   }

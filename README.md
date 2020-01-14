@@ -35,8 +35,9 @@ This fork will:
   - Add more logs to know what the plugin does.
   - Use [BuildContext](https://www.eclipse.org/m2e/documentation/m2e-making-maven-plugins-compat.html#buildcontext-code-snippets) to "warn" Eclipse update file update.
 - Feature change
-  - Added `failIfMissing` whose default value is `true` to fail if a file is missing. **Can be set per file.**
+  - Added `failOnError` whose default value is `true` to fail if a file could not be copied (ex: file missing, ...). **Can be set per file.**
   - Added `packaging` to filter file based on packaging. This allow customized what should be copied based on packaging (ex: pom file should not have java settings). **Can be set per file.**
+  - Use `<source>` to select a resolver: it will resolve `<location>` based on that.
 
 **Note:**
 
@@ -232,35 +233,25 @@ from your settings JAR in the right location:
             <plugin>
             <...>
             <configuration>
-                <failIfMissing>true</failIfMissing>
+                <failOnError>true</failOnError>  <!-- this is the default -->
+                <packaging>!pom</packaging>      <!-- this is the default -->
+                <!-- where the configuration is. -->
+                <source>jar:/</source>
+                <!-- <source>file:${session.executionRootDirectory}</source> -->
                 <additionalConfig>
                     <file>
                         <name>.settings/org.eclipse.jdt.core.prefs</name>
                         <location>/org.eclipse.jdt.core.prefs</location>
-                        <packaging>jar war</packaging>
+                        <packaging>jar</packaging>
                     </file>
                     <file>
                         <name>.settings/org.eclipse.jdt.ui.prefs</name>
                         <location>/org.eclipse.jdt.ui.prefs</location>
-                        <packaging>jar war</packaging>
-                        <failIfMissing>false</failIfMissing>
+                        <packaging>war</packaging>
+                        <failOnError>false</failOnError>
                     </file>
                     <!-- and more... -->
                 </additionalConfig>
-
-                <localAdditionalConfig>
-                    <file>
-                        <name>${session.executionRootDirectory}/.settings/org.eclipse.jdt.core.prefs</name>
-                        <location>/org.eclipse.jdt.core.prefs</location>
-                        <packaging>jar war</packaging>
-                    </file>
-                    <file>
-                        <name>${session.executionRootDirectory}/.settings/org.eclipse.jdt.ui.prefs</name>
-                        <location>/org.eclipse.jdt.ui.prefs</location>
-                        <packaging>jar war</packaging>
-                    </file>
-                    <!-- and more... -->
-                </localAdditionalConfig>
             </configuration>
             </plugin>
             ...

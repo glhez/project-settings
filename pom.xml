@@ -257,7 +257,6 @@
       <activation> <property> <name>env.TRAVIS</name> </property> </activation>
       <properties>
         <toolchain.phase>none</toolchain.phase>
-        <!-- Java 7 is no longer supported by travis -->
         <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
       </properties>
       <!-- since a toolchain is not in use, enforce the use of a specific version of java. -->
