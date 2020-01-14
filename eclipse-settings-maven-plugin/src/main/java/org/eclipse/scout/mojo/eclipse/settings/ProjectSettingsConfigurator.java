@@ -152,7 +152,7 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
 
     ResourceResolver resolver;
     String prefix;
-    if (source.startsWith("jar:")) {
+    if (source.equals("jar") || source.startsWith("jar:")) {
       final List<Artifact> artifacts = collectArtifacts();
       if (LOGGER.isDebugEnabled()) {
         LOGGER.debug("Resolved {} artifacts", artifacts.size());
@@ -163,10 +163,10 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
       if (artifacts.isEmpty()) {
         LOGGER.warn("Could not find dependencies attached to this plugin.");
       }
-      prefix = source.substring("jar:".length());
+      prefix = source.equals("jar") ? "":source.substring("jar:".length());
       resolver = new ArtifactResourceResolver(artifacts, prefix);
-    } else if (source.startsWith("file:")) {
-      prefix = source.substring("file:".length());
+    } else if (source.equals("file") || source.startsWith("file:")) {
+      prefix = source.equals("file") ? "":source.substring("file:".length());
       resolver = new FileSystemResourceResolver(
           prefix.isEmpty() ? project.getBasedir() : new File(prefix).getAbsoluteFile());
     } else {
