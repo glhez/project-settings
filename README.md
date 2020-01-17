@@ -28,7 +28,7 @@ This fork will:
 
 - Maven related change:
   - `groupId` is changed to `com.github.glhez` to avoid avoid name clash (and also because I'm not releasing versions for `org.eclipse.scout`).
-  - `version` is changed from to `3.0.4-SNAPSHOT` to `3.1.x`.
+  - `version` is changed from `3.0.4-SNAPSHOT` to `3.2.x`.
 - Important technical change:
   - Plugins and dependencies are updated to Maven 3.6.0.
 - Minor code change:
