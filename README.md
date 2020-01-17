@@ -28,7 +28,7 @@ This fork will:
 
 - Maven related change:
   - `groupId` is changed to `com.github.glhez` to avoid avoid name clash (and also because I'm not releasing versions for `org.eclipse.scout`).
-  - `version` is changed from to `3.0.4-SNAPSHOT` to `3.1.0-SNAPSHOT`.
+  - `version` is changed from to `3.0.4-SNAPSHOT` to `3.1.x`.
 - Important technical change:
   - Plugins and dependencies are updated to Maven 3.6.0.
 - Minor code change:
@@ -72,7 +72,7 @@ There are three steps to configure the *Eclipse Settings maven-plugin*:
 
 ## Add the maven repository
 
-The `com.github.glhez:eclipse-settings-maven-plugin:3.1.0` is not on maven central: you will have to add this repository to your pom, settings or enterprise Maven repository (such as Nexus or Artifactory):
+The `com.github.glhez:eclipse-settings-maven-plugin` is not on maven central: you will have to add this repository to your pom, settings or enterprise Maven repository (such as Nexus or Artifactory):
 
 - You should _really_ add it to your enterprise repository so that your build stay consistent (for example, it may be removed).
 - Adding to your pom can also be a good idea, but you should probably add an URL to your enterprise repository if possible.
@@ -171,7 +171,7 @@ You then specify your 'settings JAR' file as a dependency to the
             <plugin>
                 <groupId>com.github.glhez</groupId>
                 <artifactId>eclipse-settings-maven-plugin</artifactId>
-                <version>3.1.0-SNAPSHOT</version>
+                <version>LATEST</version> <!-- see pom.xml -->
                 <dependencies>
                     <dependency>
                         <groupId>com.example.settings</groupId>

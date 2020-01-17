@@ -32,6 +32,18 @@
     
     <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
     <enforcer.requireMavenVersion>[3.6.0,3.7.0)</enforcer.requireMavenVersion>
+    
+    <!--
+      Publishing properties
+
+      This  must  be  defined  in  settings.xml  and  point  to a local GIT repository containing the mvn-repo
+      branches which is used to serve our artifact.
+
+    -->
+    <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
+
+    <gpg.keyname>${gpg.github.keyname}</gpg.keyname>
+    <gpg.serverId>${gpg.github.serverId}</gpg.serverId>
   </properties>
 
   <build>
@@ -86,7 +98,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>2.5.3</version>
           <configuration>
             <tagNameFormat>@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -215,8 +227,8 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <configuration>
-              <keyname>${gpg.github.keyname}</keyname>
-              <passphraseServerId>gpg-github</passphraseServerId>
+              <keyname>${gpg.keyname}</keyname>
+              <passphraseServerId>${gpg.serverId}</passphraseServerId>
             </configuration>
             <executions>
               <execution>
