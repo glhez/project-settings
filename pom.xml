@@ -6,7 +6,7 @@
   <!-- groupId changed to avoid clashing with existing project -->
   <groupId>com.github.glhez</groupId>
   <artifactId>eclipse-settings-parent</artifactId>
-  <version>3.1.1-SNAPSHOT</version>
+  <version>3.2.0</version>
   <packaging>pom</packaging>
 
   <name>Eclipse Settings Maven Plugin Parent</name>
@@ -15,7 +15,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/eclipse-settings-maven-plugin.git</connection>
     <developerConnection>scm:git:github:glhez/eclipse-settings-maven-plugin.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>3.2.0</tag>
     <url>https://github.com/glhez/eclipse-settings-maven-plugin</url>
   </scm>
 
