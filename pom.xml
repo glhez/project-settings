@@ -214,7 +214,8 @@
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
-            <releaseProfiles>release-sign-artifacts</releaseProfiles>
+            <!-- <releaseProfiles>release-sign-artifacts</releaseProfiles> -->
+            <arguments> -Prelease-sign-artifacts </arguments>
           </configuration>
         </plugin>
 
