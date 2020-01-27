@@ -59,6 +59,7 @@
           <plugin>
             <groupId>${plugin.eclipse-settings.groupId}</groupId>
             <artifactId>eclipse-settings-maven-plugin</artifactId>
+            <version>${plugin.eclipse-settings.version}</version>
             <executions>
               <execution>
                 <phase>generate-resources</phase>

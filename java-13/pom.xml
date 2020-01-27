@@ -9,18 +9,18 @@
     <relativePath>../java-parent</relativePath>
   </parent>
 
-  <artifactId>java-11</artifactId>
+  <artifactId>java-13</artifactId>
   <packaging>pom</packaging>
 
-  <name>POM file for Java 11 based project.</name>
+  <name>POM file for Java 13 based project.</name>
 
   <properties>
-    <java.compliance>11</java.compliance>
+    <java.compliance>13</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <enforcer.requireJavaVersion>[11.0.0,12.0.0)</enforcer.requireJavaVersion>
+    <enforcer.requireJavaVersion>[13.0.0,14.0.0)</enforcer.requireJavaVersion>
 
     <javac.xlint.args>all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
 

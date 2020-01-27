@@ -24,6 +24,7 @@
         <includes>
           <include>java-1.8/**</include>
           <include>java-11/**</include>
+          <include>java-13/**</include>
           <include>code-formatter-profile/**</include>
         </includes>
         <excludes>
@@ -43,6 +44,7 @@
             <!-- these are generated, we don't want to fix them. -->
             <exclude>java8/**</exclude>
             <exclude>java11/**</exclude>
+            <exclude>java13/**</exclude>
             <exclude>code-formatter-profile/**</exclude>
           </excludes>
         </configuration>

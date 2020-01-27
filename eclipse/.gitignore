@@ -8,3 +8,8 @@ java-1.8/bin
 !java-11/.classpath
 !java-11/.settings/
 java11/bin
+
+!java-13/.project
+!java-13/.classpath
+!java-13/.settings/
+java13/bin

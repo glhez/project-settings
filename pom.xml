@@ -41,6 +41,7 @@
     <module>java-parent</module>
     <module>java-1.8</module>
     <module>java-11</module>
+    <module>java-13</module>
   </modules>
 
   <properties>
@@ -50,7 +51,11 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
-    <enforcer.requireMavenVersion>[3.6.2,3.7.0)</enforcer.requireMavenVersion>
+    <enforcer.requireMavenVersion>[3.6.3,3.7.0)</enforcer.requireMavenVersion>
+
+    <!-- configuration file to be used for the maven-formatter-plugin (this is disabled due to CRLF issue
+         in the plugin) -->
+    <formatter.configFile.java>code-formatter-profile/eclipse-2019.12.xml</formatter.configFile.java>
 
     <!--
       Publishing properties
@@ -70,7 +75,7 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.5.2</dep.junit-bom.version>
+    <dep.junit-bom.version>5.6.0</dep.junit-bom.version>
     <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
     <dep.assertj-core.version>3.14.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
@@ -78,15 +83,15 @@
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
     <dep.commons-text.version>1.8</dep.commons-text.version>
     <dep.commons-csv.version>1.7</dep.commons-csv.version>
-    <dep.guava.version>28.1-jre</dep.guava.version>
+    <dep.guava.version>28.2-jre</dep.guava.version>
     <dep.config.version>1.4.0</dep.config.version>
     <dep.picocli.version>4.1.4</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
-    <dep.asm.version>7.2</dep.asm.version>
+    <dep.asm.version>7.3.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.148</dep.cfr.version>
 
-    <dep.jmh.version>1.22</dep.jmh.version>
+    <dep.jmh.version>1.23</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
 
@@ -115,7 +120,7 @@
       logs.
     -->
     <plugin.eclipse-settings.groupId>com.github.glhez</plugin.eclipse-settings.groupId>
-    <plugin.eclipse-settings.version>3.1.0</plugin.eclipse-settings.version>
+    <plugin.eclipse-settings.version>3.2.0</plugin.eclipse-settings.version>
     <plugin.formatter.version>2.11.0</plugin.formatter.version>
   </properties>
 
@@ -209,6 +214,7 @@
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
+            <releaseProfiles>release-sign-artifacts</releaseProfiles>
           </configuration>
         </plugin>
 
@@ -239,7 +245,7 @@
             <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
           <configuration>
-            <configFile>code-formatter-profile/eclipse-2019.06.xml</configFile>
+            <configFile>${formatter.configFile.java}</configFile>
             <lineEnding>AUTO</lineEnding>
             <includes>
               <include>**/*.java/</include>
