@@ -77,7 +77,7 @@
     -->
     <dep.junit-bom.version>5.6.0</dep.junit-bom.version>
     <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
-    <dep.assertj-core.version>3.14.0</dep.assertj-core.version>
+    <dep.assertj-core.version>3.15.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.13.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
@@ -105,6 +105,7 @@
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
     <dep.saxon-he.version>9.9.1-6</dep.saxon-he.version>
+    <dep.freemarker.version>2.3.29</dep.freemarker.version>
 
     <!--
 
@@ -154,7 +155,8 @@
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> <!--scope-->          <!--type-->      </dependency>
-      <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 </dependency>
+      <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.freemarker</groupId>           <artifactId>freemarker</artifactId>               <version>${dep.freemarker.version}</version>               <!--scope-->          <!--type-->      </dependency>
     </dependencies>
   </dependencyManagement>
 
