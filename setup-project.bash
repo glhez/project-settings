@@ -30,6 +30,12 @@ mkdir -pv "${TARGET_DIR}/.mvn/wrapper"
 cp "${SCRIPT_DIR}/.mvn/wrapper/maven-wrapper.properties" "${TARGET_DIR}/.mvn/wrapper"
 
 echo ":: fixing line ending"
-dos2unix "${SCRIPT_DIR}/mvnw"
+dos2unix "${TARGET_DIR}/mvnw"
+
+echo ":: fixing permissions"
+if [[ ! -x "${TARGET_DIR}/mvnw" ]]; then
+  chmod u+x "${TARGET_DIR}/mvnw"
+  git add --chmod=+x "${TARGET_DIR}/mvnw"
+fi
 
 echo ":: done"
