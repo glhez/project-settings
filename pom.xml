@@ -82,7 +82,7 @@
     <dep.log4j-bom.version>2.13.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
     <dep.commons-text.version>1.8</dep.commons-text.version>
-    <dep.commons-csv.version>1.7</dep.commons-csv.version>
+    <dep.commons-csv.version>1.8</dep.commons-csv.version>
     <dep.guava.version>28.2-jre</dep.guava.version>
     <dep.config.version>1.4.0</dep.config.version>
     <dep.picocli.version>4.1.4</dep.picocli.version>
@@ -90,6 +90,7 @@
     <dep.asm.version>7.3.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.148</dep.cfr.version>
+    <dep.jansi.version>1.18</dep.jansi.version>
 
     <dep.jmh.version>1.23</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
@@ -142,6 +143,7 @@
       <dependency> <groupId>com.typesafe</groupId>             <artifactId>config</artifactId>                   <version>${dep.config.version}</version>                   <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli</artifactId>                  <version>${dep.picocli.version}</version>                  <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli-codegen</artifactId>          <version>${dep.picocli-codegen.version}</version>          <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.fusesource.jansi</groupId>     <artifactId>jansi</artifactId>                    <version>${dep.jansi.version}</version>                    <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm</artifactId>                      <version>${dep.asm.version}</version>                      <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm-util</artifactId>                 <version>${dep.asm-util.version}</version>                 <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>                      <version>${dep.cfr.version}</version>                      <!--scope-->          <!--type-->      </dependency>
