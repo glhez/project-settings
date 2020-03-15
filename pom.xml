@@ -76,20 +76,20 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.6.0</dep.junit-bom.version>
-    <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
+    <dep.mockito-core.version>3.3.3</dep.mockito-core.version>
     <dep.assertj-core.version>3.15.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.13.0</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.13.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
     <dep.commons-text.version>1.8</dep.commons-text.version>
     <dep.commons-csv.version>1.8</dep.commons-csv.version>
     <dep.guava.version>28.2-jre</dep.guava.version>
     <dep.config.version>1.4.0</dep.config.version>
-    <dep.picocli.version>4.1.4</dep.picocli.version>
+    <dep.picocli.version>4.2.0</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
     <dep.asm.version>7.3.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
-    <dep.cfr.version>0.148</dep.cfr.version>
+    <dep.cfr.version>0.149</dep.cfr.version>
     <dep.jansi.version>1.18</dep.jansi.version>
 
     <dep.jmh.version>1.23</dep.jmh.version>
@@ -105,8 +105,8 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
-    <dep.saxon-he.version>9.9.1-6</dep.saxon-he.version>
-    <dep.freemarker.version>2.3.29</dep.freemarker.version>
+    <dep.saxon-he.version>9.9.1-7</dep.saxon-he.version>
+    <dep.freemarker.version>2.3.30</dep.freemarker.version>
 
     <!--
 
@@ -181,7 +181,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>                     <version>3.2.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                        <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>                     <version>3.8.1</version>     </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>                   <version>3.1.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>                   <version>3.1.2</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>                      <version>3.0.0-M1</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                          <version>3.2.0</version>     </plugin>
@@ -190,8 +190,8 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.0.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.1</version>     </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.8.2</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.2</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.9.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.2.1</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M4</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>              <version>3.0.0-M4</version>  </plugin>
@@ -200,7 +200,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId>                          <version>1.6</version>       </plugin>
 
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.0.0</version>     </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
