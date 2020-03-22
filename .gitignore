@@ -32,6 +32,9 @@ hs_err_pid*
 .factorypath
 /.profiler
 
+# Visual Studio Code/Codium
+.vscode/
+
 # IntelliJ
 *.iml
 

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.glhez.parent</groupId>
+    <artifactId>java-parent</artifactId>
+    <version>23-SNAPSHOT</version>
+    <relativePath>../java-parent</relativePath>
+  </parent>
+
+  <artifactId>java-14</artifactId>
+  <packaging>pom</packaging>
+
+  <name>POM file for Java 14 based project.</name>
+
+  <properties>
+    <java.compliance>14</java.compliance>
+    <maven.compiler.release>${java.compliance}</maven.compiler.release>
+    <maven.compiler.source>${java.compliance}</maven.compiler.source>
+    <maven.compiler.target>${java.compliance}</maven.compiler.target>
+
+    <enforcer.requireJavaVersion>[14.0.0,15.0.0)</enforcer.requireJavaVersion>
+
+    <javac.xlint.args>all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
+
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>${toolchain.phase}</phase>
+            <goals> <goal>toolchain</goal> </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint:${javac.xlint.args}</arg>
+            <!-- for picocli, left here because that won't change result of non picocli project -->
+            <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+          </compilerArgs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>default-testCompile</id>
+            <!-- disable module export warning in unit test; we can't import module because they share the same module-info. -->
+            <configuration>
+              <compilerArgs>
+                <arg>-Xlint:${javac.xlint.args},-exports</arg>
+                <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+              </compilerArgs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>extensions-picocli</id>
+      <activation>
+        <file>
+          <exists>mvn/picocli</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <annotationProcessorPaths>
+                <path>
+                  <groupId>info.picocli</groupId>
+                  <artifactId>picocli-codegen</artifactId>
+                  <version>${dep.picocli-codegen.version}</version>
+                </path>
+              </annotationProcessorPaths>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>eclipse-settings</id>
+      <activation>
+        <property> <name>m2e.version</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>${plugin.eclipse-settings.groupId}</groupId>
+            <artifactId>eclipse-settings-maven-plugin</artifactId>
+            <version>${plugin.eclipse-settings.version}</version>
+            <executions>
+              <execution>
+                <phase>generate-resources</phase>
+                <goals> <goal>eclipse-settings</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>

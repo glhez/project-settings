@@ -42,6 +42,7 @@
     <module>java-1.8</module>
     <module>java-11</module>
     <module>java-13</module>
+    <module>java-14</module>
   </modules>
 
   <properties>
@@ -75,7 +76,7 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.6.0</dep.junit-bom.version>
+    <dep.junit-bom.version>5.6.1</dep.junit-bom.version>
     <dep.mockito-core.version>3.3.3</dep.mockito-core.version>
     <dep.assertj-core.version>3.15.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
@@ -105,7 +106,7 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
-    <dep.saxon-he.version>9.9.1-7</dep.saxon-he.version>
+    <dep.saxon-he.version>10.0</dep.saxon-he.version>
     <dep.freemarker.version>2.3.30</dep.freemarker.version>
 
     <!--
@@ -185,7 +186,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>                     <version>3.0.0-M3</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>                      <version>3.0.0-M1</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                          <version>3.2.0</version>     </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>                      <version>3.1.1</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>                      <version>3.2.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                          <version>3.0.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.0.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.1.0</version>     </plugin>
@@ -204,7 +205,7 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>exec-maven-plugin</artifactId>                         <version>1.6.0</version>     </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
-        <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId>                     <version>3.1.12.2</version>  </plugin>
+        <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId>                     <version>4.0.0</version>     </plugin>
         <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.11</version>    </plugin>
         <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.5</version>     </plugin>
         <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
