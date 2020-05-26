@@ -76,28 +76,28 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.6.1</dep.junit-bom.version>
+    <dep.junit-bom.version>5.6.2</dep.junit-bom.version>
     <dep.mockito-core.version>3.3.3</dep.mockito-core.version>
-    <dep.assertj-core.version>3.15.0</dep.assertj-core.version>
+    <dep.assertj-core.version>3.16.1</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.13.1</dep.log4j-bom.version>
-    <dep.commons-lang3.version>3.9</dep.commons-lang3.version>
+    <dep.log4j-bom.version>2.13.3</dep.log4j-bom.version>
+    <dep.commons-lang3.version>3.10</dep.commons-lang3.version>
     <dep.commons-text.version>1.8</dep.commons-text.version>
     <dep.commons-csv.version>1.8</dep.commons-csv.version>
-    <dep.guava.version>28.2-jre</dep.guava.version>
+    <dep.guava.version>29.0-jre</dep.guava.version>
     <dep.config.version>1.4.0</dep.config.version>
-    <dep.picocli.version>4.2.0</dep.picocli.version>
+    <dep.picocli.version>4.3.2</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
-    <dep.asm.version>7.3.1</dep.asm.version>
+    <dep.asm.version>8.0.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
-    <dep.cfr.version>0.149</dep.cfr.version>
+    <dep.cfr.version>0.150</dep.cfr.version>
     <dep.jansi.version>1.18</dep.jansi.version>
 
     <dep.jmh.version>1.23</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
 
-    <dep.bouncycastle.version>1.64</dep.bouncycastle.version>
+    <dep.bouncycastle.version>1.65</dep.bouncycastle.version>
     <dep.bcprov-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-jdk15on.version>
     <dep.bcprov-ext-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-jdk15on.version>
     <dep.bcpkix-jdk15on.version>${dep.bouncycastle.version}</dep.bcpkix-jdk15on.version>
@@ -106,7 +106,7 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
-    <dep.saxon-he.version>10.0</dep.saxon-he.version>
+    <dep.saxon-he.version>10.1</dep.saxon-he.version>
     <dep.freemarker.version>2.3.30</dep.freemarker.version>
 
     <!--
@@ -179,7 +179,7 @@
 
     <pluginManagement>
       <plugins>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>                     <version>3.2.0</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>                     <version>3.3.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                        <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>                     <version>3.8.1</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>                   <version>3.1.2</version>     </plugin>
@@ -191,7 +191,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.0.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.1.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>    </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.2</version>     </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.3</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.9.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.2.1</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>                     <version>3.0.0-M4</version>  </plugin>
@@ -206,7 +206,7 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>                     <version>2.7</version>       </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>xml-maven-plugin</artifactId>                          <version>1.0.2</version>     </plugin>
         <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId>                     <version>4.0.0</version>     </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.0.11</version>    </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.1.0</version>    </plugin>
         <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.5</version>     </plugin>
         <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version> </plugin>
         <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>4.0.0</version>     </plugin>
