@@ -9,18 +9,18 @@
     <relativePath>../java-parent</relativePath>
   </parent>
 
-  <artifactId>java-14</artifactId>
+  <artifactId>java-15</artifactId>
   <packaging>pom</packaging>
 
-  <name>POM file for Java 14 based project.</name>
+  <name>POM file for Java 15 based project.</name>
 
   <properties>
-    <java.compliance>14</java.compliance>
+    <java.compliance>15</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <enforcer.requireJavaVersion>[14.0.0,15.0.0)</enforcer.requireJavaVersion>
+    <enforcer.requireJavaVersion>[15.0.0,16.0.0)</enforcer.requireJavaVersion>
 
     <javac.xlint.args>all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
 
