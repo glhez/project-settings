@@ -69,6 +69,8 @@
     <gpg.keyname>${gpg.github.keyname}</gpg.keyname>
     <gpg.serverId>${gpg.github.serverId}</gpg.serverId>
 
+    <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
+    <toolchain.phase>validate</toolchain.phase>
 
     <intdep.version>28-SNAPSHOT</intdep.version>
 
@@ -133,6 +135,7 @@
 
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope> <type>pom</type> </dependency>
       <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
+      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-junit-jupiter</artifactId>    <version>${dep.mockito-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>             <version>${dep.assertj-core.version}</version>             <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId>         <version>${dep.memoryfilesystem.version}</version>         <!--scope-->          <!--type-->      </dependency>
       <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>                <version>${dep.log4j-bom.version}</version>                <scope>import</scope> <type>pom</type> </dependency>
@@ -543,14 +546,14 @@
 
     -->
     <profile>
-      <id>travis-usurper</id>
-      <activation> <property> <name>!env.TRAVIS</name> </property> </activation>
-      <properties> <toolchain.phase>validate</toolchain.phase> </properties>
+      <id>travis-common</id>
+      <activation> <property> <name>env.TRAVIS</name> </property> </activation>
+      <properties> <toolchain.phase>none</toolchain.phase> </properties>
     </profile>
 
     <profile>
-      <id>travis-common</id>
-      <activation> <property> <name>env.TRAVIS</name> </property> </activation>
+      <id>github-common</id>
+      <activation> <property> <name>env.GITHUB_ACTION</name> </property> </activation>
       <properties> <toolchain.phase>none</toolchain.phase> </properties>
     </profile>
 
