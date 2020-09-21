@@ -1,4 +1,7 @@
 name: release and deploy
+on:
+  # no inputs.
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
