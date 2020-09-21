@@ -1,0 +1,31 @@
+name: release and deploy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.2
+      with:
+        repository: 'glhez/maven-repository'
+        path: 'maven-repository'
+    - uses: actions/checkout@v2.3.2
+        path: 'project-settings'
+    - uses: actions/setup-java@v1.4.2
+      with:
+        java-version: 11
+    - uses: actions/cache@v2.1.1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: deploy
+      working-directory: 'project-settings'
+      run: |
+        mvn -B clean deploy "-Dpublish.directory=file//${GITHUB_WORKSPACE}/maven-repository"
+    - name: push
+      working-directory: 'maven-repository'
+      run: |
+        git config user.name  github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m 'update parent'
+        git push
