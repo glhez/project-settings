@@ -24,7 +24,7 @@ jobs:
     - name: deploy
       working-directory: 'project-settings'
       run: |
-        mvn -B clean deploy "-Dpublish.directory=file//${GITHUB_WORKSPACE}/maven-repository"
+        mvn -B clean deploy "-Dpublish.directory=file://${GITHUB_WORKSPACE}/maven-repository"
     - name: push
       working-directory: 'maven-repository'
       run: |
