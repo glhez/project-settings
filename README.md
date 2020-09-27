@@ -1,4 +1,4 @@
-# Project Settings
+# Project Settings ![.github/workflows/build.yml](https://github.com/glhez/project-settings/workflows/.github/workflows/build.yml/badge.svg)
 
 This repository contains project settings for my personal project (as found in the other repositories).
 
@@ -9,7 +9,9 @@ The root project can be used to define common properties such as:
 - dependencies
 - plugins
 - default configuration for some known plugins
-- Java 8 / 11 configuration
+- Java 8 / 11 / LATEST configuration
+
+The LATEST here means the latest JDK.
 
 The project is also configuring Eclipse project using the [eclipse-settings-maven-plugin][1].
 
@@ -21,30 +23,32 @@ They can be edited like any classical Eclipse file: the [eclipse-settings-maven-
 
 ## Generating a new version
 
-The version does not have much importance: I usually use the current day, in ISO order (eg: `2019.06.03`), then add some arbitrary number
+New versions are automated by the release GitHub Action (following [GitHub Actions and Maven releases][4]):
+
+1. A GPG Key must be generated: [Managing commit signature verification][3]
+   1. `gpg --full-generate-key` to generate a new key
+   2. `gpg --list-secret-keys --keyid-format LONG` to list available keys
+   3. `gpg --export-secret-keys  --armor <KEY>` to export a key.
+   4. The exported key must be in the project settings as `GPG_SIGNING_KEY_ARMOR` secret.
+   5. The passphrase must also be added as secret.
+2. [setup-java][5] will configure the `settings.xml`:
+   1. A `github` `<server>` will be created for deployment, with GITHUB_ACTOR and GITHUB_TOKEN as user/password
+   2. The provided GPG private key will be imported (the secret needs to use *armor*)
+   3. The passphrase will also be configured in the settings.
+
+The maven-gpg-plugin must be configured with the following, otherwise the passphrase will be ignored:
+
+```xml
+  <gpgArguments>
+    <arg>--pinentry-mode</arg>
+    <arg>loopback</arg>
+  </gpgArguments>`
+```
 
 **Preparation**
 
-The companion repository [maven-repository][2] must be cloned before:
-
-The `publish.directory` property **must** be  should be added to maven settings (`~/.m2/settings.xml`): the configuration below is adding this property to a new profile (which **must** be added to `<activeProfiles>`)
-
-    <profile>
-      <id>project-settings</id>
-      <properties>
-        <publish.directory>file:///e:/git/github/glhez-maven-repository</publish.directory>
-      </properties>
-    </profile>
-
-Fix the URL based on your own settings.
-
-**Step 1**
-
 Simply invoke `./mvnw release:prepare release:perform` and pick up a new version.
 
-**Step 2**
-
-In the cloned [maven-repository][2], add the new artifacts and commit the whole.
 
 ## Child project
 
@@ -70,10 +74,9 @@ Each project must define the following repositories:
   </pluginRepositories>
 ```
 
-
-
 [1]: https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin
 [2]: https://github.com/glhez/maven-repository
-
-
+[3]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
+[4]: https://blog.frankel.ch/github-actions-maven-releases/
+[5]: https://github.com/actions/setup-java
 

@@ -1,0 +1,35 @@
+name: Release
+on:
+  # no inputs.
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.m2/repository
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    # see https://github.com/actions/setup-java
+    # see https://blog.frankel.ch/github-actions-maven-releases/
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 11
+        server-id: github
+        # Value of the GPG private key to import
+        gpg-private-key: ${{ secrets.GPG_SIGNING_KEY_ARMOR }}
+        # env variable for GPG private key passphrase (this is the default)
+        gpg-passphrase: GPG_PASSPHRASE
+    - name: Configure Git user
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+    - name: release
+      run: |
+        ./mvnw -B release:prepare release:perform
+      env:
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -18,9 +18,13 @@
 
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
-    <developerConnection>scm:git:github:glhez/project-settings.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/glhez/project-settings.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+
+  <distributionManagement>
+    <repository> <id>github</id> <url>https://maven.pkg.github.com/glhez/project-settings</url> </repository>
+  </distributionManagement>
 
   <modules>
     <!--
@@ -65,9 +69,6 @@
 
     -->
     <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
-
-    <gpg.keyname>${gpg.github.keyname}</gpg.keyname>
-    <gpg.serverId>${gpg.github.serverId}</gpg.serverId>
 
     <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
     <toolchain.phase>validate</toolchain.phase>
@@ -238,10 +239,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.0.0-M1</version>
-          <configuration>
-            <altReleaseDeploymentRepository>gh-mvn-repo-releases::${publish.directory}/releases</altReleaseDeploymentRepository>
-            <altSnapshotDeploymentRepository>gh-mvn-repo-snapshots::${publish.directory}/snapshots</altSnapshotDeploymentRepository>
-          </configuration>
         </plugin>
 
         <plugin>
@@ -526,8 +523,10 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <configuration>
-              <keyname>${gpg.keyname}</keyname>
-              <passphraseServerId>${gpg.serverId}</passphraseServerId>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
             </configuration>
             <executions>
               <execution>
