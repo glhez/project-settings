@@ -22,8 +22,13 @@
 
     <enforcer.requireJavaVersion>[11.0.0,12.0.0)</enforcer.requireJavaVersion>
 
-    <javac.xlint.args>all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
-
+    <!-- disable module export warning in unit test; we can't import module because they share the same module-info. -->
+    <!-- ,-processing,-requires-automatic,-requires-transitive-automatic -->
+    <javac.xlint.args>-Xlint:all</javac.xlint.args>
+    <!-- ,-exports -->
+    <javac.xlint.testArgs>${javac.xlint.args}</javac.xlint.testArgs>
+    <!-- avoid spamming with "project" was not handled by any agent. -->
+    <picocli.agent.args />
   </properties>
 
   <build>
@@ -46,19 +51,18 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <compilerArgs>
-            <arg>-Xlint:${javac.xlint.args}</arg>
+            <arg>${javac.xlint.args}</arg>
             <!-- for picocli, left here because that won't change result of non picocli project -->
-            <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+            <arg>${picocli.agent.args}</arg>
           </compilerArgs>
         </configuration>
         <executions>
           <execution>
             <id>default-testCompile</id>
-            <!-- disable module export warning in unit test; we can't import module because they share the same module-info. -->
             <configuration>
               <compilerArgs>
-                <arg>-Xlint:${javac.xlint.args},-exports</arg>
-                <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+                <arg>${javac.xlint.testArgs}</arg>
+                <arg>${picocli.agent.args}</arg>
               </compilerArgs>
             </configuration>
           </execution>
@@ -75,6 +79,9 @@
           <exists>mvn/picocli</exists>
         </file>
       </activation>
+      <properties>
+        <picocli.agent.args>-Aproject=${project.groupId}/${project.artifactId}</picocli.agent.args>
+      </properties>
       <build>
         <plugins>
           <plugin>
@@ -102,9 +109,8 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>${plugin.eclipse-settings.groupId}</groupId>
+            <groupId>com.github.glhez</groupId>
             <artifactId>eclipse-settings-maven-plugin</artifactId>
-            <version>${plugin.eclipse-settings.version}</version>
             <executions>
               <execution>
                 <phase>generate-resources</phase>

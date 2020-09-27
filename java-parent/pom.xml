@@ -72,9 +72,8 @@
         <pluginManagement>
           <plugins>
             <plugin>
-              <groupId>${plugin.eclipse-settings.groupId}</groupId>
+              <groupId>com.github.glhez</groupId>
               <artifactId>eclipse-settings-maven-plugin</artifactId>
-              <version>${plugin.eclipse-settings.version}</version>
               <configuration>
                 <additionalConfig>
                   <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>

@@ -22,7 +22,10 @@
 
     <enforcer.requireJavaVersion>[15.0.0,16.0.0)</enforcer.requireJavaVersion>
 
-    <javac.xlint.args>all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
+    <javac.xlint.args>-Xlint:all,-processing,-requires-automatic,-requires-transitive-automatic</javac.xlint.args>
+    <javac.xlint.testArgs>${javac.xlint.args},-exports</javac.xlint.testArgs>
+
+    <picocli.agent.args>-Aproject=${project.groupId}/${project.artifactId}</picocli.agent.args>
 
   </properties>
 
@@ -46,9 +49,9 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <compilerArgs>
-            <arg>-Xlint:${javac.xlint.args}</arg>
+            <arg>${javac.xlint.args}</arg>
             <!-- for picocli, left here because that won't change result of non picocli project -->
-            <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+            <arg>${picocli.agent.args}</arg>
           </compilerArgs>
         </configuration>
         <executions>
@@ -57,8 +60,8 @@
             <!-- disable module export warning in unit test; we can't import module because they share the same module-info. -->
             <configuration>
               <compilerArgs>
-                <arg>-Xlint:${javac.xlint.args},-exports</arg>
-                <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+                <arg>${javac.xlint.testArgs}</arg>
+                <arg>${picocli.agent.args}</arg>
               </compilerArgs>
             </configuration>
           </execution>
@@ -102,9 +105,8 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>${plugin.eclipse-settings.groupId}</groupId>
+            <groupId>com.github.glhez</groupId>
             <artifactId>eclipse-settings-maven-plugin</artifactId>
-            <version>${plugin.eclipse-settings.version}</version>
             <executions>
               <execution>
                 <phase>generate-resources</phase>
