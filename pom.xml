@@ -129,7 +129,7 @@
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and
       logs.
     -->
-    <plg.eclipse-settings.version>3.2.0</plg.eclipse-settings.version>
+    <plg.eclipse-settings.version>3.2.1</plg.eclipse-settings.version>
     <plg.formatter.version>2.13.0</plg.formatter.version>
   </properties>
 
@@ -535,7 +535,6 @@
         </plugins>
       </build>
     </profile>
-
 
     <!--
       Travis  does  not  support  maven-toolchain-plugin, or rather won't have more than one toolchain: having
