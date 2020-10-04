@@ -1,4 +1,4 @@
-# Project Settings ![.github/workflows/build.yml](https://github.com/glhez/project-settings/workflows/.github/workflows/build.yml/badge.svg)
+# Project Settings ![Build](https://github.com/glhez/project-settings/workflows/Build/badge.svg)
 
 This repository contains project settings for my personal project (as found in the other repositories).
 
