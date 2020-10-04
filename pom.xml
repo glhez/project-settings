@@ -23,7 +23,8 @@
   </scm>
 
   <distributionManagement>
-    <repository> <id>github</id> <url>https://maven.pkg.github.com/glhez/project-settings</url> </repository>
+    <repository>         <id>glhez-m2-repo-releases</id>  <url>${publish.directory}/releases</url>  </repository>
+    <snapshotRepository> <id>glhez-m2-repo-snapshots</id> <url>${publish.directory}/snapshots</url> </snapshotRepository>
   </distributionManagement>
 
   <modules>
@@ -210,6 +211,7 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>                     <version>3.0.0-M5</version>  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>                   <version>3.0.0</version>     </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId>                          <version>1.6</version>       </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-deploy-plugin</artifactId>                       <version>3.0.0-M1</version>  </plugin>
 
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>appassembler-maven-plugin</artifactId>                 <version>2.1.0</version>     </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>build-helper-maven-plugin</artifactId>                 <version>3.2.0</version>     </plugin>
@@ -233,12 +235,6 @@
             <!-- <releaseProfiles>release-sign-artifacts</releaseProfiles> -->
             <arguments> -Prelease-sign-artifacts </arguments>
           </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.0.0-M1</version>
         </plugin>
 
         <plugin>
