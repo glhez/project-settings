@@ -25,7 +25,7 @@ They can be edited like any classical Eclipse file: the [eclipse-settings-maven-
 
 ### Setup
 
-New version are manually created (no automated step, even if attempt were made as in `v30` with [GitHub Actions and Maven releases][4]):
+New version are manually created (no automated step, even if attempt were made as in `v29` with [GitHub Actions and Maven releases][4]):
 
 1. Create a GPG key if needed: see [Managing commit signature verification][3]
 2. Configure your maven settings:
