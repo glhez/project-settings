@@ -11,8 +11,6 @@
   <artifactId>java-parent</artifactId>
   <packaging>pom</packaging>
 
-  <name>Parent POM file for Java based project.</name>
-
   <!--
     This  pom exists to share common stuff with java8/11 pom, with still being dependant on other dependencies
     in the reactor (mainly eclipse).

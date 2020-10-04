@@ -12,8 +12,6 @@
   <artifactId>java-1.8</artifactId>
   <packaging>pom</packaging>
 
-  <name>POM file for Java 8 based project.</name>
-
   <properties>
     <java.compliance>1.8</java.compliance>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
