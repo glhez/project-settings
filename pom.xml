@@ -35,7 +35,7 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
-    <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
+    <toolchain.jdkVersion>[1.8,1.9)</toolchain.jdkVersion>
     <enforcer.requireMavenVersion>[3.6.0,3.7.0)</enforcer.requireMavenVersion>
 
   </properties>
@@ -97,7 +97,6 @@
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
-            <!-- <releaseProfiles>release-sign-artifacts</releaseProfiles> -->
             <arguments> -Prelease-sign-artifacts </arguments>
           </configuration>
         </plugin>
@@ -125,7 +124,7 @@
           </execution>
         </executions>
         <configuration>
-          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
+          <toolchains> <jdk> <version>${toolchain.jdkVersion}</version> </jdk> </toolchains>
         </configuration>
       </plugin>
 
@@ -225,58 +224,6 @@
               </execution>
             </executions>
           </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <!--
-      Travis  does  not  support  maven-toolchain-plugin, or rather won't have more than one toolchain: having
-      several  JDK defined in .travis.yml will only create one more docker instance rather than using the same
-      instance with two JDK installed.
-
-      - travis-usurper will enable the toolchain check by setting its phase to validate.
-      - travis-common will disable the toolchain check. It is expected that the child module add the following
-        activation for each supported JDK
-
-        JDK8 [oraclejdk8]
-        <activation> <property> <name>env.TRAVIS</name> </property> <jdk>1.8</jdk> </activation>
-
-        JDK11 [openjdk11]
-        <activation> <property> <name>env.TRAVIS</name> </property> <jdk>11</jdk> </activation>
-
-    -->
-    <profile>
-      <id>travis-usurper</id>
-      <activation> <property> <name>!env.TRAVIS</name> </property> </activation>
-      <properties> <toolchain.phase>validate</toolchain.phase> </properties>
-    </profile>
-
-    <profile>
-      <id>travis-common</id>
-      <activation> <property> <name>env.TRAVIS</name> </property> </activation>
-      <properties>
-        <toolchain.phase>none</toolchain.phase>
-        <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
-      </properties>
-      <!-- since a toolchain is not in use, enforce the use of a specific version of java. -->
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-enforcer-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>enforce-java</id>
-                <inherited>true</inherited>
-                <goals> <goal>enforce</goal> </goals>
-                <configuration>
-                  <rules>
-                    <requireJavaVersion> <version>${enforcer.requireJavaVersion}</version>  </requireJavaVersion>
-                  </rules>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>      
         </plugins>
       </build>
     </profile>
