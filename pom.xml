@@ -23,8 +23,8 @@
   </scm>
 
   <distributionManagement>
-    <repository>         <id>glhez-m2-repo-releases</id>  <url>${publish.directory}/releases</url>  </repository>
-    <snapshotRepository> <id>glhez-m2-repo-snapshots</id> <url>${publish.directory}/snapshots</url> </snapshotRepository>
+    <repository>         <id>glhez-m2-repo-releases</id>  <url>${publish.directory.releases}</url>  </repository>
+    <snapshotRepository> <id>glhez-m2-repo-snapshots</id> <url>${publish.directory.snapshots}</url> </snapshotRepository>
   </distributionManagement>
 
   <modules>

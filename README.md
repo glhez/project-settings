@@ -23,18 +23,47 @@ They can be edited like any classical Eclipse file: the [eclipse-settings-maven-
 
 ## Generating a new version
 
-New versions are automated by the release GitHub Action (following [GitHub Actions and Maven releases][4]):
+### Setup
 
-1. A GPG Key must be generated: [Managing commit signature verification][3]
-   1. `gpg --full-generate-key` to generate a new key
-   2. `gpg --list-secret-keys --keyid-format LONG` to list available keys
-   3. `gpg --export-secret-keys  --armor <KEY>` to export a key.
-   4. The exported key must be in the project settings as `GPG_SIGNING_KEY_ARMOR` secret.
-   5. The passphrase must also be added as secret.
-2. [setup-java][5] will configure the `settings.xml`:
-   1. A `github` `<server>` will be created for deployment, with GITHUB_ACTOR and GITHUB_TOKEN as user/password
-   2. The provided GPG private key will be imported (the secret needs to use *armor*)
-   3. The passphrase will also be configured in the settings.
+New version are manually created (no automated step, even if attempt were made as in `v30` with [GitHub Actions and Maven releases][4]):
+
+1. Create a GPG key if needed: see [Managing commit signature verification][3]
+2. Configure your maven settings:
+   1. The `publish.directory.releases` and `publish.directory.snapshots` must target a local directory, and use the `file://` URI pattern.
+   2. The `gpg.keyname` and `gpg.passphraseServerId` must be defined.
+
+This should give this `settings.xml`:
+
+```xml
+<settings>
+  <servers>
+    <server> <id>gpg-github</id> <passphrase>foobar</passphrase> </server>
+  </servers>
+
+  <profiles>
+    <profile>
+      <id>project-settings</id>
+      <properties>
+        <publish.directory>file:///e:/git/github/glhez-maven-repository</publish.directory>
+        <publish.directory.releases>${publish.directory}/releases</publish.directory.releases>
+        <publish.directory.snapshots>${publish.directory}/snapshots</publish.directory.snapshots>
+      </properties>
+    </profile>
+    <profile>
+      <id>gpg-github</id>
+      <properties>
+        <gpg.keyname>YOUR_KEY</gpg.keyname>
+        <gpg.passphraseServerId>gpg-github</gpg.passphraseServerId>
+      </properties>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>project-settings</activeProfile>
+    <activeProfile>gpg-github</activeProfile>
+  </activeProfiles>
+</settings>
+```
 
 The maven-gpg-plugin must be configured with the following, otherwise the passphrase will be ignored:
 
@@ -48,7 +77,6 @@ The maven-gpg-plugin must be configured with the following, otherwise the passph
 **Preparation**
 
 Simply invoke `./mvnw release:prepare release:perform` and pick up a new version.
-
 
 ## Child project
 
