@@ -18,7 +18,7 @@
 
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
-    <developerConnection>scm:git:https://github.com/glhez/project-settings.git</developerConnection>
+    <developerConnection>scm:git:github:glhez/project-settings.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
