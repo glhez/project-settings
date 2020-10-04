@@ -15,14 +15,14 @@
   <name>Eclipse Settings Maven Plugin</name>
 
   <properties>
-    <mavenVersion>3.6.0</mavenVersion>
+    <mavenVersion>3.6.3</mavenVersion>
     <mavenPluginAnnotationsVersion>3.6.0</mavenPluginAnnotationsVersion>
-    <plexusUtilsVersion>3.2.1</plexusUtilsVersion>
+    <plexusUtilsVersion>3.3.0</plexusUtilsVersion>
     <slf4jVersion>1.7.26</slf4jVersion>
     
-    <dep.junit-bom.version>5.5.2</dep.junit-bom.version>
-    <dep.mockito-core.version>3.2.4</dep.mockito-core.version>
-    <dep.assertj-core.version>3.14.0</dep.assertj-core.version>
+    <dep.junit-bom.version>5.7.0</dep.junit-bom.version>
+    <dep.mockito-core.version>3.5.13</dep.mockito-core.version>
+    <dep.assertj-core.version>3.17.2</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>    
   </properties> 
   
