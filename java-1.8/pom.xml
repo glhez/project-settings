@@ -17,8 +17,9 @@
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <enforcer.requireJavaVersion>[1.8,1.9)</enforcer.requireJavaVersion>
-    <javac.xlint.args>all,-processing</javac.xlint.args>
+    <toolchain.jdkVersion>[1.8,1.9)</toolchain.jdkVersion>
+
+    <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>
 
   <build>
@@ -33,14 +34,16 @@
           </execution>
         </executions>
         <configuration>
-          <toolchains> <jdk> <version>${enforcer.requireJavaVersion}</version> </jdk> </toolchains>
+          <toolchains> <jdk> <version>${toolchain.jdkVersion}</version> </jdk> </toolchains>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <compilerArgs> <arg>-Xlint:${javac.xlint.args}</arg> </compilerArgs>
+          <compilerArgs combine.children="append">
+            <arg>${javac.xlint.args}</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
     </plugins>

@@ -14,5 +14,7 @@
 
   <properties>
     <java.compliance>15</java.compliance>
+
+    <toolchain.jdkVersion>[15.0.0,16.0.0)</toolchain.jdkVersion>
   </properties>
 </project>

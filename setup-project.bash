@@ -1,13 +1,20 @@
 #!/bin/bash
-
-declare SCRIPT_FILE="$(realpath "$0")"
+declare SCRIPT_FILE="$0"
+if ! SCRIPT_FILE="$(realpath "$0")" ; then
+  echo "error: could not resolve $0 using realpath"
+  exit 2
+fi
 declare SCRIPT_DIR="${SCRIPT_FILE%/*}"
 
 if [[ -z "$TARGET_DIR" ]]; then
   declare TARGET_DIR="$PWD"
 fi
 
-declare TARGET_DIR_REALPATH="$(realpath "${TARGET_DIR}")"
+declare TARGET_DIR_REALPATH="$PWD"
+if ! TARGET_DIR_REALPATH="$(realpath "$PWD")" ; then
+  echo "error: could not resolve $PWD using realpath"
+  exit 2
+fi
 
 if [[ -z "${TARGET_DIR_REALPATH}" || ! -d "${TARGET_DIR_REALPATH}" ]]; then
   echo "error: invalid target directory. Try TARGET_DIR=/some/path $0"
