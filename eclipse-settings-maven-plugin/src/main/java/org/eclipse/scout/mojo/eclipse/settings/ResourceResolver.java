@@ -7,14 +7,16 @@ import java.io.IOException;
  *
  * @author gael.lhez
  */
-public interface ResourceResolver {
+public interface ResourceResolver extends AutoCloseable {
   /**
    * Get some resource.
    *
-   * @param path path to the resource
+   * @param path
+   *          path to the resource
    * @return return a {@link Resource} or {@code null} if not found.
-   * @throws java.io.FileNotFoundException fail if resource is not found.
-   * @throws IOException in case of other IO exception.
    */
-  Resource getResource(String path) throws IOException;
+  Resource getResource(String path);
+
+  @Override
+  void close() throws IOException;
 }

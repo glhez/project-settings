@@ -1,2 +1,5 @@
-# ensure EOL is Linux, because even on Windows it fails with CRLF.
+*.bash                                eol=lf
+*.sh                                  eol=lf
+mvnw                                  eol=lf
 .mvn/wrapper/maven-wrapper.properties eol=lf
+

@@ -42,8 +42,7 @@ This fork will:
 **Note:**
 
 1. Version are released in my [Github maven repository][3]. That's probably not a "good" idea to do that, but I don't have time to publish it on Central.
-2. While Maven 3.6.1 is out there, there are dependencies resolving conflicts (as of now) with maven-tycho-plugin 1.4 and maven 3.6.1.
-3. The version of Java is fixed to Java 7 to match Maven 3.6.0 version (see [Maven Releases History](http://maven.apache.org/docs/history.html))
+2. The version of Java is fixed to Java 8; since the plugin is expected to be used from inside Eclipse rather than from inside Maven, this should not pose problems (especially when latest version of Eclipse requires Java 11).
 
 # Table of content
 

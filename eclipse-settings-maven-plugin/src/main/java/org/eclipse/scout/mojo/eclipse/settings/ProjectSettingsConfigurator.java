@@ -1,5 +1,7 @@
 package org.eclipse.scout.mojo.eclipse.settings;
 
+import static org.eclipse.scout.mojo.eclipse.settings.MavenUtils.formatInputLocation;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,18 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.ArtifactUtils;
-import org.apache.maven.model.Dependency;
 import org.apache.maven.model.InputLocation;
-import org.apache.maven.model.Plugin;
-import org.apache.maven.model.PluginManagement;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -30,14 +24,10 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.IOUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
 @Mojo(name = "eclipse-settings", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, requiresDependencyResolution = ResolutionScope.NONE)
 public class ProjectSettingsConfigurator extends AbstractMojo {
-  private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSettingsConfigurator.class);
-
   /**
    * The Maven Project.
    */
@@ -129,43 +119,37 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
   public void execute() throws MojoExecutionException, MojoFailureException {
     try {
       if (skip) {
-        LOGGER.info("Skipping project settings configuration.");
+        getLog().info("Skipping project settings configuration.");
       } else if (configureEclipseMeta()) {
-        LOGGER.info("Project configured.");
+        getLog().info("Project configured.");
       } else {
-        LOGGER.error("Project not configured.");
+        getLog().error("Project not configured.");
       }
     } catch (final IOException e) {
-      LOGGER.error("Failure during settings configuration", e);
+      getLog().error("Failure during settings configuration", e);
     }
   }
 
   private boolean configureEclipseMeta() throws IOException, MojoExecutionException {
     if (additionalConfig == null || additionalConfig.length <= 0) {
-      LOGGER.warn("No settings specified.");
+      getLog().warn("No settings specified.");
       return false;
     }
 
-    source = StringUtils.trimToNull(source);
-    if (source == null) {
-      throw new MojoExecutionException("<source> is missing.");
+    validateMojo();
+    try (ResourceResolver resolver = getResourceResolver()) {
+      EclipseSettingsFile[] filteredAdditionalConfig = filterAdditionalConfig();
+      writeAdditionalConfig(resolver, filteredAdditionalConfig);
+      return true;
     }
+  }
 
+  private ResourceResolver getResourceResolver() throws IOException, MojoExecutionException {
     ResourceResolver resolver;
     String prefix;
     if (source.equals("jar") || source.startsWith("jar:")) {
-      final List<Artifact> artifacts = collectArtifacts();
-      if (LOGGER.isDebugEnabled()) {
-        LOGGER.debug("Resolved {} artifacts", artifacts.size());
-        for (final Artifact artifact : artifacts) {
-          LOGGER.debug("  {}", artifact);
-        }
-      }
-      if (artifacts.isEmpty()) {
-        LOGGER.warn("Could not find dependencies attached to this plugin.");
-      }
       prefix = source.equals("jar") ? "" : source.substring("jar:".length());
-      resolver = new ArtifactResourceResolver(artifacts, prefix);
+      resolver = new ArtifactResourceResolver(new ArtifactCollector(project, getLog(), plugin).collect(), prefix);
     } else if (source.equals("file") || source.startsWith("file:")) {
       prefix = source.equals("file") ? "" : source.substring("file:".length());
       resolver = new FileSystemResourceResolver(
@@ -173,181 +157,139 @@ public class ProjectSettingsConfigurator extends AbstractMojo {
     } else {
       throw new MojoExecutionException("<source> does not start with 'jar:' or 'file:' ");
     }
-
-    if (LOGGER.isDebugEnabled()) {
-      LOGGER.debug("Resolving file using {}", resolver);
+    if (getLog().isDebugEnabled()) {
+      getLog().debug("Resolving file using " + resolver);
     }
-    writeAdditionalConfig(additionalConfig, resolver);
-    return true;
+    return resolver;
   }
 
-  private List<Artifact> collectArtifacts() {
-    LOGGER.debug("Collecting artifacts (dependencies) to use");
-    final List<Plugin> plugins = collectPlugins();
+  private void validateMojo() throws MojoExecutionException {
+    this.source = StringUtils.trimToNull(source);
+    if (source == null) {
+      throw new MojoExecutionException("<source> is missing.");
+    }
 
-    final Map<String, Artifact> artifactMap = plugin.getArtifactMap();
-    final Set<Artifact> artifacts = new LinkedHashSet<>();
-    for (final Plugin plugin : plugins) {
-      if (pluginFilter(plugin)) {
-        if (LOGGER.isDebugEnabled()) {
-          LOGGER.debug("Checking {} dependencies...", plugin);
-          printInputLocation(plugin);
-        }
-        for (final Dependency dependency : plugin.getDependencies()) {
-          final String versionlessKey = ArtifactUtils.versionlessKey(dependency.getGroupId(),
-              dependency.getArtifactId());
-          final Artifact artifact = artifactMap.get(versionlessKey);
-          if (null != artifact) {
-            if (artifacts.add(artifact)) {
-              LOGGER.debug("++ adding {}: {} to plugin artifacts...", versionlessKey, artifact);
-            } else {
-              LOGGER.debug("++ ignoring {}: {} (already added)", versionlessKey, artifact);
-            }
-          }
-        }
+    boolean fail = false;
+    int index = 0;
+    for (EclipseSettingsFile config : additionalConfig) {
+      config.setLocation(StringUtils.trimToNull(config.getLocation()));
+      config.setName(StringUtils.trimToNull(config.getName()));
+      if (config.getFailOnError() == null) {
+        config.setFailOnError(failOnError);
       }
-    }
 
-    return new ArrayList<>(artifacts);
-  }
-
-  private List<Plugin> collectPlugins() {
-    final List<Plugin> plugins = new ArrayList<>();
-    final PluginManagement pluginManagement = project.getBuild().getPluginManagement();
-    if (null != pluginManagement) {
-      plugins.addAll(pluginManagement.getPlugins());
-    }
-    plugins.addAll(project.getBuildPlugins());
-    return plugins;
-  }
-
-  private void printInputLocation(final Plugin plugin) {
-    if (LOGGER.isDebugEnabled()) {
-      final InputLocation loc = computeInputLocation(plugin);
-      if (null != loc) {
-        LOGGER.debug("Located at: {}:{}:{}", loc.getSource(), loc.getLineNumber(), loc.getColumnNumber());
+      if (config.getLocation() == null) {
+        getLog().error(
+                       "Invalid <location> in AdditionalConfig[" + index + "]"
+                           + formatInputLocation(config.getInputLocation()) + ".");
+        fail = true;
       }
+      if (config.getName() == null) {
+        getLog().error(
+                       "Invalid <name> in AdditionalConfig[" + index + "]"
+                           + formatInputLocation(config.getInputLocation()) + ".");
+        fail = true;
+      }
+      ++index;
+    }
+
+    if (fail) {
+      throw new MojoExecutionException("One or more errors were reported");
     }
   }
 
-  private InputLocation computeInputLocation(final Plugin plugin) {
-    final InputLocation gil = plugin.getLocation("groupId");
-    final InputLocation ail = plugin.getLocation("artifactId");
-    final InputLocation vil = plugin.getLocation("version");
-
-    InputLocation r = InputLocation.merge(null, gil, true);
-    r = InputLocation.merge(r, ail, true);
-    r = InputLocation.merge(r, vil, true);
-    return r;
-  }
-
-  private boolean pluginFilter(final Plugin plugin) {
-    return this.plugin.getPlugin().getKey().equals(plugin.getKey());
-  }
-
-  private void writeAdditionalConfig(final EclipseSettingsFile[] additionalConfig, final ResourceResolver resolver)
-      throws MojoExecutionException {
-    if (additionalConfig == null || additionalConfig.length == 0) {
-      return;
-    }
-    LOGGER.info("Copying {} resources using {} resolver.", additionalConfig.length, resolver);
-
-    final List<File> updatedFiles = new ArrayList<>();
-    final List<IOException> failures = new ArrayList<>();
-    int missingFileError = 0;
-
+  private EclipseSettingsFile[] filterAdditionalConfig() {
     final PackagingFilter packagingFilter = PackagingFilter.newPackagingFilter(packagings);
     final String projectPackaging = project.getPackaging();
+
+    List<EclipseSettingsFile> files = new ArrayList<>(additionalConfig.length);
+    for (final EclipseSettingsFile config : additionalConfig) {
+      final PackagingFilter localPackagingFilter = packagingFilter.join(config.getPackagings());
+      if (!localPackagingFilter.test(projectPackaging)) {
+        if (getLog().isDebugEnabled()) {
+          getLog().debug(
+                         "Ignoring " + config.getLocation() + " -> " + config.getName() + " because packaging '"
+                             + projectPackaging + "' is filtered by " + localPackagingFilter);
+        }
+        continue;
+      }
+      files.add(config);
+    }
+
+    if (files.size() != additionalConfig.length) {
+      getLog().info("Filtered " + (additionalConfig.length - files.size()) + " files due to packaging.");
+      return files.toArray(new EclipseSettingsFile[0]);
+    }
+    return additionalConfig;
+  }
+
+  private void writeAdditionalConfig(final ResourceResolver resolver, final EclipseSettingsFile[] additionalConfig)
+      throws MojoExecutionException {
+    getLog().info("Will copy " + additionalConfig.length + " using " + resolver);
+
+    final List<IOException> failures = new ArrayList<>();
     final File basedir = project.getBasedir();
 
-    try {
-
-      for (final EclipseSettingsFile config : additionalConfig) {
-        final String location = getOrFail(config.getLocation(), "location");
-        final String name = getOrFail(config.getName(), "name");
-        final PackagingFilter localPackagingFilter = packagingFilter.join(config.getPackagings());
-
-        if (!localPackagingFilter.test(projectPackaging)) {
-          if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Ignoring {} -> {} because packaging '{}' is filtered by {}", location, name, projectPackaging,
-                localPackagingFilter);
-          }
-          continue;
-        }
-        final boolean failOnError = getBooleanOrInherit(config.getFailOnError(), this.failOnError);
-        final File target = new File(basedir, name);
-
-        try {
-          final Resource source = resolver.getResource(location);
-          if (null == source) {
-            if (failOnError) {
-              LOGGER.error("Source file {} does not exists.", location);
-              ++missingFileError;
-            } else {
-              LOGGER.warn("Source file {} does not exists.", location);
-            }
-            continue;
-          }
-
-          /*
-           * if we try to write to a directory, this will fail. We don't try to behave like mv which
-           * relocate the
-           * source into the folder (eg: mv a b will give b/a).
-           */
-          if (target.isDirectory()) {
-            LOGGER.warn("{} is a directory, ignoring.", target.getAbsolutePath());
-            continue;
-          }
-
-          target.getParentFile().mkdirs();
-
-          LOGGER.info("Copying {} to {}", source, target);
-          try (InputStream inStream = source.getResourceAsStream();
-              OutputStream outStream = new FileOutputStream(target)) {
-            IOUtil.copy(inStream, outStream);
-          }
-          updatedFiles.add(target);
-        } catch (final IOException e) {
-          if (failOnError) {
-            LOGGER.error("Could not copy {} to {}", location, target.getAbsolutePath(), e);
-            failures.add(e);
-          } else {
-            if (LOGGER.isDebugEnabled()) {
-              LOGGER.warn("Could not copy {} to {}", location, target.getAbsolutePath(), e);
-            } else {
-              LOGGER.warn("Could not copy {} to {} ({})", location, target.getAbsolutePath(), e.getMessage());
-            }
-          }
+    List<File> updatedFiles = new ArrayList<>();
+    for (final EclipseSettingsFile config : additionalConfig) {
+      final String location = config.getLocation();
+      final File target = new File(basedir, config.getName());
+      try {
+        writeAdditionalConfig(resolver, config.getLocation(), target);
+        updatedFiles.add(target);
+      } catch (final IOException e) {
+        addMessage(config, copyFailure(config, location, target, e), e);
+        if (config.isFailOnError()) {
+          failures.add(e);
         }
       }
+    }
 
-      if (!failures.isEmpty() || missingFileError > 0) {
-        final MojoExecutionException ex = new MojoExecutionException(
-            "Unable to copy " + (failures.size() + missingFileError) + " files");
-        for (final IOException e : failures) {
-          ex.addSuppressed(e);
-        }
-        throw ex;
+    if (!failures.isEmpty()) {
+      final MojoExecutionException ex = new MojoExecutionException("Unable to copy " + failures.size() + " files");
+      for (final IOException e : failures) {
+        ex.addSuppressed(e);
       }
-
-    } finally {
-      for (final File file : updatedFiles) {
-        buildContext.refresh(file);
-      }
+      throw ex;
+    }
+    for (File updatedFile : updatedFiles) {
+      buildContext.refresh(updatedFile);
     }
   }
 
-  private String getOrFail(final String value, final String tagName) throws MojoExecutionException {
-    if (StringUtils.isBlank(value)) {
-      throw new MojoExecutionException("No <" + tagName + " > for some file, please fix it");
-    }
-    return value;
+  private void addMessage(EclipseSettingsFile config, String message, IOException e) {
+    int severity = config.isFailOnError() ? BuildContext.SEVERITY_ERROR : BuildContext.SEVERITY_WARNING;
+    buildContext.addMessage(project.getFile(), 0, 0, message, severity, e);
   }
 
-  private boolean getBooleanOrInherit(final Boolean local, final boolean parent) {
-    if (local == null) {
-      return parent;
-    }
-    return local.booleanValue();
+  private String copyFailure(EclipseSettingsFile config, String location, File target, IOException e) {
+    InputLocation inputLocation = config.getInputLocation();
+    return "Could not copy <" + location + "> to <" + target.getAbsolutePath() + ">"
+        + formatInputLocation(inputLocation) + ": " + e.getMessage();
   }
+
+  private void writeAdditionalConfig(ResourceResolver resolver, String location, File target) throws IOException {
+    final Resource source = resolver.getResource(location);
+    if (source == null) {
+      throw new FileNotFoundException("Missing resource: " + location + " using " + resolver);
+    }
+
+    /*
+     * if we try to write to a directory, this will fail. We don't try to behave like mv which
+     * relocate the source into the folder (eg: mv a b will give b/a).
+     */
+    if (target.isDirectory()) {
+      getLog().warn(target.getAbsolutePath() + " is a directory, ignoring.");
+      return;
+    }
+    target.getParentFile().mkdirs();
+
+    getLog().info("Copying " + source + " to " + target);
+    try (InputStream inStream = source.getResourceAsStream();
+        OutputStream outStream = new FileOutputStream(target)) {
+      IOUtil.copy(inStream, outStream);
+    }
+
+  }
+
 }

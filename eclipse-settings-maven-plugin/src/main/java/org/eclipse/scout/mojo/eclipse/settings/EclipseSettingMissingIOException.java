@@ -3,6 +3,7 @@ package org.eclipse.scout.mojo.eclipse.settings;
 import java.io.IOException;
 
 public class EclipseSettingMissingIOException extends IOException {
+  private static final long serialVersionUID = 3_2_0L;
 
   public EclipseSettingMissingIOException() {
     super();

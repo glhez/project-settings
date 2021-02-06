@@ -14,14 +14,17 @@ public class FileSystemResourceResolver implements ResourceResolver {
   }
 
   @Override
-  public Resource getResource(final String path) throws IOException {
+  public Resource getResource(final String path) {
     final File res = new File(path);
     if (res.isAbsolute()) {
-      return new FileSystemResource(res);
+      return getResourceOrNull(res);
     }
-    final File file = new File(baseDirectory, path).getAbsoluteFile();
-    if (file.exists()) {
-      return new FileSystemResource(file);
+    return getResourceOrNull(new File(baseDirectory, path).getAbsoluteFile());
+  }
+
+  private Resource getResourceOrNull(final File res) {
+    if (res.exists()) {
+      return new FileSystemResource(res);
     }
     return null;
   }
@@ -29,6 +32,11 @@ public class FileSystemResourceResolver implements ResourceResolver {
   @Override
   public String toString() {
     return "file:" + baseDirectory.toString();
+  }
+
+  @Override
+  public void close() {
+    // -- nothing here
   }
 
   static class FileSystemResource implements Resource {
@@ -48,4 +56,5 @@ public class FileSystemResourceResolver implements ResourceResolver {
       return path.toString();
     }
   }
+
 }
