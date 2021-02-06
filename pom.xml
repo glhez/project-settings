@@ -14,7 +14,7 @@
 
   <scm>
     <connection>scm:git:https://github.com/glhez/eclipse-settings-maven-plugin.git</connection>
-    <developerConnection>scm:git:github:glhez/eclipse-settings-maven-plugin.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/glhez/project-settings.git</developerConnection>
     <tag>HEAD</tag>
     <url>https://github.com/glhez/eclipse-settings-maven-plugin</url>
   </scm>

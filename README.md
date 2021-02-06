@@ -322,17 +322,6 @@ Assuming you created said key, then here is what you'll need to do next:
 - `gpg.github.keyname` correspond to the email associated with the key (that is used by gpg to find the key).
 - `publish.directory` is the path to some directory on your filesystem. This directory could be versioned (in my case, it point to my [repository][3]).
 
-Last but not least, you may have to configure `~/.ssh/config`: the sample below will configure github to use the `~/.ssh/github.id_rsa` key rather than the default (`~/.ssh/id_rsa`):
-
-```config
-Host github
-  HostName github.com
-  IdentityFile ~/.ssh/github.id_rsa
-  User git
-```
-
-
-
 After all said, you only have to invoke maven:
 
     ./mvnw release:prepare release:perform
