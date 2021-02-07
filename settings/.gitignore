@@ -1,0 +1,4 @@
+eclipse/projects/java-*/bin
+!eclipse/projects/java-*/.project
+!eclipse/projects/java-*/.classpath
+!eclipse/projects/java-*/.settings/

@@ -11,6 +11,12 @@
     <ignoreVersion type="regex">.*-PFD</ignoreVersion>
   </ignoreVersions>
   <rules>
+    <!-- we use junit 5 -->
+    <rule groupId="junit" artifactId="junit" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <rule groupId="org.eclipse.m2e" artifactId="lifecycle-mapping" comparisonMethod="maven">
       <ignoreVersions>
         <ignoreVersion type="regex">.*</ignoreVersion>

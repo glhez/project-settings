@@ -28,8 +28,8 @@
               <artifactId>eclipse-settings-maven-plugin</artifactId>
               <configuration>
                 <additionalConfig>
-                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>
-                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/java-${java.compliance}/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
+                  <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>
+                  <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
                 </additionalConfig>
               </configuration>
             </plugin>

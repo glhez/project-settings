@@ -8,13 +8,10 @@
     <version>33-SNAPSHOT</version>
   </parent>
 
-  <artifactId>eclipse</artifactId>
+  <artifactId>settings</artifactId>
   <packaging>jar</packaging>
 
-  <description>
-    Package various Eclipse configuration.
-    There are one project per JDK version.
-  </description>
+  <description>Package settings that are shared across plugin configuration (such as Eclipse or versions-maven-plugin)</description>
 
   <properties>
     <!-- we don't compile, but Eclipse is still using this to determine the minimal version to use
@@ -31,11 +28,8 @@
         <filtering>false</filtering>
         <directory>${project.basedir}</directory>
         <includes>
-          <include>java-1.8/**</include>
-          <include>java-11/**</include>
-          <include>java-15/**</include>
-          <include>code-formatter-profile/**</include>
-          <include>clean-up-profile/**</include>
+          <include>eclipse/**</include>
+          <include>version-rules/**</include>
         </includes>
         <excludes>
           <exclude>**/src/.keep</exclude>
@@ -52,11 +46,7 @@
         <configuration>
           <excludes>
             <!-- these are generated, we don't want to fix them. -->
-            <exclude>java8/**</exclude>
-            <exclude>java11/**</exclude>
-            <exclude>java15/**</exclude>
-            <exclude>code-formatter-profile/**</exclude>
-            <exclude>clean-up-profile/**</exclude>
+            <exclude>eclipse/projects/**</exclude>
           </excludes>
         </configuration>
       </plugin>

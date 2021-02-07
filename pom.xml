@@ -23,17 +23,13 @@
   </scm>
 
   <distributionManagement>
-    <repository>         <id>glhez-m2-repo-releases</id>  <url>${publish.directory.releases}</url>  </repository>
-    <snapshotRepository> <id>glhez-m2-repo-snapshots</id> <url>${publish.directory.snapshots}</url> </snapshotRepository>
+    <repository>         <id>glhez-m2-repo-releases</id>  <url>${publish.directory.releases}</url>    </repository>
+    <snapshotRepository> <id>glhez-m2-repo-snapshots</id> <url>${publish.directory.snapshots}</url>   </snapshotRepository>
+    <site>               <id>glhez-m2-repo-site</id>      <url>${publish.directory.projectSite}</url> </site>
   </distributionManagement>
 
   <modules>
-    <!--
-      Eclipse settings
-    -->
-    <module>eclipse</module>
-
-    <module>versions-maven-plugin</module>
+    <module>settings</module>
 
     <!--
       Java projects are split by versions.
@@ -56,11 +52,13 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
+    <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
+
     <enforcer.requireMavenVersion>[3.6.3,3.7.0)</enforcer.requireMavenVersion>
 
     <!-- configuration file to be used for the maven-formatter-plugin (this is disabled due to CRLF issue
-         in the plugin) -->
-    <formatter.configFile.java>code-formatter-profile/eclipse-2020.09.xml</formatter.configFile.java>
+         in the plugin); path is relative to settings project -->
+    <formatter.configFile.java>eclipse/code-formatter.xml</formatter.configFile.java>
 
     <!--
       Publishing properties
@@ -79,28 +77,28 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.7.0</dep.junit-bom.version>
-    <dep.mockito-core.version>3.6.28</dep.mockito-core.version>
-    <dep.assertj-core.version>3.18.1</dep.assertj-core.version>
+    <dep.junit-bom.version>5.7.1</dep.junit-bom.version>
+    <dep.mockito-core.version>3.8.0</dep.mockito-core.version>
+    <dep.assertj-core.version>3.19.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.14.0</dep.log4j-bom.version>
-    <dep.commons-lang3.version>3.11</dep.commons-lang3.version>
+    <dep.commons-lang3.version>3.12</dep.commons-lang3.version>
     <dep.commons-text.version>1.9</dep.commons-text.version>
     <dep.commons-csv.version>1.8</dep.commons-csv.version>
     <dep.guava.version>30.1-jre</dep.guava.version>
     <dep.config.version>1.4.1</dep.config.version>
-    <dep.picocli.version>4.5.2</dep.picocli.version>
+    <dep.picocli.version>4.6.1</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
-    <dep.asm.version>9.0</dep.asm.version>
+    <dep.asm.version>9.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
-    <dep.cfr.version>0.150</dep.cfr.version>
-    <dep.jansi.version>2.1.1</dep.jansi.version>
+    <dep.cfr.version>0.151</dep.cfr.version>
+    <dep.jansi.version>2.3.1</dep.jansi.version>
 
-    <dep.jmh.version>1.27</dep.jmh.version>
+    <dep.jmh.version>1.28</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
 
-    <dep.bouncycastle.version>1.67</dep.bouncycastle.version>
+    <dep.bouncycastle.version>1.68</dep.bouncycastle.version>
     <dep.bcprov-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-jdk15on.version>
     <dep.bcprov-ext-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-jdk15on.version>
     <dep.bcpkix-jdk15on.version>${dep.bouncycastle.version}</dep.bcpkix-jdk15on.version>
@@ -110,14 +108,14 @@
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
     <dep.saxon-he.version>10.3</dep.saxon-he.version>
-    <dep.freemarker.version>2.3.30</dep.freemarker.version>
+    <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>3.0.0</dep.jakarta-jaxb.version>
-    <dep.jackson.version>2.12.0</dep.jackson.version>
-    <dep.jna.version>5.6.0</dep.jna.version>
-    <dep.bson4jackson.version>2.11.0</dep.bson4jackson.version>
-    <dep.error-prone.version>2.4.0</dep.error-prone.version>
-    <dep.nullaway.version>0.8.0</dep.nullaway.version>
-    <dep.spotbugs-annotations.version>4.2.0</dep.spotbugs-annotations.version>
+    <dep.jackson.version>2.12.1</dep.jackson.version>
+    <dep.jna.version>5.7.0</dep.jna.version>
+    <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
+    <dep.error-prone.version>2.5.1</dep.error-prone.version>
+    <dep.nullaway.version>0.9.0</dep.nullaway.version>
+    <dep.spotbugs-annotations.version>4.2.1</dep.spotbugs-annotations.version>
 
     <!--
 
@@ -132,15 +130,14 @@
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and
       logs.
     -->
-    <plg.eclipse-settings.version>3.2.1</plg.eclipse-settings.version>
-    <plg.formatter.version>2.13.0</plg.formatter.version>
-    <plg.spotbugs.version>4.1.4</plg.spotbugs.version>
+    <plg.eclipse-settings.version>3.2.2</plg.eclipse-settings.version>
+    <plg.formatter.version>2.14.0</plg.formatter.version>
+    <plg.spotbugs.version>4.2.0</plg.spotbugs.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>versions-maven-plugin</artifactId>    <version>${intdep.version}</version>                       <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>eclipse</artifactId>                  <version>${intdep.version}</version>                       <!--scope-->           <!--type-->      </dependency>
+      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>${intdep.version}</version>                       <!--scope-->           <!--type-->      </dependency>
 
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
       <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             <!--scope-->           <!--type-->      </dependency>
@@ -251,7 +248,7 @@
           <artifactId>eclipse-settings-maven-plugin</artifactId>
           <version>${plg.eclipse-settings.version}</version>
           <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
         </plugin>
 
@@ -260,7 +257,7 @@
           <artifactId>formatter-maven-plugin</artifactId>
           <version>${plg.formatter.version}</version>
           <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>eclipse</artifactId> <version>${intdep.version}</version> </dependency>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
           </dependencies>
           <configuration>
             <configFile>${formatter.configFile.java}</configFile>
@@ -355,6 +352,128 @@
     </plugins>
   </build>
 
+  <reporting>
+    <plugins>
+      <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>dependency-info</report>
+              <report>modules</report>
+              <report>team</report>
+              <report>scm</report>
+              <report>issue-management</report>
+              <report>mailing-lists</report>
+              <report>dependency-management</report>
+              <report>dependencies</report>
+              <report>dependency-convergence</report>
+              <report>ci-management</report>
+              <report>plugin-management</report>
+              <report>plugins</report>
+              <report>distribution-management</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+      <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId> </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>jxr</report>
+              <report>test-jxr</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <!-- Taglist Plugin must be executed after JXR Plugin -->
+      <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>taglist-maven-plugin</artifactId> <version>2.4</version>
+        <configuration>
+          <tagListOptions>
+            <tagClasses>
+              <tagClass>
+                <displayName>FIXME Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>fixme</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@fixme</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Todo Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>@todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+              <tagClass>
+                <displayName>Deprecated Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>@deprecated</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+            </tagClasses>
+          </tagListOptions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <detectLinks>true</detectLinks>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-maven-plugin</artifactId> </plugin>
+      <plugin> <groupId>org.codehaus.mojo</groupId>        <artifactId>versions-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <profiles>
     <!--
       versions-maven-plugin settings
@@ -371,7 +490,7 @@
         <property> <name>!__force_profile_activation</name> </property>
       </activation>
       <properties>
-        <version.baseURI>classpath://</version.baseURI>
+        <version.baseURI>classpath:///version-rules</version.baseURI>
         <version.file>restricted.xml</version.file>
       </properties>
       <build>
@@ -381,7 +500,7 @@
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>versions-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>versions-maven-plugin</artifactId> <version>${intdep.version}</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
               </dependencies>
               <configuration>
                 <rulesUri>${version.baseURI}/${version.file}</rulesUri>

@@ -15,11 +15,23 @@ The LATEST here means the latest JDK.
 
 The project is also configuring Eclipse project using the [eclipse-settings-maven-plugin][1].
 
-## Eclipse
+## Settings
 
-The Eclipse subproject ([eclipse/java8](eclipse/java8), [eclipse/java11](eclipse/java11)) must be imported as simple Eclipse project (the option is named _Import project into Workspace_ in the import list) rather than m2e project.
+The settings folder contains settings for:
 
-They can be edited like any classical Eclipse file: the [eclipse-settings-maven-plugin][1] is taking care of copying the relevant file into the target project.
+- Eclipse
+  - [Java 8](settings/eclipse/java8)
+  - [Java 11](settings/eclipse/java11)
+  - [Java 15](settings/eclipse/java15)
+- versions-maven-plugin
+
+These are copied by the [eclipse-settings-maven-plugin][1] during project (re)configuration.
+
+## Site
+
+A site can be produced: `mvn site site:stage`
+
+However, the project must first be packaged in a separate step.
 
 ## Generating a new version
 
@@ -47,6 +59,7 @@ This should give this `settings.xml`:
         <publish.directory>file:///e:/git/github/glhez-maven-repository</publish.directory>
         <publish.directory.releases>${publish.directory}/releases</publish.directory.releases>
         <publish.directory.snapshots>${publish.directory}/snapshots</publish.directory.snapshots>
+        <publish.directory.site>${publish.directory}/site</publish.directory.site>
       </properties>
     </profile>
     <profile>
