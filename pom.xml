@@ -81,20 +81,20 @@
     <dep.mockito-core.version>3.8.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.19.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.14.0</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.14.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12</dep.commons-lang3.version>
     <dep.commons-text.version>1.9</dep.commons-text.version>
     <dep.commons-csv.version>1.8</dep.commons-csv.version>
-    <dep.guava.version>30.1-jre</dep.guava.version>
+    <dep.guava.version>30.1.1-jre</dep.guava.version>
     <dep.config.version>1.4.1</dep.config.version>
     <dep.picocli.version>4.6.1</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
     <dep.asm.version>9.1</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.151</dep.cfr.version>
-    <dep.jansi.version>2.3.1</dep.jansi.version>
+    <dep.jansi.version>2.3.2</dep.jansi.version>
 
-    <dep.jmh.version>1.28</dep.jmh.version>
+    <dep.jmh.version>1.29</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
 
@@ -110,12 +110,12 @@
     <dep.saxon-he.version>10.3</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>3.0.0</dep.jakarta-jaxb.version>
-    <dep.jackson.version>2.12.1</dep.jackson.version>
-    <dep.jna.version>5.7.0</dep.jna.version>
+    <dep.jackson.version>2.12.2</dep.jackson.version>
+    <dep.jna.version>5.8.0</dep.jna.version>
     <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
     <dep.error-prone.version>2.5.1</dep.error-prone.version>
     <dep.nullaway.version>0.9.0</dep.nullaway.version>
-    <dep.spotbugs-annotations.version>4.2.1</dep.spotbugs-annotations.version>
+    <dep.spotbugs-annotations.version>4.2.2</dep.spotbugs-annotations.version>
 
     <!--
 
@@ -132,7 +132,7 @@
     -->
     <plg.eclipse-settings.version>3.2.2</plg.eclipse-settings.version>
     <plg.formatter.version>2.14.0</plg.formatter.version>
-    <plg.spotbugs.version>4.2.0</plg.spotbugs.version>
+    <plg.spotbugs.version>4.2.2</plg.spotbugs.version>
   </properties>
 
   <dependencyManagement>
@@ -228,7 +228,7 @@
         <plugin> <groupId>org.ec4j.maven</groupId>           <artifactId>editorconfig-maven-plugin</artifactId>                 <version>0.1.1</version>                   </plugin>
         <plugin> <groupId>org.jacoco</groupId>               <artifactId>jacoco-maven-plugin</artifactId>                       <version>0.8.6</version>                   </plugin>
         <plugin> <groupId>org.lesscss</groupId>              <artifactId>lesscss-maven-plugin</artifactId>                      <version>1.7.0.1.1</version>               </plugin>
-        <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>4.0.3</version>                   </plugin>
+        <plugin> <groupId>pl.project13.maven</groupId>       <artifactId>git-commit-id-plugin</artifactId>                      <version>4.0.4</version>                   </plugin>
         <plugin> <groupId>org.assertj</groupId>              <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>2.2.0</version>                   </plugin>
 
         <plugin>
