@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.glhez.parent</groupId>
+    <artifactId>java-15</artifactId>
+    <version>34-SNAPSHOT</version>
+    <relativePath>../java-15</relativePath>
+  </parent>
+
+  <artifactId>java-16</artifactId>
+  <packaging>pom</packaging>
+
+  <properties>
+    <java.compliance>16</java.compliance>
+
+    <toolchain.jdkVersion>[16.0.0,17.0.0)</toolchain.jdkVersion>
+  </properties>
+</project>

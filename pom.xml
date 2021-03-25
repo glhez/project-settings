@@ -43,6 +43,7 @@
     <module>java-1.8</module>
     <module>java-11</module>
     <module>java-15</module>
+    <module>java-16</module>
   </modules>
 
   <properties>
