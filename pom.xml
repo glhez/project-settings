@@ -74,6 +74,13 @@
 
     <intdep.version>33-SNAPSHOT</intdep.version>
 
+    <version.relativePart>/version-rules</version.relativePart>
+    <version.rules.current>${version.rules.restricted}</version.rules.current>
+
+    <version.rules.restricted>${version.relativePart}/restricted.xml</version.rules.restricted>
+    <version.rules.all>${version.relativePart}/all.xml</version.rules.all>
+
+
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
@@ -239,7 +246,7 @@
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <!-- <releaseProfiles>release-sign-artifacts</releaseProfiles> -->
-            <arguments> -Prelease-sign-artifacts </arguments>
+            <arguments> -Prelease-sign-artifacts,!versions-common,versions-release </arguments>
           </configuration>
         </plugin>
 
@@ -485,13 +492,12 @@
 
     -->
     <profile>
-      <id>versions-common</id>
+      <id>versions-common-dependency</id>
       <activation>
-        <property> <name>!__force_profile_activation</name> </property>
+        <file> <missing>${basedir}/settings/pom.xml</missing> </file>
       </activation>
       <properties>
-        <version.baseURI>classpath:///version-rules</version.baseURI>
-        <version.file>restricted.xml</version.file>
+        <version.baseURI>classpath://</version.baseURI>
       </properties>
       <build>
         <pluginManagement>
@@ -503,7 +509,30 @@
                 <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
               </dependencies>
               <configuration>
-                <rulesUri>${version.baseURI}/${version.file}</rulesUri>
+                <rulesUri>${version.baseURI}${version.rules.current}</rulesUri>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>versions-common-local</id>
+      <activation>
+        <file> <exists>${basedir}/settings/pom.xml</exists> </file>
+      </activation>
+      <properties>
+        <version.baseURI>file:${session.executionRootDirectory}/settings</version.baseURI>
+      </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>versions-maven-plugin</artifactId>
+              <configuration>
+                <rulesUri>${version.baseURI}${version.rules.current}</rulesUri>
               </configuration>
             </plugin>
           </plugins>
@@ -514,7 +543,7 @@
     <profile>
       <id>versions-all</id>
       <properties>
-        <version.file>all.xml</version.file>
+        <version.rules.current>${version.rules.all}</version.rules.current>
       </properties>
     </profile>
 
