@@ -86,7 +86,7 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.7.1</dep.junit-bom.version>
-    <dep.mockito-core.version>3.8.0</dep.mockito-core.version>
+    <dep.mockito-core.version>3.9.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.19.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.14.1</dep.log4j-bom.version>
@@ -101,6 +101,8 @@
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.151</dep.cfr.version>
     <dep.jansi.version>2.3.2</dep.jansi.version>
+    <dep.json-unit.version>2.25.0</dep.json-unit.version>
+    <dep.xmlunit.version>2.8.2</dep.xmlunit.version>
 
     <dep.jmh.version>1.29</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
@@ -115,15 +117,15 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
-    <dep.saxon-he.version>10.3</dep.saxon-he.version>
+    <dep.saxon-he.version>10.5</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
-    <dep.jakarta-jaxb.version>3.0.0</dep.jakarta-jaxb.version>
-    <dep.jackson.version>2.12.2</dep.jackson.version>
+    <dep.jakarta-jaxb.version>3.0.1</dep.jakarta-jaxb.version>
+    <dep.jackson.version>2.12.3</dep.jackson.version>
     <dep.jna.version>5.8.0</dep.jna.version>
     <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
-    <dep.error-prone.version>2.5.1</dep.error-prone.version>
-    <dep.nullaway.version>0.9.0</dep.nullaway.version>
-    <dep.spotbugs-annotations.version>4.2.2</dep.spotbugs-annotations.version>
+    <dep.error-prone.version>2.6.0</dep.error-prone.version>
+    <dep.nullaway.version>0.9.1</dep.nullaway.version>
+    <dep.spotbugs-annotations.version>4.2.3</dep.spotbugs-annotations.version>
 
     <!--
 
@@ -148,44 +150,49 @@
       <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>${intdep.version}</version>                       <!--scope-->           <!--type-->      </dependency>
 
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
-      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-junit-jupiter</artifactId>    <version>${dep.mockito-core.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>             <version>${dep.assertj-core.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId>         <version>${dep.memoryfilesystem.version}</version>         <!--scope-->           <!--type-->      </dependency>
       <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>                <version>${dep.log4j-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
-      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-lang3</artifactId>            <version>${dep.commons-lang3.version}</version>            <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-csv</artifactId>              <version>${dep.commons-csv.version}</version>              <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-text</artifactId>             <version>${dep.commons-text.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.google.guava</groupId>         <artifactId>guava</artifactId>                    <version>${dep.guava.version}</version>                    <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.google.errorprone</groupId>    <artifactId>error_prone_core</artifactId>         <version>${dep.error-prone.version}</version>              <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.google.errorprone</groupId>    <artifactId>error_prone_annotations</artifactId>  <version>${dep.error-prone.version}</version>              <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.uber.nullaway</groupId>        <artifactId>nullaway</artifactId>                 <version>${dep.nullaway.version}</version>                 <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-annotations</artifactId>     <version>${dep.spotbugs-annotations.version}</version>     <!--scope-->           <!--type-->      </dependency>
-
-      <dependency> <groupId>com.typesafe</groupId>             <artifactId>config</artifactId>                   <version>${dep.config.version}</version>                   <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli</artifactId>                  <version>${dep.picocli.version}</version>                  <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli-codegen</artifactId>          <version>${dep.picocli-codegen.version}</version>          <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.fusesource.jansi</groupId>     <artifactId>jansi</artifactId>                    <version>${dep.jansi.version}</version>                    <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm</artifactId>                      <version>${dep.asm.version}</version>                      <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm-util</artifactId>                 <version>${dep.asm-util.version}</version>                 <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>                      <version>${dep.cfr.version}</version>                      <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-core</artifactId>                 <version>${dep.jmh-core.version}</version>                 <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-generator-annprocess</artifactId> <version>${dep.jmh-generator-annprocess.version}</version> <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-jdk15on</artifactId>           <version>${dep.bcprov-jdk15on.version}</version>           <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-jdk15on</artifactId>       <version>${dep.bcprov-ext-jdk15on.version}</version>       <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpkix-jdk15on</artifactId>           <version>${dep.bcpkix-jdk15on.version}</version>           <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcmail-jdk15on</artifactId>           <version>${dep.bcmail-jdk15on.version}</version>           <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpg-jdk15on</artifactId>             <version>${dep.bcpg-jdk15on.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>org.freemarker</groupId>           <artifactId>freemarker</artifactId>               <version>${dep.freemarker.version}</version>               <!--scope-->           <!--type-->      </dependency>
       <dependency> <groupId>com.fasterxml.jackson</groupId>    <artifactId>jackson-bom</artifactId>              <version>${dep.jackson.version}</version>                  <scope>import</scope>  <type>pom</type> </dependency>
-      <dependency> <groupId>de.undercouch</groupId>            <artifactId>bson4jackson</artifactId>             <version>${dep.bson4jackson.version}</version>             <!--scope-->           <!--type-->      </dependency>
-      <dependency> <groupId>jakarta.xml.bind</groupId>         <artifactId>jakarta.xml.bind-api</artifactId>     <version>${dep.jakarta-jaxb.version}</version>             <scope>compile</scope> <!--type-->      </dependency>
-      <dependency> <groupId>com.sun.xml.bind</groupId>         <artifactId>jaxb-impl</artifactId>                <version>${dep.jakarta-jaxb.version}</version>             <scope>runtime</scope> <!--type-->      </dependency>
-      <dependency> <groupId>net.java.dev.jna</groupId>         <artifactId>jna</artifactId>                      <version>${dep.jna.version}</version>                      <!--scope-->           <!--type-->      </dependency>
+
+      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-core</artifactId>             <version>${dep.mockito-core.version}</version>             </dependency>
+      <dependency> <groupId>org.mockito</groupId>              <artifactId>mockito-junit-jupiter</artifactId>    <version>${dep.mockito-core.version}</version>             </dependency>
+      <dependency> <groupId>org.assertj</groupId>              <artifactId>assertj-core</artifactId>             <version>${dep.assertj-core.version}</version>             </dependency>
+      <dependency> <groupId>net.javacrumbs.json-unit</groupId> <artifactId>json-unit-assertj</artifactId>        <version>${dep.json-unit.version}</version>                </dependency>
+      <dependency> <groupId>org.xmlunit</groupId>              <artifactId>xmlunit-assertj3</artifactId>         <version>${dep.xmlunit.version}</version>                  </dependency>
+      <dependency> <groupId>com.github.marschall</groupId>     <artifactId>memoryfilesystem</artifactId>         <version>${dep.memoryfilesystem.version}</version>         </dependency>
+
+      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-lang3</artifactId>            <version>${dep.commons-lang3.version}</version>            </dependency>
+      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-csv</artifactId>              <version>${dep.commons-csv.version}</version>              </dependency>
+      <dependency> <groupId>org.apache.commons</groupId>       <artifactId>commons-text</artifactId>             <version>${dep.commons-text.version}</version>             </dependency>
+      <dependency> <groupId>com.google.guava</groupId>         <artifactId>guava</artifactId>                    <version>${dep.guava.version}</version>                    </dependency>
+      <dependency> <groupId>com.google.errorprone</groupId>    <artifactId>error_prone_core</artifactId>         <version>${dep.error-prone.version}</version>              </dependency>
+      <dependency> <groupId>com.google.errorprone</groupId>    <artifactId>error_prone_annotations</artifactId>  <version>${dep.error-prone.version}</version>              </dependency>
+      <dependency> <groupId>com.uber.nullaway</groupId>        <artifactId>nullaway</artifactId>                 <version>${dep.nullaway.version}</version>                 </dependency>
+      <dependency> <groupId>com.github.spotbugs</groupId>      <artifactId>spotbugs-annotations</artifactId>     <version>${dep.spotbugs-annotations.version}</version>     </dependency>
+
+      <dependency> <groupId>com.typesafe</groupId>             <artifactId>config</artifactId>                   <version>${dep.config.version}</version>                   </dependency>
+      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli</artifactId>                  <version>${dep.picocli.version}</version>                  </dependency>
+      <dependency> <groupId>info.picocli</groupId>             <artifactId>picocli-codegen</artifactId>          <version>${dep.picocli-codegen.version}</version>          </dependency>
+      <dependency> <groupId>org.fusesource.jansi</groupId>     <artifactId>jansi</artifactId>                    <version>${dep.jansi.version}</version>                    </dependency>
+      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm</artifactId>                      <version>${dep.asm.version}</version>                      </dependency>
+      <dependency> <groupId>org.ow2.asm</groupId>              <artifactId>asm-util</artifactId>                 <version>${dep.asm-util.version}</version>                 </dependency>
+      <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>                      <version>${dep.cfr.version}</version>                      </dependency>
+      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-core</artifactId>                 <version>${dep.jmh-core.version}</version>                 </dependency>
+      <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-generator-annprocess</artifactId> <version>${dep.jmh-generator-annprocess.version}</version> </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-jdk15on</artifactId>           <version>${dep.bcprov-jdk15on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-jdk15on</artifactId>       <version>${dep.bcprov-ext-jdk15on.version}</version>       </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpkix-jdk15on</artifactId>           <version>${dep.bcpkix-jdk15on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcmail-jdk15on</artifactId>           <version>${dep.bcmail-jdk15on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpg-jdk15on</artifactId>             <version>${dep.bcpg-jdk15on.version}</version>             </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> </dependency>
+      <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 </dependency>
+      <dependency> <groupId>org.freemarker</groupId>           <artifactId>freemarker</artifactId>               <version>${dep.freemarker.version}</version>               </dependency>
+      <dependency> <groupId>de.undercouch</groupId>            <artifactId>bson4jackson</artifactId>             <version>${dep.bson4jackson.version}</version>             </dependency>
+      <dependency> <groupId>net.java.dev.jna</groupId>         <artifactId>jna</artifactId>                      <version>${dep.jna.version}</version>                      </dependency>
+
+      <dependency> <groupId>jakarta.xml.bind</groupId>         <artifactId>jakarta.xml.bind-api</artifactId>     <version>${dep.jakarta-jaxb.version}</version>             <scope>compile</scope> </dependency>
+      <dependency> <groupId>com.sun.xml.bind</groupId>         <artifactId>jaxb-impl</artifactId>                <version>${dep.jakarta-jaxb.version}</version>             <scope>runtime</scope> </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -340,6 +347,7 @@
             <phase>initialize</phase>
             <configuration>
               <dotGitDirectory>${session.executionRootDirectory}/.git</dotGitDirectory>
+              <failOnNoGitDirectory>false</failOnNoGitDirectory>
               <generateGitPropertiesFile>true</generateGitPropertiesFile>
               <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.properties</generateGitPropertiesFilename>
               <skipPoms>true</skipPoms>
