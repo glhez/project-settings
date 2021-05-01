@@ -141,8 +141,8 @@
       logs.
     -->
     <plg.eclipse-settings.version>3.2.3</plg.eclipse-settings.version>
-    <plg.formatter.version>2.14.0</plg.formatter.version>
-    <plg.spotbugs.version>4.2.2</plg.spotbugs.version>
+    <plg.formatter.version>2.15.0</plg.formatter.version>
+    <plg.spotbugs.version>4.2.3</plg.spotbugs.version>
   </properties>
 
   <dependencyManagement>
@@ -220,8 +220,8 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>                      <version>3.0.0-M1</version>                </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                          <version>3.2.0</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>                      <version>3.2.0</version>                   </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                          <version>3.0.0</version>                   </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.1.1</version>                   </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                          <version>3.1.1</version>                   </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.1.2</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.2.0</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>                  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.4</version>                   </plugin>
@@ -249,7 +249,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.0.0-M4</version>
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
