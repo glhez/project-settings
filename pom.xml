@@ -55,7 +55,7 @@
 
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
-    <enforcer.requireMavenVersion>[3.6.3,3.7.0)</enforcer.requireMavenVersion>
+    <enforcer.requireMavenVersion>[3.8.1,4.0.0)</enforcer.requireMavenVersion>
 
     <!-- configuration file to be used for the maven-formatter-plugin (this is disabled due to CRLF issue
          in the plugin); path is relative to settings project -->
