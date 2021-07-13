@@ -85,9 +85,9 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.7.2</dep.junit-bom.version>
-    <dep.mockito-core.version>3.11.1</dep.mockito-core.version>
-    <dep.assertj-core.version>3.20.1</dep.assertj-core.version>
-    <dep.memoryfilesystem.version>2.1.0</dep.memoryfilesystem.version>
+    <dep.mockito-core.version>3.11.2</dep.mockito-core.version>
+    <dep.assertj-core.version>3.20.2</dep.assertj-core.version>
+    <dep.memoryfilesystem.version>2.2.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.14.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.9</dep.commons-text.version>
@@ -96,7 +96,7 @@
     <dep.config.version>1.4.1</dep.config.version>
     <dep.picocli.version>4.6.1</dep.picocli.version>
     <dep.picocli-codegen.version>${dep.picocli.version}</dep.picocli-codegen.version>
-    <dep.asm.version>9.1</dep.asm.version>
+    <dep.asm.version>9.2</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.151</dep.cfr.version>
     <dep.jansi.version>2.3.3</dep.jansi.version>
@@ -119,12 +119,12 @@
     <dep.saxon-he.version>10.5</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>3.0.1</dep.jakarta-jaxb.version>
-    <dep.jackson.version>2.12.3</dep.jackson.version>
+    <dep.jackson.version>2.12.4</dep.jackson.version>
     <dep.jna.version>5.8.0</dep.jna.version>
     <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
     <dep.error-prone.version>2.7.1</dep.error-prone.version>
     <dep.nullaway.version>0.9.1</dep.nullaway.version>
-    <dep.spotbugs-annotations.version>4.2.3</dep.spotbugs-annotations.version>
+    <dep.spotbugs-annotations.version>4.3.0</dep.spotbugs-annotations.version>
 
     <!--
 
