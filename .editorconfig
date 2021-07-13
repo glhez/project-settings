@@ -13,3 +13,12 @@ trim_trailing_whitespace = false
 [*.{bash,sh}]
 end_of_line = lf
 
+[.mvn/*]
+end_of_line = lf
+
+[mvnw]
+end_of_line = lf
+
+[mvnw.cmd]
+end_of_line = crlf
+

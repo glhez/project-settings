@@ -1,5 +1,6 @@
-*.bash                                eol=lf
-*.sh                                  eol=lf
-mvnw                                  eol=lf
-.mvn/wrapper/maven-wrapper.properties eol=lf
+*.bash   eol=lf
+*.sh     eol=lf
+mvnw     eol=lf
+mvnw.cmd eol=crlf
+.mvn     eol=lf
 
