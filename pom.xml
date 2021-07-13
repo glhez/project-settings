@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>40</version>
+  <version>41-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -72,7 +72,7 @@
     <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
     <toolchain.phase>validate</toolchain.phase>
 
-    <intdep.version>40</intdep.version>
+    <intdep.version>41-SNAPSHOT</intdep.version>
 
     <version.relativePart>/version-rules</version.relativePart>
     <version.rules.current>${version.rules.restricted}</version.rules.current>
