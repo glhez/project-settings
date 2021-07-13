@@ -5,12 +5,6 @@
 *.log
 *.log.gz
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -35,12 +29,8 @@ hs_err_pid*
 # Visual Studio Code/Codium
 .vscode/
 
-# IntelliJ
-*.iml
-
 # Maven
 target
-m2e-target
 *.versionsBackup
 *.releaseBackup
 /release.properties
