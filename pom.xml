@@ -91,7 +91,7 @@
     <dep.log4j-bom.version>2.14.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.9</dep.commons-text.version>
-    <dep.commons-csv.version>1.8</dep.commons-csv.version>
+    <dep.commons-csv.version>1.9.0</dep.commons-csv.version>
     <dep.guava.version>30.1.1-jre</dep.guava.version>
     <dep.config.version>1.4.1</dep.config.version>
     <dep.picocli.version>4.6.1</dep.picocli.version>
@@ -103,7 +103,7 @@
     <dep.json-unit.version>2.27.0</dep.json-unit.version>
     <dep.xmlunit.version>2.8.2</dep.xmlunit.version>
 
-    <dep.jmh.version>1.32</dep.jmh.version>
+    <dep.jmh.version>1.33</dep.jmh.version>
     <dep.jmh-core.version>${dep.jmh.version}</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>${dep.jmh.version}</dep.jmh-generator-annprocess.version>
 
@@ -119,10 +119,11 @@
     <dep.saxon-he.version>10.5</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>3.0.1</dep.jakarta-jaxb.version>
+    <dep.jaxb-impl.version>3.0.2</dep.jaxb-impl.version>
     <dep.jackson.version>2.12.4</dep.jackson.version>
     <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
     <dep.jna.version>5.8.0</dep.jna.version>
-    <dep.error-prone.version>2.8.0</dep.error-prone.version>
+    <dep.error-prone.version>2.8.1</dep.error-prone.version>
     <dep.nullaway.version>0.9.2</dep.nullaway.version>
     <dep.spotbugs-annotations.version>4.3.0</dep.spotbugs-annotations.version>
 
@@ -191,7 +192,7 @@
       <dependency> <groupId>net.java.dev.jna</groupId>         <artifactId>jna</artifactId>                      <version>${dep.jna.version}</version>                      </dependency>
 
       <dependency> <groupId>jakarta.xml.bind</groupId>         <artifactId>jakarta.xml.bind-api</artifactId>     <version>${dep.jakarta-jaxb.version}</version>             <scope>compile</scope> </dependency>
-      <dependency> <groupId>com.sun.xml.bind</groupId>         <artifactId>jaxb-impl</artifactId>                <version>${dep.jakarta-jaxb.version}</version>             <scope>runtime</scope> </dependency>
+      <dependency> <groupId>com.sun.xml.bind</groupId>         <artifactId>jaxb-impl</artifactId>                <version>${dep.jaxb-impl.version}</version>                <scope>runtime</scope> </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -215,14 +216,14 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                        <version>3.1.0</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>                     <version>3.8.1</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>                   <version>3.2.0</version>                   </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>                     <version>3.0.0-M3</version>                </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>                     <version>3.0.0</version>                </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId>                      <version>3.0.0-M1</version>                </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId>                          <version>3.2.0</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId>                      <version>3.3.0</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jxr-plugin</artifactId>                          <version>3.1.1</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-project-info-reports-plugin</artifactId>         <version>3.1.2</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>                    <version>3.2.0</version>                   </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.2</version>                  </plugin>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-scm-plugin</artifactId>                          <version>1.11.3</version>                  </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId>                        <version>3.2.4</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-site-plugin</artifactId>                         <version>3.9.1</version>                   </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>                       <version>3.2.1</version>                   </plugin>
