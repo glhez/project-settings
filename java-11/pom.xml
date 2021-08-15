@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez.parent</groupId>
     <artifactId>java-parent</artifactId>
-    <version>45-SNAPSHOT</version>
+    <version>45</version>
     <relativePath>../java-parent</relativePath>
   </parent>
 
