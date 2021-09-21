@@ -80,13 +80,12 @@
     <version.rules.restricted>${version.relativePart}/restricted.xml</version.rules.restricted>
     <version.rules.all>${version.relativePart}/all.xml</version.rules.all>
 
-
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.7.2</dep.junit-bom.version>
-    <dep.mockito-core.version>3.11.2</dep.mockito-core.version>
-    <dep.assertj-core.version>3.20.2</dep.assertj-core.version>
+    <dep.junit-bom.version>5.8.0</dep.junit-bom.version>
+    <dep.mockito-core.version>3.12.4</dep.mockito-core.version>
+    <dep.assertj-core.version>3.21.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.2.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.14.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
@@ -100,7 +99,7 @@
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.151</dep.cfr.version>
     <dep.jansi.version>2.3.4</dep.jansi.version>
-    <dep.json-unit.version>2.27.0</dep.json-unit.version>
+    <dep.json-unit.version>2.28.0</dep.json-unit.version>
     <dep.xmlunit.version>2.8.2</dep.xmlunit.version>
 
     <dep.jmh.version>1.33</dep.jmh.version>
@@ -116,16 +115,16 @@
     <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
     <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
     <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
-    <dep.saxon-he.version>10.5</dep.saxon-he.version>
+    <dep.saxon-he.version>10.6</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>3.0.1</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>3.0.2</dep.jaxb-impl.version>
-    <dep.jackson.version>2.12.4</dep.jackson.version>
+    <dep.jackson.version>2.12.5</dep.jackson.version>
     <dep.bson4jackson.version>2.12.0</dep.bson4jackson.version>
-    <dep.jna.version>5.8.0</dep.jna.version>
-    <dep.error-prone.version>2.8.1</dep.error-prone.version>
+    <dep.jna.version>5.9.0</dep.jna.version>
+    <dep.error-prone.version>2.9.0</dep.error-prone.version>
     <dep.nullaway.version>0.9.2</dep.nullaway.version>
-    <dep.spotbugs-annotations.version>4.4.0</dep.spotbugs-annotations.version>
+    <dep.spotbugs-annotations.version>4.4.1</dep.spotbugs-annotations.version>
 
     <!--
 
@@ -140,7 +139,7 @@
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and
       logs.
     -->
-    <plg.eclipse-settings.version>3.3.0</plg.eclipse-settings.version>
+    <plg.eclipse-settings.version>3.4.0</plg.eclipse-settings.version>
     <plg.formatter.version>2.16.0</plg.formatter.version>
     <plg.spotbugs.version>4.3.0</plg.spotbugs.version>
   </properties>
