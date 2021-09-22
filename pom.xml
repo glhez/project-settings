@@ -42,7 +42,7 @@
     <module>java-parent</module>
     <module>java-1.8</module>
     <module>java-11</module>
-    <module>java-16</module>
+    <module>java-17</module>
   </modules>
 
   <properties>

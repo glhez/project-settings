@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <profiles version="2">
-  <profile kind="CleanUpProfile" name="Eclipse 2021.06v1 Clean Up" version="2">
-    <setting id="cleanup.array_with_curly" value="false"/>
+  <profile kind="CleanUpProfile" name="Eclipse 2021.09v1 Clean Up" version="2">
+    <setting id="cleanup.array_with_curly" value="true"/>
     <setting id="cleanup.use_autoboxing" value="false"/>
     <setting id="cleanup.always_use_this_for_non_static_method_access" value="false"/>
     <setting id="cleanup.remove_trailing_whitespaces_ignore_empty" value="false"/>
     <setting id="cleanup.primitive_comparison" value="true"/>
-    <setting id="org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode" value="enabled"/>
-    <setting id="cleanup.system_property_file_encoding" value="false"/>
+    <setting id="cleanup.system_property_file_encoding" value="true"/>
     <setting id="cleanup.format_source_code_changes_only" value="false"/>
     <setting id="cleanup.remove_redundant_semicolons" value="true"/>
     <setting id="cleanup.qualify_static_member_accesses_through_subtypes_with_declaring_class" value="true"/>
@@ -24,7 +23,7 @@
     <setting id="cleanup.simplify_lambda_expression_and_method_ref" value="true"/>
     <setting id="cleanup.always_use_blocks" value="true"/>
     <setting id="cleanup.sort_members_all" value="false"/>
-    <setting id="cleanup.system_property_path_separator" value="false"/>
+    <setting id="cleanup.system_property_path_separator" value="true"/>
     <setting id="cleanup.instanceof" value="true"/>
     <setting id="cleanup.add_missing_annotations" value="true"/>
     <setting id="cleanup.precompile_regex" value="true"/>
@@ -32,32 +31,26 @@
     <setting id="cleanup.boolean_literal" value="true"/>
     <setting id="cleanup.always_use_parentheses_in_expressions" value="false"/>
     <setting id="cleanup.sort_members" value="false"/>
-    <setting id="org.eclipse.jdt.core.compiler.source" value="16"/>
     <setting id="cleanup.remove_unused_local_variables" value="false"/>
-    <setting id="org.eclipse.jdt.core.compiler.release" value="enabled"/>
     <setting id="cleanup.add_missing_deprecated_annotations" value="true"/>
     <setting id="cleanup.no_string_creation" value="true"/>
     <setting id="cleanup.use_unboxing" value="false"/>
     <setting id="cleanup.use_blocks_only_for_return_and_throw" value="false"/>
     <setting id="cleanup.standard_comparison" value="false"/>
     <setting id="cleanup.if_condition" value="true"/>
-    <setting id="org.eclipse.jdt.core.compiler.codegen.targetPlatform" value="16"/>
-    <setting id="cleanup.system_property_line_separator" value="false"/>
+    <setting id="cleanup.system_property_line_separator" value="true"/>
     <setting id="cleanup.remove_trailing_whitespaces" value="true"/>
     <setting id="cleanup.map_cloning" value="true"/>
     <setting id="cleanup.add_serial_version_id" value="false"/>
     <setting id="cleanup.try_with_resource" value="true"/>
-    <setting id="org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures" value="warning"/>
     <setting id="cleanup.use_this_for_non_static_method_access" value="false"/>
     <setting id="cleanup.use_this_for_non_static_method_access_only_if_necessary" value="true"/>
     <setting id="cleanup.single_used_field" value="true"/>
     <setting id="cleanup.reduce_indentation" value="true"/>
     <setting id="cleanup.primitive_parsing" value="true"/>
-    <setting id="cleanup.make_local_variable_final" value="true"/>
+    <setting id="cleanup.make_local_variable_final" value="false"/>
     <setting id="cleanup.add_missing_methods" value="false"/>
     <setting id="cleanup.qualify_static_member_accesses_with_declaring_class" value="true"/>
-    <setting id="org.eclipse.jdt.core.compiler.problem.enumIdentifier" value="error"/>
-    <setting id="org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures" value="disabled"/>
     <setting id="cleanup.add_missing_override_annotations" value="true"/>
     <setting id="cleanup.use_blocks" value="true"/>
     <setting id="cleanup.multi_catch" value="true"/>
@@ -65,9 +58,9 @@
     <setting id="cleanup.collection_cloning" value="true"/>
     <setting id="cleanup.convert_to_enhanced_for_loop_if_loop_var_used" value="false"/>
     <setting id="cleanup.make_variable_declarations_final" value="true"/>
-    <setting id="cleanup.redundant_comparator" value="false"/>
+    <setting id="cleanup.redundant_comparator" value="true"/>
     <setting id="cleanup.remove_unused_private_types" value="true"/>
-    <setting id="cleanup.system_property_boolean" value="false"/>
+    <setting id="cleanup.system_property_boolean" value="true"/>
     <setting id="cleanup.qualify_static_method_accesses_with_declaring_class" value="false"/>
     <setting id="cleanup.organize_imports" value="true"/>
     <setting id="cleanup.lazy_logical_operator" value="true"/>
@@ -76,20 +69,23 @@
     <setting id="cleanup.add_all" value="true"/>
     <setting id="cleanup.system_property_file_separator" value="false"/>
     <setting id="cleanup.qualify_static_field_accesses_with_declaring_class" value="false"/>
+    <setting id="cleanup.stringbuilder_for_local_vars" value="true"/>
     <setting id="cleanup.add_generated_serial_version_id" value="false"/>
     <setting id="cleanup.controlflow_merge" value="true"/>
     <setting id="cleanup.primitive_serialization" value="true"/>
     <setting id="cleanup.comparing_on_criteria" value="true"/>
+    <setting id="cleanup.do_while_rather_than_while" value="true"/>
     <setting id="cleanup.comparison_statement" value="true"/>
     <setting id="cleanup.extract_increment" value="true"/>
+    <setting id="cleanup.stringbuffer_to_stringbuilder" value="false"/>
     <setting id="cleanup.insert_inferred_type_arguments" value="false"/>
     <setting id="cleanup.make_private_fields_final" value="true"/>
     <setting id="cleanup.useless_return" value="true"/>
-    <setting id="cleanup.instanceof_keyword" value="false"/>
+    <setting id="cleanup.instanceof_keyword" value="true"/>
     <setting id="cleanup.use_this_for_non_static_field_access_only_if_necessary" value="true"/>
     <setting id="cleanup.remove_trailing_whitespaces_all" value="true"/>
     <setting id="cleanup.one_if_rather_than_duplicate_blocks_that_fall_through" value="true"/>
-    <setting id="cleanup.valueof_rather_than_instantiation" value="false"/>
+    <setting id="cleanup.valueof_rather_than_instantiation" value="true"/>
     <setting id="cleanup.plain_replacement" value="true"/>
     <setting id="cleanup.remove_unnecessary_array_creation" value="true"/>
     <setting id="cleanup.remove_private_constructors" value="true"/>
@@ -97,24 +93,22 @@
     <setting id="cleanup.substring" value="true"/>
     <setting id="cleanup.ternary_operator" value="true"/>
     <setting id="cleanup.merge_conditional_blocks" value="true"/>
-    <setting id="cleanup.return_expression" value="false"/>
-    <setting id="cleanup.system_property" value="false"/>
+    <setting id="cleanup.return_expression" value="true"/>
+    <setting id="cleanup.system_property" value="true"/>
     <setting id="cleanup.unlooped_while" value="true"/>
     <setting id="cleanup.convert_to_enhanced_for_loop" value="true"/>
     <setting id="cleanup.remove_unused_private_fields" value="true"/>
-    <setting id="org.eclipse.jdt.core.compiler.compliance" value="16"/>
     <setting id="cleanup.never_use_blocks" value="false"/>
     <setting id="cleanup.remove_redundant_modifiers" value="true"/>
     <setting id="cleanup.unreachable_block" value="true"/>
     <setting id="cleanup.redundant_falling_through_block_end" value="true"/>
     <setting id="cleanup.switch" value="false"/>
-    <setting id="org.eclipse.jdt.core.compiler.problem.assertIdentifier" value="error"/>
     <setting id="cleanup.number_suffix" value="true"/>
     <setting id="cleanup.remove_unnecessary_nls_tags" value="true"/>
     <setting id="cleanup.convert_to_switch_expressions" value="true"/>
     <setting id="cleanup.use_this_for_non_static_field_access" value="false"/>
     <setting id="cleanup.static_inner_class" value="true"/>
-    <setting id="cleanup.use_string_is_blank" value="false"/>
+    <setting id="cleanup.use_string_is_blank" value="true"/>
     <setting id="cleanup.add_missing_nls_tags" value="false"/>
     <setting id="cleanup.qualify_static_member_accesses_through_instances_with_declaring_class" value="true"/>
     <setting id="cleanup.remove_unnecessary_casts" value="true"/>
