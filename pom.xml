@@ -82,7 +82,7 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.8.0</dep.junit-bom.version>
+    <dep.junit-bom.version>5.8.1</dep.junit-bom.version>
     <dep.mockito-core.version>3.12.4</dep.mockito-core.version>
     <dep.assertj-core.version>3.21.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.2.0</dep.memoryfilesystem.version>
