@@ -4,9 +4,8 @@
 
   <parent>
     <groupId>com.github.glhez.parent</groupId>
-    <artifactId>java-11</artifactId>
+    <artifactId>maven-parent</artifactId>
     <version>48-SNAPSHOT</version>
-    <relativePath>../java-11</relativePath>
   </parent>
 
   <artifactId>java-17</artifactId>
@@ -14,18 +13,51 @@
 
   <properties>
     <java.compliance>17</java.compliance>
+    <maven.compiler.release>${java.compliance}</maven.compiler.release>
+    <maven.compiler.source>${java.compliance}</maven.compiler.source>
+    <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
     <toolchain.jdkVersion>[17.0.0,)</toolchain.jdkVersion>
+
+    <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>${toolchain.phase}</phase>
+            <goals> <goal>toolchain</goal> </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains> <jdk> <version>${toolchain.jdkVersion}</version> </jdk> </toolchains>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <!-- See: http://errorprone.info/docs/installation -->
-          <compilerArgs combine.children="append">
+          <!-- NOTE beware of default-compile and default-testCompile if we do have (yet again) to
+                    split Xlint option between main and test scope.
+
+               JAVA 16++:
+                 See: http://errorprone.info/docs/installation
+          -->
+          <compilerArgs>
+            <arg>${javac.xlint.args}</arg>
+            <arg>-XDcompilePolicy=simple</arg>
+            <arg>-Xplugin:ErrorProne</arg>
+            <arg>-XepExcludedPaths:.*/src/generated/.*</arg>
+            <arg>-Xep:NullAway:WARN</arg>
+            <arg>-Xep:IterablePathParameter</arg>
+            <arg>-Xep:RemoveUnusedImports</arg>
+            <arg>-XepDisableWarningsInGeneratedCode</arg>
+            <arg>-XepPatchChecks:MissingOverride,DefaultCharset,DeadException,BadImport</arg>
+            <arg>-XepPatchLocation:${project.basedir}</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
@@ -37,8 +69,135 @@
             <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
             <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
           </compilerArgs>
+          <annotationProcessorPaths>
+            <path> <groupId>com.google.errorprone</groupId> <artifactId>error_prone_core</artifactId> <version>${dep.error-prone.version}</version> </path>
+            <path> <groupId>com.uber.nullaway</groupId>     <artifactId>nullaway</artifactId>         <version>${dep.nullaway.version}</version>    </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>enable-picocli-java-agent</id>
+      <activation> <file> <exists>${basedir}/.mvn/profiles/picocli</exists> </file> </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-compile</id>
+                <configuration>
+                  <compilerArgs combine.children="append">
+                    <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+                  </compilerArgs>
+                  <annotationProcessorPaths combine.children="append">
+                    <path> <groupId>info.picocli</groupId> <artifactId>picocli-codegen</artifactId> <version>${dep.picocli-codegen.version}</version> </path>
+                  </annotationProcessorPaths>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+      We move module-info.java files into a separate folder.
+
+      While it allows to disable them if needed, it is also for Eclipse and Maven, since they are pretty much **not**
+      clear about test module:
+
+        https://maven.apache.org/surefire/maven-surefire-plugin/examples/jpms.html
+
+      Having a module-info.java per main/test folder is not possible in Eclipse (even if "test" scope was added, it
+      does not supports distinct output):
+
+        The project was not built due to "Build path contains duplicate entry: 'module-info.java'"
+
+      The solution here is to enable a new folder "src/test/jpms" containing the module-info and nothing else.
+
+    -->
+    <profile>
+      <id>jpms-module-info-main</id>
+      <activation>
+        <file> <exists>${basedir}/src/main/jpms</exists> </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-jpms-module-info-main</id>
+                <goals> <goal>add-source</goal> </goals>
+                <configuration>
+                  <sources>
+                    <source>src/main/jpms</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>jpms-module-info-test</id>
+      <activation>
+        <property> <name>!m2e.version</name> </property>
+        <file> <exists>${basedir}/src/test/jpms</exists> </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-jpms-module-info-test</id>
+                <goals> <goal>add-test-source</goal> </goals>
+                <configuration>
+                  <sources>
+                    <source>src/test/jpms</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>eclipse-settings</id>
+      <activation>
+        <property> <name>m2e.version</name> </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.glhez</groupId>
+            <artifactId>eclipse-settings-maven-plugin</artifactId>
+            <configuration>
+              <additionalConfig>
+                <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>
+                <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
+              </additionalConfig>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>generate-resources</phase>
+                <goals> <goal>eclipse-settings</goal> </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
