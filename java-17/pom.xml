@@ -50,14 +50,7 @@
           <compilerArgs>
             <arg>${javac.xlint.args}</arg>
             <arg>-XDcompilePolicy=simple</arg>
-            <arg>-Xplugin:ErrorProne</arg>
-            <arg>-XepExcludedPaths:.*/src/generated/.*</arg>
-            <arg>-Xep:NullAway:WARN</arg>
-            <arg>-Xep:IterablePathParameter</arg>
-            <arg>-Xep:RemoveUnusedImports</arg>
-            <arg>-XepDisableWarningsInGeneratedCode</arg>
-            <arg>-XepPatchChecks:MissingOverride,DefaultCharset,DeadException,BadImport</arg>
-            <arg>-XepPatchLocation:${project.basedir}</arg>
+            <arg>-Xplugin:ErrorProne -XepExcludedPaths:.*/src/generated/.* -Xep:NullAway:WARN -Xep:IterablePathParameter -Xep:RemoveUnusedImports -XepDisableWarningsInGeneratedCode -XepPatchChecks:MissingOverride,DefaultCharset,DeadException,BadImport -XepPatchLocation:${project.basedir}</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
