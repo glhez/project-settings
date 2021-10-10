@@ -47,6 +47,7 @@
                JAVA 16++:
                  See: http://errorprone.info/docs/installation
           -->
+          <fork>true</fork>
           <compilerArgs>
             <arg>${javac.xlint.args}</arg>
             <arg>-XDcompilePolicy=simple</arg>
