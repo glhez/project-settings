@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <profiles version="2">
-  <profile kind="CleanUpProfile" name="Eclipse 2021.09v1 Clean Up" version="2">
+  <profile kind="CleanUpProfile" name="Eclipse 2021.12v1 Clean Up" version="2">
     <setting id="cleanup.array_with_curly" value="true"/>
     <setting id="cleanup.use_autoboxing" value="false"/>
     <setting id="cleanup.always_use_this_for_non_static_method_access" value="false"/>
@@ -10,7 +10,7 @@
     <setting id="cleanup.format_source_code_changes_only" value="false"/>
     <setting id="cleanup.remove_redundant_semicolons" value="true"/>
     <setting id="cleanup.qualify_static_member_accesses_through_subtypes_with_declaring_class" value="true"/>
-    <setting id="cleanup.useless_continue" value="true"/>
+    <setting id="cleanup.useless_continu*e" value="true"/>
     <setting id="cleanup.remove_redundant_type_arguments" value="true"/>
     <setting id="cleanup.remove_unused_imports" value="true"/>
     <setting id="cleanup.break_loop" value="true"/>
@@ -19,9 +19,10 @@
     <setting id="cleanup.no_super" value="true"/>
     <setting id="cleanup.arrays_fill" value="true"/>
     <setting id="cleanup.use_lambda" value="true"/>
-    <setting id="cleanup.operand_factorization" value="false"/>
+    <setting id="cleanup.operand_factorization" value="true"/>
     <setting id="cleanup.simplify_lambda_expression_and_method_ref" value="true"/>
     <setting id="cleanup.always_use_blocks" value="true"/>
+    <setting id="cleanup.stringconcat_to_textblock" value="true"/>
     <setting id="cleanup.sort_members_all" value="false"/>
     <setting id="cleanup.system_property_path_separator" value="true"/>
     <setting id="cleanup.instanceof" value="true"/>

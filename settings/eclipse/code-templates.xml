@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+  <template autoinsert="true" context="modulecomment_context" deleted="false" description="Comment for modules" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.modulecomment" name="modulecomment">/**
+ * @author ${user}
+ *
+ * ${tags}
+ */</template>
+</templates>
