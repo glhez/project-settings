@@ -145,7 +145,7 @@ org.eclipse.jdt.core.formatter.alignment_for_annotations_on_package=49
 org.eclipse.jdt.core.formatter.alignment_for_annotations_on_parameter=0
 org.eclipse.jdt.core.formatter.alignment_for_annotations_on_type=49
 org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression=16
-org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation=5
+org.eclipse.jdt.core.formatter.alignment_for_arguments_in_annotation=82
 org.eclipse.jdt.core.formatter.alignment_for_arguments_in_enum_constant=16
 org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call=16
 org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation=18
@@ -180,7 +180,7 @@ org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_record_declarati
 org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_type_declaration=16
 org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_constructor_declaration=16
 org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_method_declaration=16
-org.eclipse.jdt.core.formatter.alignment_for_type_annotations=0
+org.eclipse.jdt.core.formatter.alignment_for_type_annotations=1
 org.eclipse.jdt.core.formatter.alignment_for_type_arguments=0
 org.eclipse.jdt.core.formatter.alignment_for_type_parameters=0
 org.eclipse.jdt.core.formatter.alignment_for_union_type_in_multicatch=16

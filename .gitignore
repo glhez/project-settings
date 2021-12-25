@@ -25,6 +25,7 @@ hs_err_pid*
 .checkstyle
 .factorypath
 /.profiler
+.apt_generated
 
 # Visual Studio Code/Codium
 .vscode/
