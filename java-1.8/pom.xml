@@ -43,6 +43,7 @@
           <!-- NOTE beware of default-compile and default-testCompile if we do have (yet again) to
                     split Xlint option between main and test scope.
           -->
+          <parameters>true</parameters>
           <compilerArgs>
             <arg>${javac.xlint.args}</arg>
           </compilerArgs>
