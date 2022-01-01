@@ -86,7 +86,7 @@
     <dep.mockito-core.version>4.2.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.21.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.3.0</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.17.0</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.17.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.9</dep.commons-text.version>
     <dep.commons-csv.version>1.9.0</dep.commons-csv.version>
@@ -123,7 +123,7 @@
     <dep.jna.version>5.10.0</dep.jna.version>
     <dep.javacc.version>7.0.10</dep.javacc.version>
     <dep.error-prone.version>2.10.0</dep.error-prone.version>
-    <dep.nullaway.version>0.9.2</dep.nullaway.version>
+    <dep.nullaway.version>0.9.4</dep.nullaway.version>
 
     <!--
 
