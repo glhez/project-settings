@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.glhez.parent</groupId>
     <artifactId>maven-parent</artifactId>
-    <version>55-SNAPSHOT</version>
+    <version>55</version>
   </parent>
 
   <artifactId>java-1.8</artifactId>
