@@ -137,7 +137,7 @@
     <plg.dependency.version>3.2.0</plg.dependency.version>
     <plg.enforcer.version>3.0.0</plg.enforcer.version>
     <plg.install.version>3.0.0-M1</plg.install.version>
-    <plg.jar.version>3.2.0</plg.jar.version>
+    <plg.jar.version>3.2.1</plg.jar.version>
     <plg.javadoc.version>3.3.1</plg.javadoc.version>
     <plg.jxr.version>3.1.1</plg.jxr.version>
     <plg.project-info-reports.version>3.1.2</plg.project-info-reports.version>
@@ -156,7 +156,7 @@
     <plg.release.version>3.0.0-M5</plg.release.version>
 
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
-    <plg.build-helper.version>3.2.0</plg.build-helper.version>
+    <plg.build-helper.version>3.3.0</plg.build-helper.version>
     <plg.exec.version>3.0.0</plg.exec.version>
     <plg.versions.version>2.8.1</plg.versions.version>
     <plg.xml.version>1.0.2</plg.xml.version>
