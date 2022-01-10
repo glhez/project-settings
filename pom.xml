@@ -123,7 +123,7 @@
     <dep.jna.version>5.10.0</dep.jna.version>
     <dep.javacc.version>7.0.10</dep.javacc.version>
     <dep.error-prone.version>2.10.0</dep.error-prone.version>
-    <dep.nullaway.version>0.9.4</dep.nullaway.version>
+    <dep.nullaway.version>0.9.5</dep.nullaway.version>
 
     <!--
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and logs.
