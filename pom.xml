@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>57</version>
+  <version>58-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
     <developerConnection>scm:git:git@github.com:glhez/project-settings.git</developerConnection>
-    <tag>v57</tag>
+    <tag>v40</tag>
   </scm>
 
   <distributionManagement>
@@ -71,7 +71,7 @@
     <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
     <toolchain.phase>validate</toolchain.phase>
 
-    <intdep.version>57</intdep.version>
+    <intdep.version>58-SNAPSHOT</intdep.version>
 
     <version.relativePart>/version-rules</version.relativePart>
     <version.rules.current>${version.rules.restricted}</version.rules.current>
