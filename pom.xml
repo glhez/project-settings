@@ -83,7 +83,7 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.8.2</dep.junit-bom.version>
-    <dep.mockito-core.version>4.2.0</dep.mockito-core.version>
+    <dep.mockito-core.version>4.3.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.22.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.3.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.17.1</dep.log4j-bom.version>
@@ -133,16 +133,16 @@
 
     <plg.assembly.version>3.3.0</plg.assembly.version>
     <plg.clean.version>3.1.0</plg.clean.version>
-    <plg.compiler.version>3.8.1</plg.compiler.version>
+    <plg.compiler.version>3.9.0</plg.compiler.version>
     <plg.dependency.version>3.2.0</plg.dependency.version>
     <plg.enforcer.version>3.0.0</plg.enforcer.version>
     <plg.install.version>3.0.0-M1</plg.install.version>
-    <plg.jar.version>3.2.1</plg.jar.version>
+    <plg.jar.version>3.2.2</plg.jar.version>
     <plg.javadoc.version>3.3.1</plg.javadoc.version>
     <plg.jxr.version>3.1.1</plg.jxr.version>
     <plg.project-info-reports.version>3.1.2</plg.project-info-reports.version>
     <plg.resources.version>3.2.0</plg.resources.version>
-    <plg.scm.version>1.12.2</plg.scm.version>
+    <plg.scm.version>2.0.0-M1</plg.scm.version>
     <plg.shade.version>3.2.4</plg.shade.version>
     <plg.site.version>3.10.0</plg.site.version>
     <plg.source.version>3.2.1</plg.source.version>
@@ -158,7 +158,7 @@
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.build-helper.version>3.3.0</plg.build-helper.version>
     <plg.exec.version>3.0.0</plg.exec.version>
-    <plg.versions.version>2.8.1</plg.versions.version>
+    <plg.versions.version>2.9.0</plg.versions.version>
     <plg.xml.version>1.0.2</plg.xml.version>
     <plg.editorconfig.version>0.1.1</plg.editorconfig.version>
     <plg.jacoco.version>0.8.7</plg.jacoco.version>
