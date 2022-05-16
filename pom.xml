@@ -83,7 +83,7 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.8.2</dep.junit-bom.version>
-    <dep.mockito-core.version>4.5.0</dep.mockito-core.version>
+    <dep.mockito-core.version>4.5.1</dep.mockito-core.version>
     <dep.assertj-core.version>3.22.0</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.3.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.17.2</dep.log4j-bom.version>
@@ -98,7 +98,7 @@
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.0</dep.jansi.version>
-    <dep.json-unit.version>2.34.0</dep.json-unit.version>
+    <dep.json-unit.version>2.35.0</dep.json-unit.version>
     <dep.xmlunit.version>2.9.0</dep.xmlunit.version>
 
     <dep.jmh.version>1.35</dep.jmh.version>
@@ -118,12 +118,12 @@
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.0</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>3.0.2</dep.jaxb-impl.version>
-    <dep.jackson.version>2.13.2.20220328</dep.jackson.version>
+    <dep.jackson.version>2.13.3</dep.jackson.version>
     <dep.bson4jackson.version>2.13.1</dep.bson4jackson.version>
     <dep.jna.version>5.11.0</dep.jna.version>
     <dep.javacc.version>7.0.11</dep.javacc.version>
     <dep.error-prone.version>2.13.1</dep.error-prone.version>
-    <dep.nullaway.version>0.9.6</dep.nullaway.version>
+    <dep.nullaway.version>0.9.7</dep.nullaway.version>
 
     <!--
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and logs.
@@ -132,7 +132,7 @@
     <plg.formatter.version>2.18.0</plg.formatter.version>
 
 
-    <plg.antrun.version>3.0.0</plg.antrun.version>
+    <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.3.0</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
@@ -151,9 +151,9 @@
     <plg.jacoco.version>0.8.8</plg.jacoco.version>
     <plg.jar.version>3.2.2</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
-    <plg.javadoc.version>3.3.2</plg.javadoc.version>
+    <plg.javadoc.version>3.4.0</plg.javadoc.version>
     <plg.jxr.version>3.2.0</plg.jxr.version>
-    <plg.project-info-reports.version>3.2.2</plg.project-info-reports.version>
+    <plg.project-info-reports.version>3.3.0</plg.project-info-reports.version>
     <plg.release.version>3.0.0-M5</plg.release.version>
     <plg.resources.version>3.2.0</plg.resources.version>
     <plg.scm.version>2.0.0-M1</plg.scm.version>
@@ -169,7 +169,7 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>${intdep.version}</version>                       <!--scope-->           <!--type-->      </dependency>
+      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>60-SNAPSHOT</version>                             <!--scope-->           <!--type-->      </dependency>
 
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
       <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>                <version>${dep.log4j-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
@@ -279,14 +279,14 @@
         <plugin>
           <groupId>com.github.glhez</groupId> <artifactId>eclipse-settings-maven-plugin</artifactId> <version>${plg.eclipse-settings.version}</version>
           <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>60-SNAPSHOT</version> </dependency>
           </dependencies>
         </plugin>
 
         <plugin>
           <groupId>net.revelc.code.formatter</groupId> <artifactId>formatter-maven-plugin</artifactId> <version>${plg.formatter.version}</version>
           <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>60-SNAPSHOT</version> </dependency>
           </dependencies>
           <configuration>
             <configFile>${formatter.configFile.java}</configFile>
@@ -528,7 +528,7 @@
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>versions-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>${intdep.version}</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>60-SNAPSHOT</version> </dependency>
               </dependencies>
               <configuration>
                 <rulesUri>${version.baseURI}${version.rules.current}</rulesUri>
