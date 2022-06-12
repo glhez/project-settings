@@ -83,8 +83,8 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.8.2</dep.junit-bom.version>
-    <dep.mockito-core.version>4.5.1</dep.mockito-core.version>
-    <dep.assertj-core.version>3.22.0</dep.assertj-core.version>
+    <dep.mockito-core.version>4.6.1</dep.mockito-core.version>
+    <dep.assertj-core.version>3.23.1</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.3.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.17.2</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
@@ -117,12 +117,12 @@
     <dep.saxon-he.version>11.3</dep.saxon-he.version>
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.0</dep.jakarta-jaxb.version>
-    <dep.jaxb-impl.version>3.0.2</dep.jaxb-impl.version>
+    <dep.jaxb-impl.version>4.0.0</dep.jaxb-impl.version>
     <dep.jackson.version>2.13.3</dep.jackson.version>
     <dep.bson4jackson.version>2.13.1</dep.bson4jackson.version>
     <dep.jna.version>5.11.0</dep.jna.version>
     <dep.javacc.version>7.0.11</dep.javacc.version>
-    <dep.error-prone.version>2.13.1</dep.error-prone.version>
+    <dep.error-prone.version>2.14.0</dep.error-prone.version>
     <dep.nullaway.version>0.9.7</dep.nullaway.version>
 
     <!--
