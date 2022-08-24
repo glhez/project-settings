@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <profiles version="2">
-  <profile kind="CleanUpProfile" name="Eclipse 2021.12v1 Clean Up" version="2">
+  <profile kind="CleanUpProfile" name="Eclipse 2022.06v1 Clean Up" version="2">
     <setting id="cleanup.array_with_curly" value="true"/>
     <setting id="cleanup.use_autoboxing" value="false"/>
+    <setting id="cleanup.overridden_assignment_move_decl" value="true"/>
     <setting id="cleanup.always_use_this_for_non_static_method_access" value="false"/>
     <setting id="cleanup.remove_trailing_whitespaces_ignore_empty" value="false"/>
     <setting id="cleanup.primitive_comparison" value="true"/>
@@ -10,7 +11,7 @@
     <setting id="cleanup.format_source_code_changes_only" value="false"/>
     <setting id="cleanup.remove_redundant_semicolons" value="true"/>
     <setting id="cleanup.qualify_static_member_accesses_through_subtypes_with_declaring_class" value="true"/>
-    <setting id="cleanup.useless_continu*e" value="true"/>
+    <setting id="cleanup.useless_continue" value="true"/>
     <setting id="cleanup.remove_redundant_type_arguments" value="true"/>
     <setting id="cleanup.remove_unused_imports" value="true"/>
     <setting id="cleanup.break_loop" value="true"/>
@@ -32,6 +33,7 @@
     <setting id="cleanup.boolean_literal" value="true"/>
     <setting id="cleanup.always_use_parentheses_in_expressions" value="false"/>
     <setting id="cleanup.sort_members" value="false"/>
+    <setting id="cleanup.remove_unused_method_parameters" value="false"/>
     <setting id="cleanup.remove_unused_local_variables" value="false"/>
     <setting id="cleanup.add_missing_deprecated_annotations" value="true"/>
     <setting id="cleanup.no_string_creation" value="true"/>
