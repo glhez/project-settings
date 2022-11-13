@@ -83,17 +83,17 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.9.1</dep.junit-bom.version>
-    <dep.mockito-core.version>4.8.0</dep.mockito-core.version>
+    <dep.mockito-core.version>4.8.1</dep.mockito-core.version>
     <dep.assertj-core.version>3.23.1</dep.assertj-core.version>
-    <dep.memoryfilesystem.version>2.3.0</dep.memoryfilesystem.version>
+    <dep.memoryfilesystem.version>2.4.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.19.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.12.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.10.0</dep.commons-text.version>
     <dep.commons-csv.version>1.9.0</dep.commons-csv.version>
     <dep.guava.version>31.1-jre</dep.guava.version>
     <dep.config.version>1.4.2</dep.config.version>
-    <dep.picocli.version>4.6.3</dep.picocli.version>
-    <dep.picocli-codegen.version>4.6.3</dep.picocli-codegen.version>
+    <dep.picocli.version>4.7.0</dep.picocli.version>
+    <dep.picocli-codegen.version>4.7.0</dep.picocli-codegen.version>
     <dep.asm.version>9.4</dep.asm.version>
     <dep.asm-util.version>${dep.asm.version}</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
@@ -118,18 +118,18 @@
     <dep.freemarker.version>2.3.31</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.0</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.1</dep.jaxb-impl.version>
-    <dep.jackson.version>2.13.4.20221013</dep.jackson.version>
+    <dep.jackson.version>2.14.0</dep.jackson.version>
     <dep.bson4jackson.version>2.13.1</dep.bson4jackson.version>
     <dep.jna.version>5.12.1</dep.jna.version>
     <dep.javacc.version>7.0.12</dep.javacc.version>
     <dep.error-prone.version>2.16</dep.error-prone.version>
-    <dep.nullaway.version>0.10.2</dep.nullaway.version>
+    <dep.nullaway.version>0.10.4</dep.nullaway.version>
 
     <!--
       We use our eclipse-settings-maven-plugin flavor instead of default because it lacks BuildContext and logs.
     -->
     <plg.eclipse-settings.version>3.5.0</plg.eclipse-settings.version>
-    <plg.formatter.version>2.20.0</plg.formatter.version>
+    <plg.formatter.version>2.21.0</plg.formatter.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
@@ -153,16 +153,16 @@
     <plg.javadoc.version>3.4.1</plg.javadoc.version>
     <plg.jxr.version>3.3.0</plg.jxr.version>
     <plg.project-info-reports.version>3.4.1</plg.project-info-reports.version>
-    <plg.release.version>3.0.0-M6</plg.release.version>
+    <plg.release.version>3.0.0-M7</plg.release.version>
     <plg.resources.version>3.3.0</plg.resources.version>
-    <plg.scm.version>2.0.0-M2</plg.scm.version>
-    <plg.shade.version>3.4.0</plg.shade.version>
+    <plg.scm.version>2.0.0-M3</plg.scm.version>
+    <plg.shade.version>3.4.1</plg.shade.version>
     <plg.site.version>4.0.0-M3</plg.site.version>
     <plg.source.version>3.2.1</plg.source.version>
     <plg.surefire-report.version>3.0.0-M7</plg.surefire-report.version>
     <plg.surefire.version>3.0.0-M7</plg.surefire.version>
     <plg.toolchains.version>3.1.0</plg.toolchains.version>
-    <plg.versions.version>2.12.0</plg.versions.version>
+    <plg.versions.version>2.13.0</plg.versions.version>
     <plg.xml.version>1.0.2</plg.xml.version>
   </properties>
 
