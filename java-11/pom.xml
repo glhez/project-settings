@@ -49,7 +49,7 @@
           <compilerArgs>
             <arg>${javac.xlint.args}</arg>
             <arg>-XDcompilePolicy=simple</arg>
-            <arg>-Xplugin:ErrorProne -XepExcludedPaths:.*/src/generated/.*,*/target/* -Xep:NullAway:WARN -Xep:IterablePathParameter -Xep:RemoveUnusedImports -XepDisableWarningsInGeneratedCode -XepPatchChecks:MissingOverride,DefaultCharset,DeadException,BadImport -XepPatchLocation:${project.basedir}</arg>
+            <arg>-Xplugin:ErrorProne -XepExcludedPaths:.*/src/generated/.*,.*/target/.* -Xep:NullAway:WARN -Xep:IterablePathParameter -Xep:RemoveUnusedImports -XepDisableWarningsInGeneratedCode -XepPatchChecks:MissingOverride,DefaultCharset,DeadException,BadImport -XepPatchLocation:${project.basedir}</arg>
           </compilerArgs>
           <annotationProcessorPaths>
             <path> <groupId>com.google.errorprone</groupId> <artifactId>error_prone_core</artifactId> <version>${dep.error-prone.version}</version> </path>
