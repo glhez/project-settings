@@ -16,7 +16,7 @@
   <properties>
     <!-- we don't compile, but Eclipse is still using this to determine the minimal version to use
          and since, at date, the minimal is JavaSE-1.6... -->
-    <java.compliance>11</java.compliance>
+    <java.compliance>17</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
