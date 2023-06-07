@@ -167,32 +167,5 @@
         </plugins>
       </build>
     </profile>
-
-    <profile>
-      <id>eclipse-settings</id>
-      <activation>
-        <property> <name>m2e.version</name> </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.glhez</groupId>
-            <artifactId>eclipse-settings-maven-plugin</artifactId>
-            <configuration>
-              <additionalConfig>
-                <file><name>.settings/org.eclipse.jdt.core.prefs</name> <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.core.prefs</location> </file>
-                <file><name>.settings/org.eclipse.jdt.ui.prefs</name>   <location>/eclipse/projects/java-${java.compliance}/.settings/org.eclipse.jdt.ui.prefs</location>   </file>
-              </additionalConfig>
-            </configuration>
-            <executions>
-              <execution>
-                <phase>generate-resources</phase>
-                <goals> <goal>eclipse-settings</goal> </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
   </profiles>
 </project>
