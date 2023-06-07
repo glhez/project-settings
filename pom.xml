@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>70</version>
+  <version>71-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
     <developerConnection>scm:git:git@github.com:glhez/project-settings.git</developerConnection>
-    <tag>v70</tag>
+    <tag>v40</tag>
   </scm>
 
   <distributionManagement>
@@ -162,7 +162,7 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>70</version>                             <!--scope-->           <!--type-->      </dependency>
+      <dependency> <groupId>com.github.glhez.parent</groupId>  <artifactId>settings</artifactId>                 <version>71-SNAPSHOT</version>                             <!--scope-->           <!--type-->      </dependency>
 
       <dependency> <groupId>org.junit</groupId>                <artifactId>junit-bom</artifactId>                <version>${dep.junit-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
       <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-bom</artifactId>                <version>${dep.log4j-bom.version}</version>                <scope>import</scope>  <type>pom</type> </dependency>
@@ -272,7 +272,7 @@
         <plugin>
           <groupId>net.revelc.code.formatter</groupId> <artifactId>formatter-maven-plugin</artifactId> <version>${plg.formatter.version}</version>
           <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>70</version> </dependency>
+            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>71-SNAPSHOT</version> </dependency>
           </dependencies>
           <configuration>
             <configFile>${formatter.configFile.java}</configFile>
@@ -514,7 +514,7 @@
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>versions-maven-plugin</artifactId>
               <dependencies>
-                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>70</version> </dependency>
+                <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>71-SNAPSHOT</version> </dependency>
               </dependencies>
               <configuration>
                 <rulesUri>${version.baseURI}${version.rules.current}</rulesUri>
