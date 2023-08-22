@@ -82,7 +82,7 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.10.0</dep.junit-bom.version>
-    <dep.mockito-core.version>5.4.0</dep.mockito-core.version>
+    <dep.mockito-core.version>5.5.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.24.2</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.6.1</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.20.0</dep.log4j-bom.version>
@@ -104,15 +104,15 @@
     <dep.jmh-core.version>1.37</dep.jmh-core.version>
     <dep.jmh-generator-annprocess.version>1.37</dep.jmh-generator-annprocess.version>
 
-    <dep.bouncycastle.version>1.70</dep.bouncycastle.version>
-    <dep.bcprov-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-jdk15on.version>
-    <dep.bcprov-ext-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-jdk15on.version>
-    <dep.bcpkix-jdk15on.version>${dep.bouncycastle.version}</dep.bcpkix-jdk15on.version>
-    <dep.bcmail-jdk15on.version>${dep.bouncycastle.version}</dep.bcmail-jdk15on.version>
-    <dep.bcpg-jdk15on.version>${dep.bouncycastle.version}</dep.bcpg-jdk15on.version>
-    <dep.bctls-jdk15on.version>${dep.bouncycastle.version}</dep.bctls-jdk15on.version>
-    <dep.bcprov-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk15on.version>
-    <dep.bcprov-ext-debug-jdk15on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk15on.version>
+    <dep.bouncycastle.version>1.76</dep.bouncycastle.version>
+    <dep.bcprov-jdk18on.version>${dep.bouncycastle.version}</dep.bcprov-jdk18on.version>
+    <dep.bcprov-ext-jdk18on.version>${dep.bouncycastle.version}</dep.bcprov-ext-jdk18on.version>
+    <dep.bcpkix-jdk18on.version>${dep.bouncycastle.version}</dep.bcpkix-jdk18on.version>
+    <dep.bcmail-jdk18on.version>${dep.bouncycastle.version}</dep.bcmail-jdk18on.version>
+    <dep.bcpg-jdk18on.version>${dep.bouncycastle.version}</dep.bcpg-jdk18on.version>
+    <dep.bctls-jdk18on.version>${dep.bouncycastle.version}</dep.bctls-jdk18on.version>
+    <dep.bcprov-debug-jdk18on.version>${dep.bouncycastle.version}</dep.bcprov-debug-jdk18on.version>
+    <dep.bcprov-ext-debug-jdk18on.version>${dep.bouncycastle.version}</dep.bcprov-ext-debug-jdk18on.version>
     <dep.saxon-he.version>12.3</dep.saxon-he.version>
     <dep.freemarker.version>2.3.32</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.0</dep.jakarta-jaxb.version>
@@ -192,14 +192,14 @@
       <dependency> <groupId>org.benf</groupId>                 <artifactId>cfr</artifactId>                      <version>${dep.cfr.version}</version>                      </dependency>
       <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-core</artifactId>                 <version>${dep.jmh-core.version}</version>                 </dependency>
       <dependency> <groupId>org.openjdk.jmh</groupId>          <artifactId>jmh-generator-annprocess</artifactId> <version>${dep.jmh-generator-annprocess.version}</version> </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-jdk15on</artifactId>           <version>${dep.bcprov-jdk15on.version}</version>           </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-jdk15on</artifactId>       <version>${dep.bcprov-ext-jdk15on.version}</version>       </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpkix-jdk15on</artifactId>           <version>${dep.bcpkix-jdk15on.version}</version>           </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcmail-jdk15on</artifactId>           <version>${dep.bcmail-jdk15on.version}</version>           </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpg-jdk15on</artifactId>             <version>${dep.bcpg-jdk15on.version}</version>             </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk15on</artifactId>            <version>${dep.bctls-jdk15on.version}</version>            </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk15on</artifactId>     <version>${dep.bcprov-debug-jdk15on.version}</version>     </dependency>
-      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk15on</artifactId> <version>${dep.bcprov-ext-debug-jdk15on.version}</version> </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-jdk18on</artifactId>           <version>${dep.bcprov-jdk18on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-jdk18on</artifactId>       <version>${dep.bcprov-ext-jdk18on.version}</version>       </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpkix-jdk18on</artifactId>           <version>${dep.bcpkix-jdk18on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcmail-jdk18on</artifactId>           <version>${dep.bcmail-jdk18on.version}</version>           </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcpg-jdk18on</artifactId>             <version>${dep.bcpg-jdk18on.version}</version>             </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bctls-jdk18on</artifactId>            <version>${dep.bctls-jdk18on.version}</version>            </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-debug-jdk18on</artifactId>     <version>${dep.bcprov-debug-jdk18on.version}</version>     </dependency>
+      <dependency> <groupId>org.bouncycastle</groupId>         <artifactId>bcprov-ext-debug-jdk18on</artifactId> <version>${dep.bcprov-ext-debug-jdk18on.version}</version> </dependency>
       <dependency> <groupId>net.sf.saxon</groupId>             <artifactId>Saxon-HE</artifactId>                 <version>${dep.saxon-he.version}</version>                 </dependency>
       <dependency> <groupId>org.freemarker</groupId>           <artifactId>freemarker</artifactId>               <version>${dep.freemarker.version}</version>               </dependency>
       <dependency> <groupId>de.undercouch</groupId>            <artifactId>bson4jackson</artifactId>             <version>${dep.bson4jackson.version}</version>             </dependency>
