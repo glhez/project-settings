@@ -13,8 +13,8 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: |
-          '8'
-          '17'
+          8
+          17
         cache: 'maven'
     - name: build
       run: |
