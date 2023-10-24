@@ -19,6 +19,5 @@ jobs:
     - name: build
       run: |
         ./mvnw -B package
-        cat "$HOME/.m2/toolchains.xml"
 
 
