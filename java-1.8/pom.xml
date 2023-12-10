@@ -16,7 +16,8 @@
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <toolchain.jdkVersion>[1.8,1.9)</toolchain.jdkVersion>
+    <!-- github action will use '8' and we use 1.8 locally; this rule should apply in both case -->
+    <toolchain.jdkVersion>[1.8,9)</toolchain.jdkVersion>
 
     <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>

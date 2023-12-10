@@ -18,7 +18,6 @@ jobs:
         cache: 'maven'
     - name: build
       run: |
-        cat ~/.m2/toolchains.xml
-#        ./mvnw -B package
+        ./mvnw -B package
 
 
