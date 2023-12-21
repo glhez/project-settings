@@ -89,7 +89,7 @@
     <dep.commons-lang3.version>3.14.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.11.0</dep.commons-text.version>
     <dep.commons-csv.version>1.10.0</dep.commons-csv.version>
-    <dep.guava.version>32.1.3-jre</dep.guava.version>
+    <dep.guava.version>33.0.0-jre</dep.guava.version>
     <dep.config.version>1.4.3</dep.config.version>
     <dep.picocli.version>4.7.5</dep.picocli.version>
     <dep.picocli-codegen.version>4.7.5</dep.picocli-codegen.version>
@@ -131,13 +131,13 @@
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
     <plg.build-helper.version>3.5.0</plg.build-helper.version>
     <plg.clean.version>3.3.2</plg.clean.version>
-    <plg.compiler.version>3.11.0</plg.compiler.version>
+    <plg.compiler.version>3.12.0</plg.compiler.version>
     <plg.dependency.version>3.6.1</plg.dependency.version>
     <plg.deploy.version>3.1.1</plg.deploy.version>
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.4.1</plg.enforcer.version>
     <plg.exec.version>3.1.1</plg.exec.version>
-    <plg.failsafe.version>3.2.2</plg.failsafe.version>
+    <plg.failsafe.version>3.2.3</plg.failsafe.version>
     <plg.git-commit-id.version>7.0.0</plg.git-commit-id.version>
     <plg.gpg.version>3.1.0</plg.gpg.version>
     <plg.install.version>3.1.1</plg.install.version>
@@ -153,8 +153,8 @@
     <plg.shade.version>3.5.1</plg.shade.version>
     <plg.site.version>4.0.0-M9</plg.site.version>
     <plg.source.version>3.3.0</plg.source.version>
-    <plg.surefire-report.version>3.2.2</plg.surefire-report.version>
-    <plg.surefire.version>3.2.2</plg.surefire.version>
+    <plg.surefire-report.version>3.2.3</plg.surefire-report.version>
+    <plg.surefire.version>3.2.3</plg.surefire.version>
     <plg.toolchains.version>3.1.0</plg.toolchains.version>
     <plg.versions.version>2.16.2</plg.versions.version>
     <plg.xml.version>1.1.0</plg.xml.version>
