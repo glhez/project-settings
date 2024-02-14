@@ -29,8 +29,6 @@
   </distributionManagement>
 
   <modules>
-    <module>settings</module>
-
     <!--
       Java projects are split by versions.
 
@@ -52,11 +50,7 @@
 
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
-    <enforcer.requireMavenVersion>[3.9.0,4.0.0)</enforcer.requireMavenVersion>
-
-    <!-- configuration file to be used for the maven-formatter-plugin (this is disabled due to CRLF issue
-         in the plugin); path is relative to settings project -->
-    <formatter.configFile.java>eclipse/code-formatter.xml</formatter.configFile.java>
+    <enforcer.requireMavenVersion>[3.9.6,4.0.0)</enforcer.requireMavenVersion>
 
     <!--
       Publishing properties
@@ -69,14 +63,6 @@
 
     <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
     <toolchain.phase>validate</toolchain.phase>
-
-    <intdep.version>60-SNAPSHOT</intdep.version>
-
-    <version.relativePart>/version-rules</version.relativePart>
-    <version.rules.current>${version.rules.restricted}</version.rules.current>
-
-    <version.rules.restricted>${version.relativePart}/restricted.xml</version.rules.restricted>
-    <version.rules.all>${version.relativePart}/all.xml</version.rules.all>
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
@@ -124,7 +110,6 @@
     <dep.error-prone.version>2.24.1</dep.error-prone.version>
     <dep.nullaway.version>0.10.22</dep.nullaway.version>
 
-    <plg.formatter.version>2.23.0</plg.formatter.version>
     <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.6.0</plg.assembly.version>
@@ -138,6 +123,7 @@
     <plg.enforcer.version>3.4.1</plg.enforcer.version>
     <plg.exec.version>3.1.1</plg.exec.version>
     <plg.failsafe.version>3.2.5</plg.failsafe.version>
+    <plg.formatter.version>2.23.0</plg.formatter.version>
     <plg.git-commit-id.version>7.0.0</plg.git-commit-id.version>
     <plg.gpg.version>3.1.0</plg.gpg.version>
     <plg.install.version>3.1.1</plg.install.version>
@@ -155,6 +141,7 @@
     <plg.source.version>3.3.0</plg.source.version>
     <plg.surefire-report.version>3.2.5</plg.surefire-report.version>
     <plg.surefire.version>3.2.5</plg.surefire.version>
+    <plg.taglist.version>3.0.0</plg.taglist.version>
     <plg.toolchains.version>3.1.0</plg.toolchains.version>
     <plg.versions.version>2.16.2</plg.versions.version>
     <plg.xml.version>1.1.0</plg.xml.version>
@@ -250,35 +237,23 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId>      <version>${plg.surefire-report.version}</version>      </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>${plg.toolchains.version}</version>           </plugin>
 
-        <plugin> <groupId>io.github.git-commit-id</groupId> <artifactId>git-commit-id-maven-plugin</artifactId>                <version>${plg.git-commit-id.version}</version>                </plugin>
-        <plugin> <groupId>org.assertj</groupId>             <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>${plg.assertj-assertions-generator.version}</version> </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>       <artifactId>appassembler-maven-plugin</artifactId>                 <version>${plg.appassembler.version}</version>                 </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>       <artifactId>build-helper-maven-plugin</artifactId>                 <version>${plg.build-helper.version}</version>                 </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>       <artifactId>exec-maven-plugin</artifactId>                         <version>${plg.exec.version}</version>                         </plugin>
-        <plugin> <groupId>org.codehaus.mojo</groupId>       <artifactId>xml-maven-plugin</artifactId>                          <version>${plg.xml.version}</version>                          </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>          <artifactId>editorconfig-maven-plugin</artifactId>                 <version>${plg.editorconfig.version}</version>                 </plugin>
-        <plugin> <groupId>org.jacoco</groupId>              <artifactId>jacoco-maven-plugin</artifactId>                       <version>${plg.jacoco.version}</version>                       </plugin>
-        <plugin> <groupId>org.javacc.plugin</groupId>       <artifactId>javacc-maven-plugin</artifactId>                       <version>${plg.javacc.version}</version>                       </plugin>
+        <plugin> <groupId>io.github.git-commit-id</groupId>   <artifactId>git-commit-id-maven-plugin</artifactId>                <version>${plg.git-commit-id.version}</version>                </plugin>
+        <plugin> <groupId>net.revelc.code.formatter</groupId> <artifactId>formatter-maven-plugin</artifactId>                    <version>${plg.formatter.version}</version>                    </plugin>
+        <plugin> <groupId>org.assertj</groupId>               <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>${plg.assertj-assertions-generator.version}</version> </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>appassembler-maven-plugin</artifactId>                 <version>${plg.appassembler.version}</version>                 </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>build-helper-maven-plugin</artifactId>                 <version>${plg.build-helper.version}</version>                 </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>exec-maven-plugin</artifactId>                         <version>${plg.exec.version}</version>                         </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>taglist-maven-plugin</artifactId>                      <version>${plg.taglist.version}</version>                      </plugin>
+        <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>xml-maven-plugin</artifactId>                          <version>${plg.xml.version}</version>                          </plugin>
+        <plugin> <groupId>org.ec4j.maven</groupId>            <artifactId>editorconfig-maven-plugin</artifactId>                 <version>${plg.editorconfig.version}</version>                 </plugin>
+        <plugin> <groupId>org.jacoco</groupId>                <artifactId>jacoco-maven-plugin</artifactId>                       <version>${plg.jacoco.version}</version>                       </plugin>
+        <plugin> <groupId>org.javacc.plugin</groupId>         <artifactId>javacc-maven-plugin</artifactId>                       <version>${plg.javacc.version}</version>                       </plugin>
 
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId>                      <version>${plg.release.version}</version>
+        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId>                       <version>${plg.release.version}</version>
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <releaseProfiles>release-sign-artifacts</releaseProfiles>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>net.revelc.code.formatter</groupId> <artifactId>formatter-maven-plugin</artifactId> <version>${plg.formatter.version}</version>
-          <dependencies>
-            <dependency> <groupId>com.github.glhez.parent</groupId> <artifactId>settings</artifactId> <version>75-SNAPSHOT</version> </dependency>
-          </dependencies>
-          <configuration>
-            <configFile>${formatter.configFile.java}</configFile>
-            <lineEnding>AUTO</lineEnding>
-            <includes>
-              <include>**/*.java/</include>
-            </includes>
           </configuration>
         </plugin>
 
@@ -420,7 +395,7 @@
         </reportSets>
       </plugin>
       <!-- Taglist Plugin must be executed after JXR Plugin -->
-      <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>taglist-maven-plugin</artifactId> <version>3.0.0</version>
+      <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>taglist-maven-plugin</artifactId>
         <configuration>
           <tagListOptions>
             <tagClasses>
