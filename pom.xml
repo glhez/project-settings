@@ -84,7 +84,7 @@
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.1</dep.jansi.version>
     <dep.json-unit.version>3.2.7</dep.json-unit.version>
-    <dep.xmlunit.version>2.9.1</dep.xmlunit.version>
+    <dep.xmlunit.version>2.10.0</dep.xmlunit.version>
 
     <dep.jmh.version>1.35</dep.jmh.version>
     <dep.jmh-core.version>1.37</dep.jmh-core.version>
@@ -107,7 +107,7 @@
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.14.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
-    <dep.error-prone.version>2.26.1</dep.error-prone.version>
+    <dep.error-prone.version>2.27.1</dep.error-prone.version>
     <dep.nullaway.version>0.10.25</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
@@ -118,7 +118,7 @@
     <plg.clean.version>3.3.2</plg.clean.version>
     <plg.compiler.version>3.13.0</plg.compiler.version>
     <plg.dependency.version>3.6.1</plg.dependency.version>
-    <plg.deploy.version>3.1.1</plg.deploy.version>
+    <plg.deploy.version>3.1.2</plg.deploy.version>
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.4.1</plg.enforcer.version>
     <plg.exec.version>3.2.0</plg.exec.version>
@@ -126,7 +126,7 @@
     <plg.formatter.version>2.23.0</plg.formatter.version>
     <plg.git-commit-id.version>8.0.2</plg.git-commit-id.version>
     <plg.gpg.version>3.2.4</plg.gpg.version>
-    <plg.install.version>3.1.1</plg.install.version>
+    <plg.install.version>3.1.2</plg.install.version>
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
     <plg.jar.version>3.4.1</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
@@ -136,13 +136,13 @@
     <plg.release.version>3.0.1</plg.release.version>
     <plg.resources.version>3.3.1</plg.resources.version>
     <plg.scm.version>2.1.0</plg.scm.version>
-    <plg.shade.version>3.5.2</plg.shade.version>
+    <plg.shade.version>3.5.3</plg.shade.version>
     <plg.site.version>4.0.0-M9</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
     <plg.surefire-report.version>3.2.5</plg.surefire-report.version>
     <plg.surefire.version>3.2.5</plg.surefire.version>
     <plg.taglist.version>3.0.0</plg.taglist.version>
-    <plg.toolchains.version>3.1.0</plg.toolchains.version>
+    <plg.toolchains.version>3.2.0</plg.toolchains.version>
     <plg.versions.version>2.16.2</plg.versions.version>
     <plg.xml.version>1.1.0</plg.xml.version>
   </properties>
