@@ -68,17 +68,17 @@
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
     <dep.junit-bom.version>5.10.2</dep.junit-bom.version>
-    <dep.mockito-core.version>5.11.0</dep.mockito-core.version>
+    <dep.mockito-core.version>5.12.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.25.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.0</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.23.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.14.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.12.0</dep.commons-text.version>
-    <dep.commons-csv.version>1.10.0</dep.commons-csv.version>
-    <dep.guava.version>33.1.0-jre</dep.guava.version>
+    <dep.commons-csv.version>1.11.0</dep.commons-csv.version>
+    <dep.guava.version>33.2.0-jre</dep.guava.version>
     <dep.config.version>1.4.3</dep.config.version>
-    <dep.picocli.version>4.7.5</dep.picocli.version>
-    <dep.picocli-codegen.version>4.7.5</dep.picocli-codegen.version>
+    <dep.picocli.version>4.7.6</dep.picocli.version>
+    <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
     <dep.asm.version>9.7</dep.asm.version>
     <dep.asm-util.version>9.7</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
@@ -92,7 +92,7 @@
 
     <dep.bouncycastle.version>1.76</dep.bouncycastle.version>
     <dep.bcprov-jdk18on.version>1.78.1</dep.bcprov-jdk18on.version>
-    <dep.bcprov-ext-jdk18on.version>1.78</dep.bcprov-ext-jdk18on.version>
+    <dep.bcprov-ext-jdk18on.version>1.78.1</dep.bcprov-ext-jdk18on.version>
     <dep.bcpkix-jdk18on.version>1.78.1</dep.bcpkix-jdk18on.version>
     <dep.bcmail-jdk18on.version>1.78.1</dep.bcmail-jdk18on.version>
     <dep.bcpg-jdk18on.version>1.78.1</dep.bcpg-jdk18on.version>
@@ -103,25 +103,25 @@
     <dep.freemarker.version>2.3.32</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
-    <dep.jackson.version>2.17.0</dep.jackson.version>
+    <dep.jackson.version>2.17.1</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.14.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
     <dep.error-prone.version>2.27.1</dep.error-prone.version>
-    <dep.nullaway.version>0.10.25</dep.nullaway.version>
+    <dep.nullaway.version>0.10.26</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.7.1</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
-    <plg.build-helper.version>3.5.0</plg.build-helper.version>
+    <plg.build-helper.version>3.6.0</plg.build-helper.version>
     <plg.clean.version>3.3.2</plg.clean.version>
     <plg.compiler.version>3.13.0</plg.compiler.version>
     <plg.dependency.version>3.6.1</plg.dependency.version>
     <plg.deploy.version>3.1.2</plg.deploy.version>
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.4.1</plg.enforcer.version>
-    <plg.exec.version>3.2.0</plg.exec.version>
+    <plg.exec.version>3.3.0</plg.exec.version>
     <plg.failsafe.version>3.2.5</plg.failsafe.version>
     <plg.formatter.version>2.23.0</plg.formatter.version>
     <plg.git-commit-id.version>8.0.2</plg.git-commit-id.version>
