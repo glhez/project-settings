@@ -29,28 +29,18 @@
   </distributionManagement>
 
   <modules>
-    <!--
-      Java projects are split by versions.
-
-      - the release flag does not exist in Java version before 9.
-      - some Xlint flags about modules does not exists prior to version 9.
-
-      The projects each use maven-toolchain-plugin
-    -->
     <module>java-1.8</module>
     <module>java-17</module>
+    <module>java-21</module>
   </modules>
 
   <properties>
-    <!--
-      Ensure that all project use UTF-8.
-    -->
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
-    <enforcer.requireMavenVersion>[3.9.6,4.0.0)</enforcer.requireMavenVersion>
+    <enforcer.requireMavenVersion>[3.9.7,4.0.0)</enforcer.requireMavenVersion>
 
     <!--
       Publishing properties
@@ -117,21 +107,21 @@
     <plg.build-helper.version>3.6.0</plg.build-helper.version>
     <plg.clean.version>3.3.2</plg.clean.version>
     <plg.compiler.version>3.13.0</plg.compiler.version>
-    <plg.dependency.version>3.6.1</plg.dependency.version>
+    <plg.dependency.version>3.7.0</plg.dependency.version>
     <plg.deploy.version>3.1.2</plg.deploy.version>
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
     <plg.exec.version>3.3.0</plg.exec.version>
     <plg.failsafe.version>3.2.5</plg.failsafe.version>
-    <plg.formatter.version>2.24.0</plg.formatter.version>
-    <plg.git-commit-id.version>8.0.2</plg.git-commit-id.version>
+    <plg.formatter.version>2.24.1</plg.formatter.version>
+    <plg.git-commit-id.version>9.0.0</plg.git-commit-id.version>
     <plg.gpg.version>3.2.4</plg.gpg.version>
     <plg.install.version>3.1.2</plg.install.version>
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
     <plg.jar.version>3.4.1</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
     <plg.javadoc.version>3.7.0</plg.javadoc.version>
-    <plg.jxr.version>3.3.2</plg.jxr.version>
+    <plg.jxr.version>3.4.0</plg.jxr.version>
     <plg.project-info-reports.version>3.5.0</plg.project-info-reports.version>
     <plg.release.version>3.0.1</plg.release.version>
     <plg.resources.version>3.3.1</plg.resources.version>
