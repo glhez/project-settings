@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>82</version>
+  <version>83-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
     <developerConnection>scm:git:git@github.com:glhez/project-settings.git</developerConnection>
-    <tag>v82</tag>
+    <tag>v40</tag>
   </scm>
 
   <distributionManagement>
