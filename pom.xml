@@ -127,7 +127,7 @@
     <plg.resources.version>3.3.1</plg.resources.version>
     <plg.scm.version>2.1.0</plg.scm.version>
     <plg.shade.version>3.6.0</plg.shade.version>
-    <plg.site.version>4.0.0-M9</plg.site.version>
+    <plg.site.version>4.0.0-M15</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
     <plg.surefire-report.version>3.2.5</plg.surefire-report.version>
     <plg.surefire.version>3.2.5</plg.surefire.version>
