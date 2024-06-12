@@ -42,15 +42,6 @@
 
     <enforcer.requireMavenVersion>[3.9.7,4.0.0)</enforcer.requireMavenVersion>
 
-    <!--
-      Publishing properties
-
-      This  must  be  defined  in  settings.xml  and  point  to a local GIT repository containing the mvn-repo
-      branches which is used to serve our artifact.
-
-    -->
-    <!-- <publish.directory>${session.executionRootDirectory}/target/mvn-repository</publish.directory> -->
-
     <!-- the default toolchain phase; may be disabled for CI such as Travis or GitHub actions. -->
     <toolchain.phase>validate</toolchain.phase>
 
