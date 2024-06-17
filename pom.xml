@@ -103,7 +103,7 @@
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
     <plg.exec.version>3.3.0</plg.exec.version>
-    <plg.failsafe.version>3.2.5</plg.failsafe.version>
+    <plg.failsafe.version>3.3.0</plg.failsafe.version>
     <plg.formatter.version>2.24.1</plg.formatter.version>
     <plg.git-commit-id.version>9.0.0</plg.git-commit-id.version>
     <plg.gpg.version>3.2.4</plg.gpg.version>
