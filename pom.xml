@@ -294,11 +294,6 @@
             <configuration>
               <rules>
                 <requireMavenVersion> <version>${enforcer.requireMavenVersion}</version>  </requireMavenVersion>
-                <bannedDependencies>
-                  <excludes>
-                    <exclude>commons-logging:commons-logging</exclude>
-                  </excludes>
-                </bannedDependencies>
               </rules>
             </configuration>
           </execution>
