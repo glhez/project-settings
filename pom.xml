@@ -120,7 +120,7 @@
     <plg.shade.version>3.6.0</plg.shade.version>
     <plg.site.version>3.12.1</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
-    <plg.surefire-report.version>3.2.5</plg.surefire-report.version>
+    <plg.surefire-report.version>3.3.0</plg.surefire-report.version>
     <plg.surefire.version>3.2.5</plg.surefire.version>
     <plg.taglist.version>3.0.0</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
