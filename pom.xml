@@ -64,7 +64,7 @@
     <dep.asm-util.version>9.7</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.1</dep.jansi.version>
-    <dep.json-unit.version>3.2.7</dep.json-unit.version>
+    <dep.json-unit.version>3.3.0</dep.json-unit.version>
     <dep.xmlunit.version>2.10.0</dep.xmlunit.version>
 
     <dep.jmh.version>1.35</dep.jmh.version>
