@@ -113,7 +113,7 @@
     <plg.javacc.version>3.0.3</plg.javacc.version>
     <plg.javadoc.version>3.7.0</plg.javadoc.version>
     <plg.jxr.version>3.4.0</plg.jxr.version>
-    <plg.project-info-reports.version>3.6.0</plg.project-info-reports.version>
+    <plg.project-info-reports.version>3.6.1</plg.project-info-reports.version>
     <plg.release.version>3.1.0</plg.release.version>
     <plg.resources.version>3.3.1</plg.resources.version>
     <plg.scm.version>2.1.0</plg.scm.version>
