@@ -105,7 +105,7 @@
     <plg.exec.version>3.3.0</plg.exec.version>
     <plg.failsafe.version>3.3.0</plg.failsafe.version>
     <plg.formatter.version>2.24.1</plg.formatter.version>
-    <plg.git-commit-id.version>9.0.0</plg.git-commit-id.version>
+    <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.4</plg.gpg.version>
     <plg.install.version>3.1.2</plg.install.version>
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
