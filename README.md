@@ -9,23 +9,11 @@ The root project can be used to define common properties such as:
 - dependencies
 - plugins
 - default configuration for some known plugins
-- Java 8 / 11 / LATEST configuration
+- Java 8 / 17 / LATEST configuration
 
 The LATEST here means the latest JDK.
 
 The project is also configuring Eclipse project using the [eclipse-settings-maven-plugin][1].
-
-## Settings
-
-The settings folder contains settings for:
-
-- Eclipse
-  - [Java 8](settings/eclipse/java8)
-  - [Java 11](settings/eclipse/java11)
-  - [Java 15](settings/eclipse/java15)
-- versions-maven-plugin
-
-These are copied by the [eclipse-settings-maven-plugin][1] during project (re)configuration.
 
 ## Site
 
