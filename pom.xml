@@ -88,7 +88,7 @@
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.14.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
-    <dep.error-prone.version>2.30.0</dep.error-prone.version>
+    <dep.error-prone.version>2.31.0</dep.error-prone.version>
     <dep.nullaway.version>0.11.2</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
