@@ -86,7 +86,7 @@
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
     <dep.jackson.version>2.17.2</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
-    <dep.jna.version>5.14.0</dep.jna.version>
+    <dep.jna.version>5.15.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
     <dep.error-prone.version>2.31.0</dep.error-prone.version>
     <dep.nullaway.version>0.11.3</dep.nullaway.version>
