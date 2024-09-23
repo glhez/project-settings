@@ -51,7 +51,7 @@
     <dep.junit-bom.version>5.11.0</dep.junit-bom.version>
     <dep.mockito-core.version>5.13.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.26.3</dep.assertj-core.version>
-    <dep.memoryfilesystem.version>2.8.0</dep.memoryfilesystem.version>
+    <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.24.0</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.12.0</dep.commons-text.version>
