@@ -48,15 +48,15 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.11.0</dep.junit-bom.version>
-    <dep.mockito-core.version>5.13.0</dep.mockito-core.version>
+    <dep.junit-bom.version>5.11.1</dep.junit-bom.version>
+    <dep.mockito-core.version>5.14.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.26.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.24.0</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.24.1</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.12.0</dep.commons-text.version>
-    <dep.commons-csv.version>1.11.0</dep.commons-csv.version>
-    <dep.guava.version>33.3.0-jre</dep.guava.version>
+    <dep.commons-csv.version>1.12.0</dep.commons-csv.version>
+    <dep.guava.version>33.3.1-jre</dep.guava.version>
     <dep.config.version>1.4.3</dep.config.version>
     <dep.picocli.version>4.7.6</dep.picocli.version>
     <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
@@ -84,7 +84,7 @@
     <dep.freemarker.version>2.3.33</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
-    <dep.jackson.version>2.17.2</dep.jackson.version>
+    <dep.jackson.version>2.18.0</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.15.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
@@ -106,7 +106,7 @@
     <plg.failsafe.version>3.5.0</plg.failsafe.version>
     <plg.formatter.version>2.24.1</plg.formatter.version>
     <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
-    <plg.gpg.version>3.2.6</plg.gpg.version>
+    <plg.gpg.version>3.2.7</plg.gpg.version>
     <plg.install.version>3.1.3</plg.install.version>
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
     <plg.jar.version>3.4.2</plg.jar.version>
