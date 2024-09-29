@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd">
-
-  <bannerLeft>
-    <name>${project.name}</name>
-  </bannerLeft>
+<site xmlns="http://maven.apache.org/SITE/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0 https://maven.apache.org/xsd/site-2.0.0.xsd">
 
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>1.9</version>
+    <version>2.0.0-M10</version>
   </skin>
 
   <edit>${project.scm.url}</edit>
@@ -17,7 +13,6 @@
   <custom>
     <fluidoSkin>
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
-      <breadcrumbDivider>»</breadcrumbDivider>
     </fluidoSkin>
   </custom>
 
@@ -29,4 +24,4 @@
     </breadcrumbs>
     <menu ref="reports" inherit="bottom" />
   </body>
-</project>
+</site>
