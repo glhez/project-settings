@@ -61,7 +61,7 @@
     <dep.picocli.version>4.7.6</dep.picocli.version>
     <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
     <dep.asm.version>9.7</dep.asm.version>
-    <dep.asm-util.version>9.7</dep.asm-util.version>
+    <dep.asm-util.version>9.7.1</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.1</dep.jansi.version>
     <dep.json-unit.version>3.4.1</dep.json-unit.version>
