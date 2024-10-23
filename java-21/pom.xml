@@ -17,7 +17,7 @@
     <maven.compiler.source>${java.compliance}</maven.compiler.source>
     <maven.compiler.target>${java.compliance}</maven.compiler.target>
 
-    <toolchain.jdkVersion>[21.0.0,)</toolchain.jdkVersion>
+    <toolchain.jdk.version>[21.0.0,)</toolchain.jdk.version>
 
     <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>
@@ -29,13 +29,9 @@
         <artifactId>maven-toolchains-plugin</artifactId>
         <executions>
           <execution>
-            <phase>${toolchain.phase}</phase>
-            <goals> <goal>toolchain</goal> </goals>
+            <goals> <goal>select-jdk-toolchain</goal> </goals>
           </execution>
         </executions>
-        <configuration>
-          <toolchains> <jdk> <version>${toolchain.jdkVersion}</version> </jdk> </toolchains>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
