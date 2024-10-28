@@ -95,7 +95,7 @@
     <plg.build-helper.version>3.6.0</plg.build-helper.version>
     <plg.clean.version>3.4.0</plg.clean.version>
     <plg.compiler.version>3.13.0</plg.compiler.version>
-    <plg.dependency.version>3.8.0</plg.dependency.version>
+    <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.3</plg.deploy.version>
     <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
@@ -109,7 +109,7 @@
     <plg.jar.version>3.4.2</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
     <plg.javadoc.version>3.10.1</plg.javadoc.version>
-    <plg.jxr.version>3.5.0</plg.jxr.version>
+    <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.8.0</plg.project-info-reports.version>
     <plg.release.version>3.1.1</plg.release.version>
     <plg.resources.version>3.3.1</plg.resources.version>
