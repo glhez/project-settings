@@ -86,7 +86,7 @@
     <dep.jna.version>5.15.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
     <dep.error-prone.version>2.34.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.0</dep.nullaway.version>
+    <dep.nullaway.version>0.12.1</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
