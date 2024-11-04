@@ -40,7 +40,10 @@
 
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
-    <enforcer.requireMavenVersion>[3.9.7,4.0.0)</enforcer.requireMavenVersion>
+    <enforcer.requireJavaVersion>[17,)</enforcer.requireJavaVersion>
+    <enforcer.requireMavenVersion>[3.9.9,4.0.0)</enforcer.requireMavenVersion>
+
+    <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
@@ -61,7 +64,7 @@
     <dep.asm-util.version>9.7.1</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.1</dep.jansi.version>
-    <dep.json-unit.version>3.4.1</dep.json-unit.version>
+    <dep.json-unit.version>3.5.0</dep.json-unit.version>
     <dep.xmlunit.version>2.10.0</dep.xmlunit.version>
 
     <dep.jmh.version>1.35</dep.jmh.version>
@@ -69,19 +72,19 @@
     <dep.jmh-generator-annprocess.version>1.37</dep.jmh-generator-annprocess.version>
 
     <dep.bouncycastle.version>1.76</dep.bouncycastle.version>
-    <dep.bcprov-jdk18on.version>1.78.1</dep.bcprov-jdk18on.version>
+    <dep.bcprov-jdk18on.version>1.79</dep.bcprov-jdk18on.version>
     <dep.bcprov-ext-jdk18on.version>1.78.1</dep.bcprov-ext-jdk18on.version>
-    <dep.bcpkix-jdk18on.version>1.78.1</dep.bcpkix-jdk18on.version>
-    <dep.bcmail-jdk18on.version>1.78.1</dep.bcmail-jdk18on.version>
-    <dep.bcpg-jdk18on.version>1.78.1</dep.bcpg-jdk18on.version>
-    <dep.bctls-jdk18on.version>1.78.1</dep.bctls-jdk18on.version>
-    <dep.bcprov-debug-jdk18on.version>1.78.1</dep.bcprov-debug-jdk18on.version>
+    <dep.bcpkix-jdk18on.version>1.79</dep.bcpkix-jdk18on.version>
+    <dep.bcmail-jdk18on.version>1.79</dep.bcmail-jdk18on.version>
+    <dep.bcpg-jdk18on.version>1.79</dep.bcpg-jdk18on.version>
+    <dep.bctls-jdk18on.version>1.79</dep.bctls-jdk18on.version>
+    <dep.bcprov-debug-jdk18on.version>1.79</dep.bcprov-debug-jdk18on.version>
     <dep.bcprov-ext-debug-jdk18on.version>1.77</dep.bcprov-ext-debug-jdk18on.version>
     <dep.saxon-he.version>12.5</dep.saxon-he.version>
     <dep.freemarker.version>2.3.33</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
-    <dep.jackson.version>2.18.0</dep.jackson.version>
+    <dep.jackson.version>2.18.1</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.15.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
@@ -97,10 +100,9 @@
     <plg.compiler.version>3.13.0</plg.compiler.version>
     <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.3</plg.deploy.version>
-    <plg.editorconfig.version>0.1.3</plg.editorconfig.version>
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
     <plg.exec.version>3.5.0</plg.exec.version>
-    <plg.failsafe.version>3.5.1</plg.failsafe.version>
+    <plg.failsafe.version>3.5.2</plg.failsafe.version>
     <plg.formatter.version>2.24.1</plg.formatter.version>
     <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.7</plg.gpg.version>
@@ -108,7 +110,7 @@
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
     <plg.jar.version>3.4.2</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
-    <plg.javadoc.version>3.10.1</plg.javadoc.version>
+    <plg.javadoc.version>3.11.1</plg.javadoc.version>
     <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.8.0</plg.project-info-reports.version>
     <plg.release.version>3.1.1</plg.release.version>
@@ -117,8 +119,9 @@
     <plg.shade.version>3.6.0</plg.shade.version>
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
-    <plg.surefire-report.version>3.5.1</plg.surefire-report.version>
-    <plg.surefire.version>3.5.1</plg.surefire.version>
+    <plg.spotless.version>2.43.0</plg.spotless.version>
+    <plg.surefire-report.version>3.5.2</plg.surefire-report.version>
+    <plg.surefire.version>3.5.2</plg.surefire.version>
     <plg.taglist.version>3.2.1</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
     <plg.versions.version>2.17.1</plg.versions.version>
@@ -223,7 +226,6 @@
         <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>exec-maven-plugin</artifactId>                         <version>${plg.exec.version}</version>                         </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>taglist-maven-plugin</artifactId>                      <version>${plg.taglist.version}</version>                      </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>xml-maven-plugin</artifactId>                          <version>${plg.xml.version}</version>                          </plugin>
-        <plugin> <groupId>org.ec4j.maven</groupId>            <artifactId>editorconfig-maven-plugin</artifactId>                 <version>${plg.editorconfig.version}</version>                 </plugin>
         <plugin> <groupId>org.jacoco</groupId>                <artifactId>jacoco-maven-plugin</artifactId>                       <version>${plg.jacoco.version}</version>                       </plugin>
         <plugin> <groupId>org.javacc.plugin</groupId>         <artifactId>javacc-maven-plugin</artifactId>                       <version>${plg.javacc.version}</version>                       </plugin>
 
@@ -246,6 +248,37 @@
               </ignoreVersions>
             </ruleSet>
           </configuration>
+        </plugin>
+
+        <plugin> <groupId>com.diffplug.spotless</groupId> <artifactId>spotless-maven-plugin</artifactId> <version>${plg.spotless.version}</version>
+          <configuration>
+            <trimTrailingWhitespace />
+            <indent>
+              <spaces>true</spaces>
+              <spacesPerTab>2</spacesPerTab>
+            </indent>
+            <java>
+              <toggleOffOn />
+              <!-- <palantirJavaFormat /> -->
+              <removeUnusedImports />
+              <!-- <importOrder> <order>javax,java,,\#</order> </importOrder> -->
+            </java>
+            <markdown>
+              <includes> <include>**/*.md</include> </includes>
+              <excludes> <excludes>target/**</excludes> </excludes>
+              <flexmark />
+            </markdown>
+            <upToDateChecking>
+              <enabled>true</enabled>
+            </upToDateChecking>
+          </configuration>
+          <executions>
+            <execution>
+              <id>spotless-check</id>
+              <goals> <goal>check</goal> </goals>
+              <phase>process-sources</phase>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -290,7 +323,8 @@
             <goals> <goal>enforce</goal> </goals>
             <configuration>
               <rules>
-                <requireMavenVersion> <version>${enforcer.requireMavenVersion}</version>  </requireMavenVersion>
+                <requireJavaVersion>  <version>${enforcer.requireJavaVersion}</version>  </requireJavaVersion>
+                <requireMavenVersion> <version>${enforcer.requireMavenVersion}</version> </requireMavenVersion>
               </rules>
             </configuration>
           </execution>
@@ -435,61 +469,6 @@
   </reporting>
 
   <profiles>
-    <!--
-      Codestyle checks
-
-      - If the plugin have a dependency in dependencyManagement, then it must be added to java8/java11: the child
-        dependency is not build since the parent activate the plugin, which require the dependency.
-      - Each children must provide a disable checker profile, using skipCheckers property.
-
-    -->
-    <profile>
-      <id>editorconfig-check-enabled</id>
-      <activation>
-        <property> <name>!m2e.version</name> </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.ec4j.maven</groupId>
-            <artifactId>editorconfig-maven-plugin</artifactId>
-            <configuration>
-              <excludes>
-                <exclude>.mvn/wrapper/**</exclude>
-                <exclude>mvnw*</exclude>
-                <exclude>mvnw.cmd</exclude>
-              </excludes>
-            </configuration>
-            <executions>
-              <execution>
-                <id>editorconfig-check-execution</id>
-                <phase>validate</phase>
-                <goals> <goal>check</goal> </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>editorconfig-check-disabled</id>
-      <activation> <property> <name>skipCheckers</name> </property> </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.ec4j.maven</groupId>
-            <artifactId>editorconfig-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>editorconfig-check-execution</id>
-                <phase>never</phase>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
     <!--
       Sign artifact using GPG:
 

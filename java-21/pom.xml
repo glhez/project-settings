@@ -14,11 +14,7 @@
   <properties>
     <java.compliance>21</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
-    <maven.compiler.source>${java.compliance}</maven.compiler.source>
-    <maven.compiler.target>${java.compliance}</maven.compiler.target>
-
     <toolchain.jdk.version>[21.0.0,)</toolchain.jdk.version>
-
     <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>
 

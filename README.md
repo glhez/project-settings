@@ -69,10 +69,10 @@ This should give this `settings.xml`:
 The maven-gpg-plugin must be configured with the following, otherwise the passphrase will be ignored:
 
 ```xml
-  <gpgArguments>
-    <arg>--pinentry-mode</arg>
-    <arg>loopback</arg>
-  </gpgArguments>`
+<gpgArguments>
+  <arg>--pinentry-mode</arg>
+  <arg>loopback</arg>
+</gpgArguments>`
 ```
 
 **Preparation**
@@ -87,20 +87,20 @@ Each project must define the following repositories:
 - Project should build without configuring further settings.
 
 ```xml
-  <repositories>
-    <repository>
-      <id>github-glhez-repo-dep</id>
-      <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
-      <snapshots> <enabled>false</enabled> </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>github-glhez-repo-plugin</id>
-      <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
-      <snapshots> <enabled>false</enabled> </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
+<repositories>
+  <repository>
+    <id>github-glhez-repo-dep</id>
+    <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
+    <snapshots> <enabled>false</enabled> </snapshots>
+  </repository>
+</repositories>
+<pluginRepositories>
+  <pluginRepository>
+    <id>github-glhez-repo-plugin</id>
+    <url>https://raw.githubusercontent.com/glhez/maven-repository/master/releases/</url>
+    <snapshots> <enabled>false</enabled> </snapshots>
+  </pluginRepository>
+</pluginRepositories>
 ```
 
 [1]: https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin
