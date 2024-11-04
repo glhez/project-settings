@@ -45,6 +45,12 @@
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
+    <config.remote.url>https://glhez.github.io/maven-repository/config</config.remote.url>
+
+    <spotless.remote.skip>false</spotless.remote.skip>
+    <spotless.remote.root>${config.remote.url}/spotless-maven-plugin</spotless.remote.root>
+    <spotless.local.root>${session.executionRootDirectory}/target/spotless-maven-plugin</spotless.local.root>
+
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
@@ -180,19 +186,6 @@
   </dependencyManagement>
 
   <build>
-    <resources>
-      <resource>
-        <filtering>false</filtering>
-        <directory>${project.basedir}/src/main/resources</directory>
-      </resource>
-    </resources>
-    <testResources>
-      <testResource>
-        <filtering>false</filtering>
-        <directory>${project.basedir}/src/test/resources</directory>
-      </testResource>
-    </testResources>
-
     <pluginManagement>
       <plugins>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-antrun-plugin</artifactId>               <version>${plg.antrun.version}</version>               </plugin>
@@ -252,17 +245,48 @@
 
         <plugin> <groupId>com.diffplug.spotless</groupId> <artifactId>spotless-maven-plugin</artifactId> <version>${plg.spotless.version}</version>
           <configuration>
-            <trimTrailingWhitespace />
-            <indent>
-              <spaces>true</spaces>
-              <spacesPerTab>2</spacesPerTab>
-            </indent>
+            <formats>
+              <format>
+                <includes>
+                  <include>*.md</include>
+                  <include>*.xml</include>
+
+                  <include>*.json</include>
+                  <include>*.json5</include>
+                  <include>*.jsonc</include>
+                </includes>
+                <trimTrailingWhitespace />
+                <indent>
+                  <spaces>true</spaces>
+                  <spacesPerTab>2</spacesPerTab>
+                </indent>
+              </format>
+            </formats>
             <java>
               <toggleOffOn />
-              <!-- <palantirJavaFormat /> -->
+              <includes>
+                <include>src/main/java/**/*.java</include>
+                <include>src/test/java/**/*.java</include>
+              </includes>
+              <eclipse>
+                <file>${spotless.remote.root}/java-formatter.xml</file>
+              </eclipse>
               <removeUnusedImports />
-              <!-- <importOrder> <order>javax,java,,\#</order> </importOrder> -->
+              <importOrder>
+                <file>${spotless.remote.root}/import.order</file>
+              </importOrder>
+              <formatAnnotations />
             </java>
+            <json>
+              <includes>
+                <include>*.json</include>
+                <include>*.json5</include>
+                <include>*.jsonc</include>
+              </includes>
+              <simple>
+                <indentSpaces>2</indentSpaces>
+              </simple>
+            </json>
             <markdown>
               <includes> <include>**/*.md</include> </includes>
               <excludes> <excludes>target/**</excludes> </excludes>
@@ -272,18 +296,22 @@
               <enabled>true</enabled>
             </upToDateChecking>
           </configuration>
-          <executions>
-            <execution>
-              <id>spotless-check</id>
-              <goals> <goal>check</goal> </goals>
-              <phase>process-sources</phase>
-            </execution>
-          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
 
     <plugins>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>spotless-check</id>
+            <goals> <goal>check</goal> </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
