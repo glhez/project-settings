@@ -271,11 +271,12 @@
               <eclipse>
                 <file>${spotless.remote.root}/java-formatter.xml</file>
               </eclipse>
-              <removeUnusedImports />
+              <formatAnnotations />
               <importOrder>
+                <semanticSort>true</semanticSort>
                 <file>${spotless.remote.root}/import.order</file>
               </importOrder>
-              <formatAnnotations />
+              <removeUnusedImports />
             </java>
             <json>
               <includes>
