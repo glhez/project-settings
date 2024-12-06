@@ -58,7 +58,7 @@
     <dep.mockito-core.version>5.14.2</dep.mockito-core.version>
     <dep.assertj-core.version>3.26.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.24.1</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.24.2</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.12.0</dep.commons-text.version>
     <dep.commons-csv.version>1.12.0</dep.commons-csv.version>
@@ -70,7 +70,7 @@
     <dep.asm-util.version>9.7.1</dep.asm-util.version>
     <dep.cfr.version>0.152</dep.cfr.version>
     <dep.jansi.version>2.4.1</dep.jansi.version>
-    <dep.json-unit.version>4.0.0</dep.json-unit.version>
+    <dep.json-unit.version>4.1.0</dep.json-unit.version>
     <dep.xmlunit.version>2.10.0</dep.xmlunit.version>
 
     <dep.jmh.version>1.35</dep.jmh.version>
@@ -90,11 +90,11 @@
     <dep.freemarker.version>2.3.33</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
-    <dep.jackson.version>2.18.1</dep.jackson.version>
+    <dep.jackson.version>2.18.2</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.15.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
-    <dep.error-prone.version>2.35.1</dep.error-prone.version>
+    <dep.error-prone.version>2.36.0</dep.error-prone.version>
     <dep.nullaway.version>0.12.1</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
@@ -191,7 +191,6 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-antrun-plugin</artifactId>               <version>${plg.antrun.version}</version>               </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId>             <version>${plg.assembly.version}</version>             </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-clean-plugin</artifactId>                <version>${plg.clean.version}</version>                </plugin>
-        <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId>             <version>${plg.compiler.version}</version>             </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId>           <version>${plg.dependency.version}</version>           </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-deploy-plugin</artifactId>               <version>${plg.deploy.version}</version>               </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-enforcer-plugin</artifactId>             <version>${plg.enforcer.version}</version>             </plugin>
@@ -222,6 +221,16 @@
         <plugin> <groupId>org.jacoco</groupId>                <artifactId>jacoco-maven-plugin</artifactId>                       <version>${plg.jacoco.version}</version>                       </plugin>
         <plugin> <groupId>org.javacc.plugin</groupId>         <artifactId>javacc-maven-plugin</artifactId>                       <version>${plg.javacc.version}</version>                       </plugin>
 
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${plg.compiler.version}</version>
+          <configuration>
+            <parameters>true</parameters>
+            <showDeprecation>true</showDeprecation>
+            <showWarnings>true</showWarnings>
+          </configuration>
+        </plugin>
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId>                       <version>${plg.release.version}</version>
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
@@ -302,45 +311,6 @@
     </pluginManagement>
 
     <plugins>
-      <plugin>
-        <groupId>com.diffplug.spotless</groupId>
-        <artifactId>spotless-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>spotless-check</id>
-            <goals> <goal>check</goal> </goals>
-            <phase>validate</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <parameters>true</parameters>
-          <showDeprecation>true</showDeprecation>
-          <showWarnings>true</showWarnings>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>**/.gitignore</exclude>
-          </excludes>
-          <attach>true</attach>
-        </configuration>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <inherited>true</inherited>
-            <phase>package</phase>
-            <goals><goal>jar-no-fork</goal></goals>
-          </execution>
-        </executions>
-      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -359,7 +329,35 @@
           </execution>
         </executions>
       </plugin>
-
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>spotless-check</id>
+            <goals> <goal>check</goal> </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/.gitignore</exclude>
+          </excludes>
+          <attach>true</attach>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <inherited>true</inherited>
+            <phase>package</phase>
+            <goals><goal>jar-no-fork</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>io.github.git-commit-id</groupId>
         <artifactId>git-commit-id-maven-plugin</artifactId>
