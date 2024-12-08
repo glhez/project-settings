@@ -116,7 +116,7 @@
     <plg.jacoco.version>0.8.12</plg.jacoco.version>
     <plg.jar.version>3.4.2</plg.jar.version>
     <plg.javacc.version>3.0.3</plg.javacc.version>
-    <plg.javadoc.version>3.11.1</plg.javadoc.version>
+    <plg.javadoc.version>3.11.2</plg.javadoc.version>
     <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.8.0</plg.project-info-reports.version>
     <plg.release.version>3.1.1</plg.release.version>
@@ -283,7 +283,7 @@
               <formatAnnotations />
               <importOrder>
                 <semanticSort>true</semanticSort>
-                <file>${spotless.remote.root}/import.order</file>
+                <order>#,java,javax,org,com</order>
               </importOrder>
               <removeUnusedImports />
             </java>
