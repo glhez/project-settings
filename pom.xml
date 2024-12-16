@@ -54,7 +54,7 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.11.3</dep.junit-bom.version>
+    <dep.junit-bom.version>5.11.4</dep.junit-bom.version>
     <dep.mockito-core.version>5.14.2</dep.mockito-core.version>
     <dep.assertj-core.version>3.26.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
