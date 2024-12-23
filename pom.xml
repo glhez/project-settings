@@ -87,7 +87,7 @@
     <dep.bcprov-debug-jdk18on.version>1.79</dep.bcprov-debug-jdk18on.version>
     <dep.bcprov-ext-debug-jdk18on.version>1.77</dep.bcprov-ext-debug-jdk18on.version>
     <dep.saxon-he.version>12.5</dep.saxon-he.version>
-    <dep.freemarker.version>2.3.33</dep.freemarker.version>
+    <dep.freemarker.version>2.3.34</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
     <dep.jackson.version>2.18.2</dep.jackson.version>
