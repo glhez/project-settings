@@ -62,7 +62,7 @@
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.13.0</dep.commons-text.version>
     <dep.commons-csv.version>1.12.0</dep.commons-csv.version>
-    <dep.guava.version>33.3.1-jre</dep.guava.version>
+    <dep.guava.version>33.4.0-jre</dep.guava.version>
     <dep.config.version>1.4.3</dep.config.version>
     <dep.picocli.version>4.7.6</dep.picocli.version>
     <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
