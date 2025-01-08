@@ -54,15 +54,15 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
-    <dep.junit-bom.version>5.11.3</dep.junit-bom.version>
-    <dep.mockito-core.version>5.14.2</dep.mockito-core.version>
-    <dep.assertj-core.version>3.26.3</dep.assertj-core.version>
+    <dep.junit-bom.version>5.11.4</dep.junit-bom.version>
+    <dep.mockito-core.version>5.15.2</dep.mockito-core.version>
+    <dep.assertj-core.version>3.27.2</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
     <dep.log4j-bom.version>2.24.3</dep.log4j-bom.version>
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.13.0</dep.commons-text.version>
     <dep.commons-csv.version>1.12.0</dep.commons-csv.version>
-    <dep.guava.version>33.3.1-jre</dep.guava.version>
+    <dep.guava.version>33.4.0-jre</dep.guava.version>
     <dep.config.version>1.4.3</dep.config.version>
     <dep.picocli.version>4.7.6</dep.picocli.version>
     <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
@@ -87,15 +87,15 @@
     <dep.bcprov-debug-jdk18on.version>1.79</dep.bcprov-debug-jdk18on.version>
     <dep.bcprov-ext-debug-jdk18on.version>1.77</dep.bcprov-ext-debug-jdk18on.version>
     <dep.saxon-he.version>12.5</dep.saxon-he.version>
-    <dep.freemarker.version>2.3.33</dep.freemarker.version>
+    <dep.freemarker.version>2.3.34</dep.freemarker.version>
     <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
     <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
     <dep.jackson.version>2.18.2</dep.jackson.version>
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
-    <dep.jna.version>5.15.0</dep.jna.version>
+    <dep.jna.version>5.16.0</dep.jna.version>
     <dep.javacc.version>7.0.13</dep.javacc.version>
     <dep.error-prone.version>2.36.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.2</dep.nullaway.version>
+    <dep.nullaway.version>0.12.3</dep.nullaway.version>
 
     <plg.antrun.version>3.1.0</plg.antrun.version>
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
@@ -125,7 +125,7 @@
     <plg.shade.version>3.6.0</plg.shade.version>
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
-    <plg.spotless.version>2.43.0</plg.spotless.version>
+    <plg.spotless.version>2.44.1</plg.spotless.version>
     <plg.surefire-report.version>3.5.2</plg.surefire-report.version>
     <plg.surefire.version>3.5.2</plg.surefire.version>
     <plg.taglist.version>3.2.1</plg.taglist.version>
