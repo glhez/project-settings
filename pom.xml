@@ -83,7 +83,7 @@
     <dep.bcpkix-jdk18on.version>1.79</dep.bcpkix-jdk18on.version>
     <dep.bcmail-jdk18on.version>1.79</dep.bcmail-jdk18on.version>
     <dep.bcpg-jdk18on.version>1.79</dep.bcpg-jdk18on.version>
-    <dep.bctls-jdk18on.version>1.79</dep.bctls-jdk18on.version>
+    <dep.bctls-jdk18on.version>1.80</dep.bctls-jdk18on.version>
     <dep.bcprov-debug-jdk18on.version>1.79</dep.bcprov-debug-jdk18on.version>
     <dep.bcprov-ext-debug-jdk18on.version>1.77</dep.bcprov-ext-debug-jdk18on.version>
     <dep.saxon-he.version>12.5</dep.saxon-he.version>
