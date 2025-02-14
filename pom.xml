@@ -109,7 +109,6 @@
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
     <plg.exec.version>3.5.0</plg.exec.version>
     <plg.failsafe.version>3.5.2</plg.failsafe.version>
-    <plg.formatter.version>2.24.1</plg.formatter.version>
     <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.7</plg.gpg.version>
     <plg.install.version>3.1.3</plg.install.version>
@@ -211,7 +210,6 @@
         <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-toolchains-plugin</artifactId>           <version>${plg.toolchains.version}</version>           </plugin>
 
         <plugin> <groupId>io.github.git-commit-id</groupId>   <artifactId>git-commit-id-maven-plugin</artifactId>                <version>${plg.git-commit-id.version}</version>                </plugin>
-        <plugin> <groupId>net.revelc.code.formatter</groupId> <artifactId>formatter-maven-plugin</artifactId>                    <version>${plg.formatter.version}</version>                    </plugin>
         <plugin> <groupId>org.assertj</groupId>               <artifactId>assertj-assertions-generator-maven-plugin</artifactId> <version>${plg.assertj-assertions-generator.version}</version> </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>appassembler-maven-plugin</artifactId>                 <version>${plg.appassembler.version}</version>                 </plugin>
         <plugin> <groupId>org.codehaus.mojo</groupId>         <artifactId>build-helper-maven-plugin</artifactId>                 <version>${plg.build-helper.version}</version>                 </plugin>
