@@ -29,7 +29,9 @@
         <artifactId>maven-toolchains-plugin</artifactId>
         <executions>
           <execution>
-            <goals> <goal>select-jdk-toolchain</goal> </goals>
+            <goals>
+              <goal>select-jdk-toolchain</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
