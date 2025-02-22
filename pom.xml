@@ -4,7 +4,7 @@
 
   <groupId>com.github.glhez.parent</groupId>
   <artifactId>maven-parent</artifactId>
-  <version>92-SNAPSHOT</version>
+  <version>${revision}</version>
 
   <packaging>pom</packaging>
 
@@ -23,7 +23,7 @@
   <scm>
     <connection>scm:git:https://github.com/glhez/project-settings</connection>
     <developerConnection>scm:git:git@github.com:glhez/project-settings.git</developerConnection>
-    <tag>v40</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
@@ -42,6 +42,7 @@
   </distributionManagement>
 
   <properties>
+    <revision>92-SNAPSHOT</revision>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
@@ -538,6 +539,9 @@
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <releaseProfiles>release-sign-artifacts</releaseProfiles>
+
+            <preparationGoals>clean spotless:apply verify</preparationGoals>
+            <completionGoals>spotless:apply</completionGoals>
           </configuration>
         </plugin>
 
@@ -578,29 +582,30 @@
               <sortPom>
                 <lineSeparator>\n</lineSeparator>
                 <nrOfIndentSpace>2</nrOfIndentSpace>
+                <expandEmptyElements>false</expandEmptyElements>
               </sortPom>
             </pom>
             <java>
-              <toggleOffOn></toggleOffOn>
+              <toggleOffOn/>
               <includes>
                 <include>src/**/*.java</include>
               </includes>
               <eclipse>
                 <file>${spotless.remote.root}/java-formatter.xml</file>
               </eclipse>
-              <formatAnnotations></formatAnnotations>
+              <formatAnnotations/>
               <importOrder>
                 <semanticSort>true</semanticSort>
                 <order>#,java,javax,org,com</order>
               </importOrder>
-              <removeUnusedImports></removeUnusedImports>
+              <removeUnusedImports/>
             </java>
             <json>
               <includes>
                 <include>*.json</include>
                 <include>*.jsonc</include>
               </includes>
-              <jackson />
+              <jackson/>
             </json>
             <markdown>
               <includes>
@@ -609,8 +614,8 @@
               <excludes>
                 <excludes>target/**</excludes>
               </excludes>
-              <flexmark></flexmark>
-              <trimTrailingWhitespace></trimTrailingWhitespace>
+              <flexmark/>
+              <trimTrailingWhitespace/>
               <indent>
                 <spaces>true</spaces>
                 <spacesPerTab>2</spacesPerTab>
@@ -621,7 +626,7 @@
                 <includes>
                   <include>*.json5</include>
                 </includes>
-                <trimTrailingWhitespace></trimTrailingWhitespace>
+                <trimTrailingWhitespace/>
                 <indent>
                   <spaces>true</spaces>
                   <spacesPerTab>2</spacesPerTab>
