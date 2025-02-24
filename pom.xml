@@ -53,6 +53,11 @@
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
+    <!-- keep these since we also configure prerequisite for java project -->
+    <flatten.mode>resolveCiFriendliesOnly</flatten.mode>
+    <flatten.dependency.keepComments>true</flatten.dependency.keepComments>
+    <updatePomFile>true</updatePomFile>
+
     <config.remote.url>https://glhez.github.io/maven-repository/config</config.remote.url>
 
     <spotless.remote.skip>false</spotless.remote.skip>
@@ -62,50 +67,47 @@
     <!--
       Versions of dependencies; may be used later (such as in plugin/dependencies since)
     -->
+
+    <!-- boms -->
+    <dep.log4j-bom.version>2.24.3</dep.log4j-bom.version>
+    <dep.jackson-bom.version>2.18.2</dep.jackson-bom.version>
+
+    <!-- build time only -->
+    <dep.error-prone.version>2.36.0</dep.error-prone.version>
+    <dep.nullaway.version>0.12.3</dep.nullaway.version>
+
+    <!-- -->
+    <dep.javacc.version>7.0.13</dep.javacc.version>
+
+    <!-- test framework -->
     <dep.junit-bom.version>5.12.0</dep.junit-bom.version>
     <dep.mockito-core.version>5.15.2</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
-    <dep.log4j-bom.version>2.24.3</dep.log4j-bom.version>
-    <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
-    <dep.commons-text.version>1.13.0</dep.commons-text.version>
-    <dep.commons-csv.version>1.13.0</dep.commons-csv.version>
-    <dep.guava.version>33.4.0-jre</dep.guava.version>
-    <dep.config.version>1.4.3</dep.config.version>
-    <dep.picocli.version>4.7.6</dep.picocli.version>
-    <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
-    <dep.asm.version>9.7.1</dep.asm.version>
-    <dep.asm-util.version>9.7.1</dep.asm-util.version>
-    <dep.cfr.version>0.152</dep.cfr.version>
-    <dep.jansi.version>2.4.1</dep.jansi.version>
     <dep.json-unit.version>4.1.0</dep.json-unit.version>
     <dep.xmlunit.version>2.10.0</dep.xmlunit.version>
 
-    <dep.jmh.version>1.35</dep.jmh.version>
-    <dep.jmh-core.version>1.37</dep.jmh-core.version>
-    <dep.jmh-generator-annprocess.version>1.37</dep.jmh-generator-annprocess.version>
-
-    <dep.bouncycastle.version>1.76</dep.bouncycastle.version>
+    <!-- utilities -->
+    <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
+    <dep.commons-text.version>1.13.0</dep.commons-text.version>
     <dep.bcprov-jdk18on.version>1.80</dep.bcprov-jdk18on.version>
-    <dep.bcprov-ext-jdk18on.version>1.78.1</dep.bcprov-ext-jdk18on.version>
-    <dep.bcpkix-jdk18on.version>1.80</dep.bcpkix-jdk18on.version>
-    <dep.bcmail-jdk18on.version>1.80</dep.bcmail-jdk18on.version>
-    <dep.bcpg-jdk18on.version>1.80</dep.bcpg-jdk18on.version>
-    <dep.bctls-jdk18on.version>1.80</dep.bctls-jdk18on.version>
-    <dep.bcprov-debug-jdk18on.version>1.79</dep.bcprov-debug-jdk18on.version>
-    <dep.bcprov-ext-debug-jdk18on.version>1.77</dep.bcprov-ext-debug-jdk18on.version>
+
+    <!-- cli -->
+    <dep.picocli.version>4.7.6</dep.picocli.version>
+    <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
+    <dep.jansi.version>2.4.1</dep.jansi.version>
+
     <dep.saxon-he.version>12.5</dep.saxon-he.version>
-    <dep.freemarker.version>2.3.34</dep.freemarker.version>
-    <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
-    <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
-    <dep.jackson.version>2.18.2</dep.jackson.version>
+
     <dep.bson4jackson.version>2.15.1</dep.bson4jackson.version>
     <dep.jna.version>5.16.0</dep.jna.version>
-    <dep.javacc.version>7.0.13</dep.javacc.version>
-    <dep.error-prone.version>2.36.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.3</dep.nullaway.version>
 
-    <plg.antrun.version>3.1.0</plg.antrun.version>
+    <!-- to be removed -->
+    <dep.guava.version>33.4.0-jre</dep.guava.version>
+    <dep.config.version>1.4.3</dep.config.version>
+    <dep.jakarta-jaxb.version>4.0.2</dep.jakarta-jaxb.version>
+    <dep.jaxb-impl.version>4.0.5</dep.jaxb-impl.version>
+
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.7.1</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
@@ -115,8 +117,8 @@
     <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.3</plg.deploy.version>
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
-    <plg.exec.version>3.5.0</plg.exec.version>
     <plg.failsafe.version>3.5.2</plg.failsafe.version>
+    <plg.flatten.version>1.6.0</plg.flatten.version>
     <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.7</plg.gpg.version>
     <plg.install.version>3.1.3</plg.install.version>
@@ -133,24 +135,16 @@
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.3.1</plg.source.version>
     <plg.spotless.version>2.44.3</plg.spotless.version>
+    <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
     <plg.surefire-report.version>3.5.2</plg.surefire-report.version>
     <plg.surefire.version>3.5.2</plg.surefire.version>
     <plg.taglist.version>3.2.1</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
     <plg.versions.version>2.18.0</plg.versions.version>
-    <plg.xml.version>1.1.0</plg.xml.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.github.glhez.parent</groupId>
-        <artifactId>settings</artifactId>
-        <version>75-SNAPSHOT</version>
-        <!--scope-->
-        <!--type-->
-      </dependency>
-
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
@@ -168,7 +162,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson</groupId>
         <artifactId>jackson-bom</artifactId>
-        <version>${dep.jackson.version}</version>
+        <version>${dep.jackson-bom.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -208,11 +202,6 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>${dep.commons-lang3.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-csv</artifactId>
-        <version>${dep.commons-csv.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -261,80 +250,16 @@
         <version>${dep.jansi.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.ow2.asm</groupId>
-        <artifactId>asm</artifactId>
-        <version>${dep.asm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.ow2.asm</groupId>
-        <artifactId>asm-util</artifactId>
-        <version>${dep.asm-util.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.benf</groupId>
-        <artifactId>cfr</artifactId>
-        <version>${dep.cfr.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjdk.jmh</groupId>
-        <artifactId>jmh-core</artifactId>
-        <version>${dep.jmh-core.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjdk.jmh</groupId>
-        <artifactId>jmh-generator-annprocess</artifactId>
-        <version>${dep.jmh-generator-annprocess.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcprov-jdk18on</artifactId>
         <version>${dep.bcprov-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-ext-jdk18on</artifactId>
-        <version>${dep.bcprov-ext-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpkix-jdk18on</artifactId>
-        <version>${dep.bcpkix-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcmail-jdk18on</artifactId>
-        <version>${dep.bcmail-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpg-jdk18on</artifactId>
-        <version>${dep.bcpg-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bctls-jdk18on</artifactId>
-        <version>${dep.bctls-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-debug-jdk18on</artifactId>
-        <version>${dep.bcprov-debug-jdk18on.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-ext-debug-jdk18on</artifactId>
-        <version>${dep.bcprov-ext-debug-jdk18on.version}</version>
       </dependency>
       <dependency>
         <groupId>net.sf.saxon</groupId>
         <artifactId>Saxon-HE</artifactId>
         <version>${dep.saxon-he.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.freemarker</groupId>
-        <artifactId>freemarker</artifactId>
-        <version>${dep.freemarker.version}</version>
-      </dependency>
+
       <dependency>
         <groupId>de.undercouch</groupId>
         <artifactId>bson4jackson</artifactId>
@@ -371,11 +296,6 @@
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>${plg.antrun.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${plg.assembly.version}</version>
         </plugin>
@@ -403,6 +323,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${plg.failsafe.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>flatten-maven-plugin</artifactId>
+          <version>${plg.flatten.version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -443,6 +368,10 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
           <version>${plg.scm.version}</version>
+          <configuration>
+            <tag>v${revision}</tag>
+            <pushChanges>false</pushChanges>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -497,18 +426,8 @@
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>${plg.exec.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
           <artifactId>taglist-maven-plugin</artifactId>
           <version>${plg.taglist.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>xml-maven-plugin</artifactId>
-          <version>${plg.xml.version}</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -632,7 +551,8 @@
                   <spacesPerTab>2</spacesPerTab>
                 </indent>
               </format>
-              <format>
+              <!-- disable biome because Eclipse will execute it with executionRootDirectory=any child project -->
+              <!-- <format>
                 <includes>
                   <include>src/**/*.js</include>
                   <include>src/**/*.ts</include>
@@ -641,10 +561,10 @@
                   <include>src/**/*.scss</include>
                 </includes>
                 <biome>
-                  <version>1.9.4</version>
+                  <version>${plg.spotless-biome.version}</version>
                   <configPath>${session.executionRootDirectory}</configPath>
                 </biome>
-              </format>
+              </format> -->
             </formats>
           </configuration>
         </plugin>
@@ -684,7 +604,26 @@
             <goals>
               <goal>check</goal>
             </goals>
-            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+            <phase>process-resources</phase>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <phase>clean</phase>
           </execution>
         </executions>
       </plugin>

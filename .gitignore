@@ -37,6 +37,7 @@ target
 *.versionsBackup
 *.releaseBackup
 /release.properties
+.flattened-pom.xml
 
 # vim
 *.swp
