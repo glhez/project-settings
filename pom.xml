@@ -86,7 +86,7 @@
 
     <!-- utilities -->
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
-    <dep.commons-text.version>1.13.0</dep.commons-text.version>
+    <dep.commons-text.version>1.13.1</dep.commons-text.version>
 
     <!-- cli -->
     <dep.picocli.version>4.7.7</dep.picocli.version>
