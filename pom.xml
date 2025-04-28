@@ -90,7 +90,7 @@
 
     <!-- cli -->
     <dep.picocli.version>4.7.7</dep.picocli.version>
-    <dep.picocli-codegen.version>4.7.6</dep.picocli-codegen.version>
+    <dep.picocli-codegen.version>4.7.7</dep.picocli-codegen.version>
 
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.7.1</plg.assembly.version>
