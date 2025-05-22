@@ -81,7 +81,7 @@
     <dep.mockito-core.version>5.17.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
-    <dep.json-unit.version>4.1.0</dep.json-unit.version>
+    <dep.json-unit.version>4.1.1</dep.json-unit.version>
     <dep.xmlunit.version>2.10.1</dep.xmlunit.version>
 
     <!-- utilities -->
