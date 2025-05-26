@@ -103,7 +103,7 @@
     <plg.enforcer.version>3.5.0</plg.enforcer.version>
     <plg.failsafe.version>3.5.3</plg.failsafe.version>
     <plg.flatten.version>1.7.0</plg.flatten.version>
-    <plg.git-commit-id.version>9.0.1</plg.git-commit-id.version>
+    <plg.git-commit-id.version>9.0.2</plg.git-commit-id.version>
     <plg.gpg.version>3.2.7</plg.gpg.version>
     <plg.install.version>3.1.4</plg.install.version>
     <plg.jacoco.version>0.8.13</plg.jacoco.version>
