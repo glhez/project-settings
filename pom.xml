@@ -82,7 +82,7 @@
     <dep.assertj-core.version>3.27.3</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
     <dep.json-unit.version>4.1.1</dep.json-unit.version>
-    <dep.xmlunit.version>2.10.1</dep.xmlunit.version>
+    <dep.xmlunit.version>2.10.2</dep.xmlunit.version>
 
     <!-- utilities -->
     <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
