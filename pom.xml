@@ -96,7 +96,7 @@
     <plg.assembly.version>3.7.1</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
     <plg.build-helper.version>3.6.0</plg.build-helper.version>
-    <plg.clean.version>3.4.1</plg.clean.version>
+    <plg.clean.version>3.5.0</plg.clean.version>
     <plg.compiler.version>3.14.0</plg.compiler.version>
     <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
