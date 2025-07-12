@@ -85,7 +85,7 @@
     <dep.xmlunit.version>2.10.2</dep.xmlunit.version>
 
     <!-- utilities -->
-    <dep.commons-lang3.version>3.17.0</dep.commons-lang3.version>
+    <dep.commons-lang3.version>3.18.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.13.1</dep.commons-text.version>
 
     <!-- cli -->
