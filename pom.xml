@@ -70,7 +70,7 @@
 
     <!-- boms -->
     <dep.log4j-bom.version>2.25.1</dep.log4j-bom.version>
-    <dep.jackson-bom.version>2.19.1</dep.jackson-bom.version>
+    <dep.jackson-bom.version>2.19.2</dep.jackson-bom.version>
 
     <!-- build time only -->
     <dep.error-prone.version>2.40.0</dep.error-prone.version>
