@@ -100,7 +100,7 @@
     <plg.compiler.version>3.14.0</plg.compiler.version>
     <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
-    <plg.enforcer.version>3.6.0</plg.enforcer.version>
+    <plg.enforcer.version>3.6.1</plg.enforcer.version>
     <plg.failsafe.version>3.5.3</plg.failsafe.version>
     <plg.flatten.version>1.7.1</plg.flatten.version>
     <plg.git-commit-id.version>9.0.2</plg.git-commit-id.version>
