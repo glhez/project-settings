@@ -42,7 +42,7 @@
   </distributionManagement>
 
   <properties>
-    <revision>92-SNAPSHOT</revision>
+    <revision>94-SNAPSHOT</revision>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
@@ -74,11 +74,11 @@
 
     <!-- build time only -->
     <dep.error-prone.version>2.41.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.7</dep.nullaway.version>
+    <dep.nullaway.version>0.12.8</dep.nullaway.version>
 
     <!-- test framework -->
     <dep.junit-bom.version>5.13.4</dep.junit-bom.version>
-    <dep.mockito-core.version>5.18.0</dep.mockito-core.version>
+    <dep.mockito-core.version>5.19.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.4</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
     <dep.json-unit.version>4.1.1</dep.json-unit.version>
@@ -108,7 +108,7 @@
     <plg.install.version>3.1.4</plg.install.version>
     <plg.jacoco.version>0.8.13</plg.jacoco.version>
     <plg.jar.version>3.4.2</plg.jar.version>
-    <plg.javadoc.version>3.11.2</plg.javadoc.version>
+    <plg.javadoc.version>3.11.3</plg.javadoc.version>
     <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.9.0</plg.project-info-reports.version>
     <plg.release.version>3.1.1</plg.release.version>
