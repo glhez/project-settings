@@ -87,6 +87,7 @@
     <!-- utilities -->
     <dep.commons-lang3.version>3.18.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.14.0</dep.commons-text.version>
+    <dep.jspecify.version>1.0.0</dep.jspecify.version>
 
     <!-- cli -->
     <dep.picocli.version>4.7.7</dep.picocli.version>
@@ -204,6 +205,11 @@
         <groupId>com.uber.nullaway</groupId>
         <artifactId>nullaway</artifactId>
         <version>${dep.nullaway.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jspecify</groupId>
+        <artifactId>jspecify</artifactId>
+        <version>${dep.jspecify.version}</version>
       </dependency>
       <dependency>
         <groupId>info.picocli</groupId>
