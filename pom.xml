@@ -436,7 +436,8 @@
               <eclipse>
                 <file>${spotless.remote.root}/java-formatter.xml</file>
               </eclipse>
-              <formatAnnotations/>
+              <!-- it is not the best friend with Eclipse, since type based annotation are not formatted correctly -->
+              <!-- <formatAnnotations/> -->
               <importOrder>
                 <semanticSort>true</semanticSort>
                 <order>#,java,javax,org,com</order>
