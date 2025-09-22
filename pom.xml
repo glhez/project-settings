@@ -42,14 +42,14 @@
   </distributionManagement>
 
   <properties>
-    <revision>94-SNAPSHOT</revision>
+    <revision>97-SNAPSHOT</revision>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
-    <enforcer.requireJavaVersion>[17,)</enforcer.requireJavaVersion>
-    <enforcer.requireMavenVersion>[3.9.9,4.0.0)</enforcer.requireMavenVersion>
+    <enforcer.requireJavaVersion>[21,)</enforcer.requireJavaVersion>
+    <enforcer.requireMavenVersion>[3.9.11,4.0.0)</enforcer.requireMavenVersion>
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
@@ -69,17 +69,17 @@
     -->
 
     <!-- boms -->
-    <dep.log4j-bom.version>2.25.1</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.25.2</dep.log4j-bom.version>
     <dep.jackson-bom.version>2.20.0</dep.jackson-bom.version>
 
     <!-- build time only -->
-    <dep.error-prone.version>2.41.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.9</dep.nullaway.version>
+    <dep.error-prone.version>2.42.0</dep.error-prone.version>
+    <dep.nullaway.version>0.12.10</dep.nullaway.version>
 
     <!-- test framework -->
     <dep.junit-bom.version>5.13.4</dep.junit-bom.version>
-    <dep.mockito-core.version>5.19.0</dep.mockito-core.version>
-    <dep.assertj-core.version>3.27.4</dep.assertj-core.version>
+    <dep.mockito-core.version>5.20.0</dep.mockito-core.version>
+    <dep.assertj-core.version>3.27.6</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.1</dep.memoryfilesystem.version>
     <dep.json-unit.version>4.1.1</dep.json-unit.version>
     <dep.xmlunit.version>2.10.4</dep.xmlunit.version>
@@ -98,18 +98,18 @@
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
     <plg.build-helper.version>3.6.1</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
-    <plg.compiler.version>3.14.0</plg.compiler.version>
+    <plg.compiler.version>3.14.1</plg.compiler.version>
     <plg.dependency.version>3.8.1</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
     <plg.enforcer.version>3.6.1</plg.enforcer.version>
     <plg.failsafe.version>3.5.4</plg.failsafe.version>
-    <plg.flatten.version>1.7.2</plg.flatten.version>
+    <plg.flatten.version>1.7.3</plg.flatten.version>
     <plg.git-commit-id.version>9.0.2</plg.git-commit-id.version>
     <plg.gpg.version>3.2.8</plg.gpg.version>
     <plg.install.version>3.1.4</plg.install.version>
     <plg.jacoco.version>0.8.13</plg.jacoco.version>
     <plg.jar.version>3.4.2</plg.jar.version>
-    <plg.javadoc.version>3.11.3</plg.javadoc.version>
+    <plg.javadoc.version>3.12.0</plg.javadoc.version>
     <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.9.0</plg.project-info-reports.version>
     <plg.release.version>3.1.1</plg.release.version>
@@ -124,7 +124,7 @@
     <plg.surefire.version>3.5.4</plg.surefire.version>
     <plg.taglist.version>3.2.1</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
-    <plg.versions.version>2.19.0</plg.versions.version>
+    <plg.versions.version>2.19.1</plg.versions.version>
   </properties>
 
   <dependencyManagement>
@@ -518,6 +518,10 @@
                 <requireMavenVersion>
                   <version>${enforcer.requireMavenVersion}</version>
                 </requireMavenVersion>
+                <dependencyConvergence/>
+                <requirePluginVersions/>
+                <requireProfileIdsExist/>
+                <banDuplicatePomDependencyVersions/>
               </rules>
             </configuration>
           </execution>
