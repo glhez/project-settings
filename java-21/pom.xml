@@ -14,23 +14,11 @@
   <properties>
     <java.compliance>21</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
-    <toolchain.jdk.version>[21.0.0,)</toolchain.jdk.version>
     <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
   </properties>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>select-jdk-toolchain</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
