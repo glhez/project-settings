@@ -66,7 +66,7 @@
 
   <profiles>
     <profile>
-      <id>enable-picocli-java-agent</id>
+      <id>enable-picocli-java-processor</id>
       <activation>
         <file>
           <exists>${basedir}/.mvn/profiles/picocli</exists>
