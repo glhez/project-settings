@@ -39,7 +39,7 @@
   </distributionManagement>
 
   <properties>
-    <revision>100-SNAPSHOT</revision>
+    <revision>101-SNAPSHOT</revision>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
