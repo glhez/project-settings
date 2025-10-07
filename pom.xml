@@ -39,7 +39,7 @@
   </distributionManagement>
 
   <properties>
-    <revision>101-SNAPSHOT</revision>
+    <revision>102-SNAPSHOT</revision>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
@@ -476,6 +476,19 @@
                   <spaces>true</spaces>
                   <spacesPerTab>2</spacesPerTab>
                 </indent>
+              </format>
+              <format>
+                <includes>
+                  <include>src/**/*.xml</include>
+                  <include>src/**/*.xsd</include>
+                  <include>src/**/*.xsl</include>
+                </includes>
+                <eclipseWtp>
+                  <type>XML</type>
+                  <files>
+                    <file>${spotless.remote.root}/org.eclipse.wst.xml.core.prefs</file>
+                  </files>
+                </eclipseWtp>
               </format>
               <!-- disable biome because Eclipse will execute it with executionRootDirectory=any child project -->
               <!-- <format>
