@@ -71,7 +71,7 @@
 
     <!-- build time only -->
     <dep.error-prone.version>2.43.0</dep.error-prone.version>
-    <dep.nullaway.version>0.12.10</dep.nullaway.version>
+    <dep.nullaway.version>0.12.11</dep.nullaway.version>
 
     <!-- test framework -->
     <dep.junit-bom.version>6.0.0</dep.junit-bom.version>
