@@ -70,7 +70,7 @@
     <dep.jackson-bom.version>3.0.1</dep.jackson-bom.version>
 
     <!-- build time only -->
-    <dep.error-prone.version>2.43.0</dep.error-prone.version>
+    <dep.error-prone.version>2.44.0</dep.error-prone.version>
     <dep.nullaway.version>0.12.11</dep.nullaway.version>
 
     <!-- test framework -->
