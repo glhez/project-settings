@@ -429,6 +429,7 @@
           <version>${plg.spotless.version}</version>
           <configuration>
             <pom>
+              <toggleOffOn/>
               <sortPom>
                 <lineSeparator>\n</lineSeparator>
                 <nrOfIndentSpace>2</nrOfIndentSpace>
@@ -436,10 +437,10 @@
               </sortPom>
             </pom>
             <java>
-              <toggleOffOn/>
               <includes>
                 <include>src/**/*.java</include>
               </includes>
+              <toggleOffOn/>
               <eclipse>
                 <file>${spotless.remote.root}/java-formatter.xml</file>
               </eclipse>
@@ -456,6 +457,7 @@
                 <include>*.json</include>
                 <include>*.jsonc</include>
               </includes>
+              <toggleOffOn/>
               <jackson/>
             </json>
             <markdown>
@@ -465,6 +467,7 @@
               <excludes>
                 <excludes>target/**</excludes>
               </excludes>
+              <toggleOffOn/>
               <flexmark/>
               <trimTrailingWhitespace/>
               <indent>
@@ -477,6 +480,7 @@
                 <includes>
                   <include>*.json5</include>
                 </includes>
+                <toggleOffOn/>
                 <trimTrailingWhitespace/>
                 <indent>
                   <spaces>true</spaces>
@@ -489,6 +493,7 @@
                   <include>src/**/*.xsd</include>
                   <include>src/**/*.xsl</include>
                 </includes>
+                <toggleOffOn/>
                 <eclipseWtp>
                   <type>XML</type>
                   <files>
