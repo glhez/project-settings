@@ -67,10 +67,10 @@
 
     <!-- boms -->
     <dep.log4j-bom.version>2.25.2</dep.log4j-bom.version>
-    <dep.jackson-bom.version>3.0.2</dep.jackson-bom.version>
+    <dep.jackson-bom.version>3.0.3</dep.jackson-bom.version>
 
     <!-- build time only -->
-    <dep.error-prone.version>2.44.0</dep.error-prone.version>
+    <dep.error-prone.version>2.45.0</dep.error-prone.version>
     <dep.nullaway.version>0.12.12</dep.nullaway.version>
 
     <!-- test framework -->
@@ -91,7 +91,7 @@
     <dep.picocli-codegen.version>4.7.7</dep.picocli-codegen.version>
 
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
-    <plg.assembly.version>3.7.1</plg.assembly.version>
+    <plg.assembly.version>3.8.0</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
     <plg.build-helper.version>3.6.1</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
@@ -111,11 +111,11 @@
     <plg.jxr.version>3.6.0</plg.jxr.version>
     <plg.project-info-reports.version>3.9.0</plg.project-info-reports.version>
     <plg.release.version>3.2.0</plg.release.version>
-    <plg.resources.version>3.3.1</plg.resources.version>
+    <plg.resources.version>3.4.0</plg.resources.version>
     <plg.scm.version>2.2.1</plg.scm.version>
     <plg.shade.version>3.6.1</plg.shade.version>
     <plg.site.version>3.21.0</plg.site.version>
-    <plg.source.version>3.3.1</plg.source.version>
+    <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
     <plg.spotless.version>3.1.0</plg.spotless.version>
     <plg.surefire-report.version>3.5.4</plg.surefire-report.version>
