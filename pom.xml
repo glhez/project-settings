@@ -75,7 +75,7 @@
 
     <!-- test framework -->
     <dep.junit-bom.version>6.0.1</dep.junit-bom.version>
-    <dep.mockito-core.version>5.20.0</dep.mockito-core.version>
+    <dep.mockito-core.version>5.21.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.6</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.2</dep.memoryfilesystem.version>
     <dep.json-unit.version>5.1.0</dep.json-unit.version>
