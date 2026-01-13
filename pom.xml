@@ -74,7 +74,7 @@
     <dep.nullaway.version>0.12.15</dep.nullaway.version>
 
     <!-- test framework -->
-    <dep.junit-bom.version>6.0.1</dep.junit-bom.version>
+    <dep.junit-bom.version>6.0.2</dep.junit-bom.version>
     <dep.mockito-core.version>5.21.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.7</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.2</dep.memoryfilesystem.version>
