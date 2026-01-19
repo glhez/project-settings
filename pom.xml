@@ -122,7 +122,7 @@
     <plg.surefire.version>3.5.4</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
-    <plg.versions.version>2.20.1</plg.versions.version>
+    <plg.versions.version>2.21.0</plg.versions.version>
   </properties>
 
   <dependencyManagement>
