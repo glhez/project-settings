@@ -95,7 +95,7 @@
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
     <plg.build-helper.version>3.6.1</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
-    <plg.compiler.version>3.14.1</plg.compiler.version>
+    <plg.compiler.version>3.15.0</plg.compiler.version>
     <plg.dependency.version>3.9.0</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
     <plg.enforcer.version>3.6.2</plg.enforcer.version>
@@ -122,7 +122,7 @@
     <plg.surefire.version>3.5.4</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
-    <plg.versions.version>2.20.1</plg.versions.version>
+    <plg.versions.version>2.21.0</plg.versions.version>
   </properties>
 
   <dependencyManagement>
