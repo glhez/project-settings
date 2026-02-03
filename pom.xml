@@ -67,7 +67,7 @@
 
     <!-- boms -->
     <dep.log4j-bom.version>2.25.3</dep.log4j-bom.version>
-    <dep.jackson-bom.version>3.0.3</dep.jackson-bom.version>
+    <dep.jackson-bom.version>3.0.4</dep.jackson-bom.version>
 
     <!-- build time only -->
     <dep.error-prone.version>2.46.0</dep.error-prone.version>
@@ -117,7 +117,7 @@
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
-    <plg.spotless.version>3.1.0</plg.spotless.version>
+    <plg.spotless.version>3.2.1</plg.spotless.version>
     <plg.surefire-report.version>3.5.4</plg.surefire-report.version>
     <plg.surefire.version>3.5.4</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
