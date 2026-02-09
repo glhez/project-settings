@@ -96,7 +96,7 @@
     <plg.build-helper.version>3.6.1</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
     <plg.compiler.version>3.15.0</plg.compiler.version>
-    <plg.dependency.version>3.9.0</plg.dependency.version>
+    <plg.dependency.version>3.10.0</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
     <plg.enforcer.version>3.6.2</plg.enforcer.version>
     <plg.failsafe.version>3.5.4</plg.failsafe.version>
