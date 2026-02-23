@@ -99,7 +99,7 @@
     <plg.dependency.version>3.10.0</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
     <plg.enforcer.version>3.6.2</plg.enforcer.version>
-    <plg.failsafe.version>3.5.4</plg.failsafe.version>
+    <plg.failsafe.version>3.5.5</plg.failsafe.version>
     <plg.flatten.version>1.7.3</plg.flatten.version>
     <plg.git-commit-id.version>9.0.2</plg.git-commit-id.version>
     <plg.gpg.version>3.2.8</plg.gpg.version>
@@ -119,8 +119,8 @@
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
     <plg.spotless.version>3.2.1</plg.spotless.version>
-    <plg.surefire-report.version>3.5.4</plg.surefire-report.version>
-    <plg.surefire.version>3.5.4</plg.surefire.version>
+    <plg.surefire-report.version>3.5.5</plg.surefire-report.version>
+    <plg.surefire.version>3.5.5</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
     <plg.versions.version>2.21.0</plg.versions.version>
