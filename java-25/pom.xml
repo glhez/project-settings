@@ -15,6 +15,7 @@
     <java.compliance>25</java.compliance>
     <maven.compiler.release>${java.compliance}</maven.compiler.release>
     <javac.xlint.args>-Xlint:all,-processing</javac.xlint.args>
+    <enforcer.requireJavaVersion>[25,)</enforcer.requireJavaVersion>
   </properties>
 
   <build>
