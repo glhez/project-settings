@@ -46,7 +46,7 @@
     <publish.directory.projectSite>${publish.directory.site}/${project.groupId}</publish.directory.projectSite>
 
     <enforcer.requireJavaVersion>[21,)</enforcer.requireJavaVersion>
-    <enforcer.requireMavenVersion>[3.9.12,4.0.0)</enforcer.requireMavenVersion>
+    <enforcer.requireMavenVersion>[3.9.11,4.0.0)</enforcer.requireMavenVersion>
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
@@ -112,9 +112,9 @@
     <plg.jlink.version>3.2.0</plg.jlink.version>
     <plg.project-info-reports.version>3.9.0</plg.project-info-reports.version>
     <plg.release.version>3.3.1</plg.release.version>
-    <plg.resources.version>3.4.0</plg.resources.version>
+    <plg.resources.version>3.5.0</plg.resources.version>
     <plg.scm.version>2.2.1</plg.scm.version>
-    <plg.shade.version>3.6.1</plg.shade.version>
+    <plg.shade.version>3.6.2</plg.shade.version>
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
