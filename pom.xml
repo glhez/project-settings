@@ -118,7 +118,7 @@
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
-    <plg.spotless.version>3.3.0</plg.spotless.version>
+    <plg.spotless.version>3.4.0</plg.spotless.version>
     <plg.surefire-report.version>3.5.5</plg.surefire-report.version>
     <plg.surefire.version>3.5.5</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
