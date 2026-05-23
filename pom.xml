@@ -74,7 +74,7 @@
     <dep.nullaway.version>0.13.4</dep.nullaway.version>
 
     <!-- test framework -->
-    <dep.junit-bom.version>6.0.3</dep.junit-bom.version>
+    <dep.junit-bom.version>6.1.0</dep.junit-bom.version>
     <dep.mockito-core.version>5.23.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.7</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.2</dep.memoryfilesystem.version>
@@ -98,7 +98,7 @@
     <plg.compiler.version>3.15.0</plg.compiler.version>
     <plg.dependency.version>3.10.0</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
-    <plg.enforcer.version>3.6.2</plg.enforcer.version>
+    <plg.enforcer.version>3.6.3</plg.enforcer.version>
     <plg.failsafe.version>3.5.5</plg.failsafe.version>
     <plg.flatten.version>1.7.3</plg.flatten.version>
     <plg.git-commit-id.version>10.0.0</plg.git-commit-id.version>
@@ -118,7 +118,7 @@
     <plg.site.version>3.21.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
-    <plg.spotless.version>3.4.0</plg.spotless.version>
+    <plg.spotless.version>3.5.1</plg.spotless.version>
     <plg.surefire-report.version>3.5.5</plg.surefire-report.version>
     <plg.surefire.version>3.5.5</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
