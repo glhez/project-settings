@@ -96,10 +96,10 @@
     <plg.build-helper.version>3.6.1</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
     <plg.compiler.version>3.15.0</plg.compiler.version>
-    <plg.dependency.version>3.10.0</plg.dependency.version>
+    <plg.dependency.version>3.11.0</plg.dependency.version>
     <plg.deploy.version>3.1.4</plg.deploy.version>
     <plg.enforcer.version>3.6.3</plg.enforcer.version>
-    <plg.failsafe.version>3.5.5</plg.failsafe.version>
+    <plg.failsafe.version>3.5.6</plg.failsafe.version>
     <plg.flatten.version>1.7.3</plg.flatten.version>
     <plg.git-commit-id.version>10.0.0</plg.git-commit-id.version>
     <plg.gpg.version>3.2.8</plg.gpg.version>
@@ -115,12 +115,12 @@
     <plg.resources.version>3.5.0</plg.resources.version>
     <plg.scm.version>2.2.1</plg.scm.version>
     <plg.shade.version>3.6.2</plg.shade.version>
-    <plg.site.version>3.21.0</plg.site.version>
+    <plg.site.version>3.22.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
     <plg.spotless.version>3.5.1</plg.spotless.version>
-    <plg.surefire-report.version>3.5.5</plg.surefire-report.version>
-    <plg.surefire.version>3.5.5</plg.surefire.version>
+    <plg.surefire-report.version>3.5.6</plg.surefire-report.version>
+    <plg.surefire.version>3.5.6</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
     <plg.toolchains.version>3.2.0</plg.toolchains.version>
     <plg.versions.version>2.21.0</plg.versions.version>
