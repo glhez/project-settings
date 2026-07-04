@@ -66,7 +66,7 @@
     -->
 
     <!-- boms -->
-    <dep.log4j-bom.version>2.26.0</dep.log4j-bom.version>
+    <dep.log4j-bom.version>2.26.1</dep.log4j-bom.version>
     <dep.jackson-bom.version>3.2.0</dep.jackson-bom.version>
 
     <!-- build time only -->
@@ -74,7 +74,7 @@
     <dep.nullaway.version>0.13.7</dep.nullaway.version>
 
     <!-- test framework -->
-    <dep.junit-bom.version>6.1.0</dep.junit-bom.version>
+    <dep.junit-bom.version>6.1.1</dep.junit-bom.version>
     <dep.mockito-core.version>5.23.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.7</dep.assertj-core.version>
     <dep.memoryfilesystem.version>2.8.2</dep.memoryfilesystem.version>
@@ -118,7 +118,7 @@
     <plg.site.version>3.22.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
-    <plg.spotless.version>3.7.0</plg.spotless.version>
+    <plg.spotless.version>3.8.0</plg.spotless.version>
     <plg.surefire-report.version>3.5.6</plg.surefire-report.version>
     <plg.surefire.version>3.5.6</plg.surefire.version>
     <plg.taglist.version>3.2.2</plg.taglist.version>
