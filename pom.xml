@@ -105,7 +105,7 @@
     <plg.gpg.version>3.2.8</plg.gpg.version>
     <plg.install.version>3.1.4</plg.install.version>
     <plg.jacoco.version>0.8.15</plg.jacoco.version>
-    <plg.jar.version>3.5.0</plg.jar.version>
+    <plg.jar.version>3.5.1</plg.jar.version>
     <plg.jarsigner.version>3.1.0</plg.jarsigner.version>
     <plg.javadoc.version>3.12.0</plg.javadoc.version>
     <plg.jxr.version>3.6.0</plg.jxr.version>
