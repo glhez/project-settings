@@ -93,17 +93,17 @@
     <plg.appassembler.version>2.1.0</plg.appassembler.version>
     <plg.assembly.version>3.8.0</plg.assembly.version>
     <plg.assertj-assertions-generator.version>2.2.0</plg.assertj-assertions-generator.version>
-    <plg.build-helper.version>3.6.1</plg.build-helper.version>
+    <plg.build-helper.version>3.6.2</plg.build-helper.version>
     <plg.clean.version>3.5.0</plg.clean.version>
     <plg.compiler.version>3.16.0</plg.compiler.version>
     <plg.dependency.version>3.11.0</plg.dependency.version>
-    <plg.deploy.version>3.1.4</plg.deploy.version>
+    <plg.deploy.version>3.2.0</plg.deploy.version>
     <plg.enforcer.version>3.6.3</plg.enforcer.version>
     <plg.failsafe.version>3.6.0</plg.failsafe.version>
     <plg.flatten.version>1.8.0</plg.flatten.version>
     <plg.git-commit-id.version>10.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.8</plg.gpg.version>
-    <plg.install.version>3.1.4</plg.install.version>
+    <plg.install.version>3.2.0</plg.install.version>
     <plg.jacoco.version>0.8.15</plg.jacoco.version>
     <plg.jar.version>3.5.1</plg.jar.version>
     <plg.jarsigner.version>3.1.0</plg.jarsigner.version>
@@ -121,9 +121,9 @@
     <plg.spotless.version>3.10.2</plg.spotless.version>
     <plg.surefire-report.version>3.6.0</plg.surefire-report.version>
     <plg.surefire.version>3.6.0</plg.surefire.version>
-    <plg.taglist.version>3.2.2</plg.taglist.version>
+    <plg.taglist.version>3.2.3</plg.taglist.version>
     <plg.toolchains.version>3.3.0</plg.toolchains.version>
-    <plg.versions.version>2.21.0</plg.versions.version>
+    <plg.versions.version>2.22.0</plg.versions.version>
   </properties>
 
   <dependencyManagement>
