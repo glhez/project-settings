@@ -82,7 +82,7 @@
     <dep.xmlunit.version>2.14.0</dep.xmlunit.version>
 
     <!-- utilities -->
-    <dep.commons-lang3.version>3.20.0</dep.commons-lang3.version>
+    <dep.commons-lang3.version>3.21.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.15.0</dep.commons-text.version>
     <dep.jspecify.version>1.0.1</dep.jspecify.version>
 
