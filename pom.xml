@@ -67,22 +67,22 @@
 
     <!-- boms -->
     <dep.log4j-bom.version>2.26.1</dep.log4j-bom.version>
-    <dep.jackson-bom.version>3.2.4</dep.jackson-bom.version>
+    <dep.jackson-bom.version>3.3.0</dep.jackson-bom.version>
 
     <!-- build time only -->
     <dep.error-prone.version>2.53.0</dep.error-prone.version>
-    <dep.nullaway.version>0.14.3</dep.nullaway.version>
+    <dep.nullaway.version>0.14.4</dep.nullaway.version>
 
     <!-- test framework -->
     <dep.junit-bom.version>6.1.3</dep.junit-bom.version>
     <dep.mockito-core.version>5.24.0</dep.mockito-core.version>
     <dep.assertj-core.version>3.27.7</dep.assertj-core.version>
-    <dep.memoryfilesystem.version>2.8.3</dep.memoryfilesystem.version>
-    <dep.json-unit.version>6.4.0</dep.json-unit.version>
+    <dep.memoryfilesystem.version>2.8.4</dep.memoryfilesystem.version>
+    <dep.json-unit.version>6.4.1</dep.json-unit.version>
     <dep.xmlunit.version>2.14.0</dep.xmlunit.version>
 
     <!-- utilities -->
-    <dep.commons-lang3.version>3.21.0</dep.commons-lang3.version>
+    <dep.commons-lang3.version>3.22.0</dep.commons-lang3.version>
     <dep.commons-text.version>1.15.0</dep.commons-text.version>
     <dep.jspecify.version>1.0.1</dep.jspecify.version>
 
@@ -118,12 +118,12 @@
     <plg.site.version>3.22.0</plg.site.version>
     <plg.source.version>3.4.0</plg.source.version>
     <plg.spotless-biome.version>1.9.4</plg.spotless-biome.version>
-    <plg.spotless.version>3.11.0</plg.spotless.version>
+    <plg.spotless.version>3.12.0</plg.spotless.version>
     <plg.surefire-report.version>3.6.1</plg.surefire-report.version>
     <plg.surefire.version>3.6.1</plg.surefire.version>
     <plg.taglist.version>3.3.0</plg.taglist.version>
     <plg.toolchains.version>3.3.0</plg.toolchains.version>
-    <plg.versions.version>2.25.1</plg.versions.version>
+    <plg.versions.version>2.25.2</plg.versions.version>
   </properties>
 
   <dependencyManagement>
