@@ -100,7 +100,7 @@
     <plg.deploy.version>3.2.0</plg.deploy.version>
     <plg.enforcer.version>3.7.0</plg.enforcer.version>
     <plg.failsafe.version>3.6.1</plg.failsafe.version>
-    <plg.flatten.version>1.9.0</plg.flatten.version>
+    <plg.flatten.version>1.10.0</plg.flatten.version>
     <plg.git-commit-id.version>10.0.1</plg.git-commit-id.version>
     <plg.gpg.version>3.2.8</plg.gpg.version>
     <plg.install.version>3.2.0</plg.install.version>
@@ -123,7 +123,7 @@
     <plg.surefire.version>3.6.1</plg.surefire.version>
     <plg.taglist.version>3.3.0</plg.taglist.version>
     <plg.toolchains.version>3.3.0</plg.toolchains.version>
-    <plg.versions.version>2.25.2</plg.versions.version>
+    <plg.versions.version>2.25.3</plg.versions.version>
   </properties>
 
   <dependencyManagement>
